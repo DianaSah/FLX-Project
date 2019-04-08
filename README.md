@@ -5,6 +5,20 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Branching
 
 Development on "develop" branch!
+Each new feature should reside in its own branch, which can be pushed to the central repository. But, instead of branching off of `master`, feature branches use `develop` as their parent branch. When a feature is complete, it gets merged back into develop. 
+Features should never interact directly with master!
+The name of features branches should be: `feature/...`
+
+1) Check on which branch you are rigth now:
+`git branch`
+2) Change your branch to `develop`:
+`git checkout develop`
+3) Creating a feature branch:
+`git checkout -b feature_branch`
+4) Continue your work and use Git like you normally would.
+5) When you’re done with the development work on the feature, the next step is to merge the feature_branch into `develop`.
+`git checkout develop
+git merge feature_branch`
 
 ## Development server
 
