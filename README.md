@@ -9,16 +9,24 @@ Each new feature should reside in its own branch, which can be pushed to the cen
 Features should never interact directly with master!
 The name of features branches should be: `feature/...`
 
-1) Check on which branch you are rigth now:
+# Check on which branch you are rigth now:
 `git branch`
-2) Change your branch to `develop`:
+# Change your branch to `develop`:
 `git checkout develop`
-3) Creating a feature branch:
+# Creating a new feature branch:
 `git checkout -b feature_branch`
-4) Continue your work and use Git like you normally would.
-5) When you’re done with the development work on the feature, the next step is to merge the feature_branch into `develop`.
-`git checkout develop
-git merge feature_branch`
+# Continue your work and use Git like you normally would:
+1) Edit some files:
+`git add <file>`;
+`git commit -m "Start a feature"`
+2) Edit some files:
+`git add <file>`;
+`git commit -m "Finish a feature"`
+# When you’re done with the development work on the feature, the next step is to merge the feature_branch into `develop`:
+`git checkout develop`
+`git merge feature_branch`
+# Push feature branch to remote
+`git push -u origin feature_branch`
 
 ## Development server
 
