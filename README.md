@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Development on "develop" branch!
 Each new feature should reside in its own branch, which can be pushed to the central repository. But, instead of branching off of `master`, feature branches use `develop` as their parent branch. When a feature is complete, it gets merged back into develop. 
 Features should never interact directly with master!
-The name of features branches should be: `feature/...`
+The name of features branches should be: `feat/<name of component>` (feat/register-gorm, fix/recept-item) and name of commit should be  `fix(<component-name>): short description` (feat(register): implement form, fix(recept-item): fix bug in filters)
 
 #### Check on which branch you are rigth now:
 `git branch`
