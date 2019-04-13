@@ -28,6 +28,13 @@ The name of features branches should be: `feat/<name of component>` (feat/regist
 #### Push feature branch to remote
 `git push -u origin feature_branch`
 
+
+## Styling
+
+For styling our Cookbook we decided to use:
+1) FlexBox for layout;
+2) `px` for sizes.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
