@@ -1,45 +1,50 @@
 header{
-    background: #036004;
+    background: #25333B;
 
     .navigation{
         width: 80%;
         margin: 0 auto;
-        padding: 1.3em;
-        display: grid;
-        grid-template-columns: 30% auto;
+        padding: 0;
 
-        a {
-            color: white;
-        }
-        .logo{
-            font-weight: bold;
-        }
         nav{
-            justify-self: right;
         
             ul {
+                display: flex;
+                justify-content: flex-end;
                 list-style-type: none;
                 margin: 0; 
                 padding: 0;
             
                 li{
-                    float: left;
+                    
+                    input{
+                        outline: none;
+                        border-radius: 8px;
+                    }
                     .search{
-                        width:8em;
+                        outline: none;
+                        width:120px;
                         border-radius: 8px;
                         background-color: #B9D994;
                         color: #25333B;
                         font-weight: bold;
                     }
+
                     a{
-                        padding: 0 1.5em 0 1.5em;
-                        text-transform: uppercase;
-                        font-size: .8em;
+                        display: block;
+                        color: white;
+                        font-size: 14px;
+                        padding: 10px;
                         &:hover {
-                            background: #B9D994;
+                            color: #B9D994;
                         }
                     }
                     
+                }
+                
+                .logo{
+                    margin-right: auto;
+                    font-weight: bold;
                 }
             }
         }
