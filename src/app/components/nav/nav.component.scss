@@ -16,14 +16,14 @@ header{
                 padding: 0;
             
                 li{
-                    
+                    padding: 10px;
                     input{
                         outline: none;
                         border-radius: 8px;
                     }
                     .search{
                         outline: none;
-                        width:120px;
+                        width:100px;
                         border-radius: 8px;
                         background-color: #B9D994;
                         color: #25333B;
@@ -34,7 +34,6 @@ header{
                         display: block;
                         color: white;
                         font-size: 14px;
-                        padding: 10px;
                         &:hover {
                             color: #B9D994;
                         }
