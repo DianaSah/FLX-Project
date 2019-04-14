@@ -1,51 +1,29 @@
-header{
+header {
+    display: flex;
+    align-items: center;
+    color: #9AA8B3;
     background: #25333B;
+    font-size: 19px;
+    padding: 0 10px;
 
-    .navigation{
-        width: 80%;
-        margin: 0 auto;
-        padding: 0;
+    .logo {
+        margin-right: auto;
+        font-size: 25px;
+        cursor: pointer;
+    }
 
-        nav{
-        
-            ul {
-                display: flex;
-                justify-content: flex-end;
-                list-style-type: none;
-                margin: 0; 
-                padding: 0;
-            
-                li{
-                    padding: 10px;
-                    input{
-                        outline: none;
-                        border-radius: 8px;
-                    }
-                    .search{
-                        outline: none;
-                        width:100px;
-                        border-radius: 8px;
-                        background-color: #B9D994;
-                        color: #25333B;
-                        font-weight: bold;
-                    }
-
-                    a{
-                        display: block;
-                        color: white;
-                        font-size: 14px;
-                        &:hover {
-                            color: #B9D994;
-                        }
-                    }
-                    
-                }
-                
-                .logo{
-                    margin-right: auto;
-                    font-weight: bold;
-                }
-            }
+    .search-form {
+        button {
+            margin-left: 10px;
         }
     }
+
+    .log-btn {
+        font-size: 19px;
+    }
+
+    .user-icon {
+        font-size: 29px;
+    }
+
 }

@@ -1,15 +1,20 @@
 <header>
-  <div class='navigation'>
-    <nav>
-      <ul>
-        <li class='logo'><a routerLink = '/' >CookBook</a></li>
-        <li>
-            <input type="text" placeholder="Recipe">
-            <button class='search'>SEARCH</button>
-        </li>
-        <li><a routerLink = '/profile'>Log in</a></li>
-        <li><a routerLink = '/profile'>Sign in</a></li>
-      </ul>
-    </nav>
-  </div>
+  <div class="logo" routerLink="">Logo</div>
+  <form class="search-form">
+    <mat-form-field>
+      <input matInput placeholder="Enter recipe name" />
+    </mat-form-field>
+    <button mat-flat-button>Search</button>
+  </form>
+  <button class="log-btn" mat-button>Sign Up</button>
+  <button class="log-btn" mat-button>Sing In</button>
+  <button mat-button [matMenuTriggerFor]="menu" routerLink="/profile">
+    <mat-icon class="user-icon">face</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Personal page</button>
+    <button mat-menu-item>Edit profile</button>
+    <button mat-menu-item>Log out</button>
+  </mat-menu>
 </header>
