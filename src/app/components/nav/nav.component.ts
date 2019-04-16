@@ -19,7 +19,11 @@ export class NavComponent implements OnInit {
     },0);
   }
   handleInpSearch(){
-    this.clicked = !this.clicked;
+    setTimeout(()=>{
+      this.searchElement.nativeElement.focus();
+      this.clicked = !this.clicked;
+    },150);
+
   }
 
 }

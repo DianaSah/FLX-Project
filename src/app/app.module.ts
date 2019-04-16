@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatMenuModule, MatInputModule, MatIconModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatMenuModule, MatInputModule, MatIconModule, MatCardModule} from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,8 +32,8 @@ import { SearchByIngredientsComponent } from './components/search-by-ingredients
     MatCheckboxModule,
     MatMenuModule,
     MatInputModule,
-    MatIconModule
-
+    MatIconModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
