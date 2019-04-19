@@ -1,0 +1,27 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+svg#Layer_1 {
+    margin-bottom: -5px;
+}
+
+.mat-form-field-suffix.ng-tns-c2-4.ng-star-inserted {
+    display: flex;
+    align-items: center;
+}
+
+.mat-card.ng-star-inserted {
+    font-size: 14px;
+}
+
+$green-app-primary: mat-palette($mat-green, 900);
+$green-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+
+
+$green-app-warn:    mat-palette($mat-red);
+
+
+$green-app-theme: mat-light-theme($green-app-primary, $green-app-accent, $green-app-warn);
+
+
+@include angular-material-theme($green-app-theme);
