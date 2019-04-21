@@ -1,0 +1,16 @@
+.add-new-recipe-form{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+
+    input[type="file"]{
+        display: none;
+    }
+    .custom-picture-upload {
+        color: lightgray;
+        display: inline-block;
+        margin-bottom: 10px;
+        font-weight: 500;
+        cursor: pointer;
+    }
+}

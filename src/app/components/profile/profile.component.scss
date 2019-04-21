@@ -1,0 +1,13 @@
+mat-tab-group {
+    color: #25333B;
+    background-color: #9AA8B3;
+    text-align: center;
+    .my-recipes{
+        display: flex;
+        align-items: center;
+        *{
+            flex: 50%;
+        }
+        
+    }
+}
