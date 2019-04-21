@@ -169,7 +169,7 @@ export const RECIPES: Recipe[] = [
       'beans',
       'radishes',
       'chillies',
-      ' mint',
+      'mint',
       'parsley',
       'ciabatta'
     ],
@@ -202,7 +202,7 @@ export const RECIPES: Recipe[] = [
     rating: 0,
     isFavorite: false,
     cookDuration: 15,
-    ingredients: ['egg', 'tomato', 'avocado', ' beans', 'cheese', 'tortilla'],
+    ingredients: ['egg', 'tomato', 'avocado', 'beans', 'cheese', 'tortilla'],
     steps:
       'Heat 1 tbsp oil in a large pan. Add the onions with a pinch of salt, and cook until translucent, around 3-4 mins. Add the garlic and cook for a minute more.Stir in the beans, cumin, chilli powder, oregano, some seasoning and 100ml water. Cook for 5-7 mins, stirring occasionally, or until the beans have softened, then remove from the heat, mash and set aside.Heat the remaining oil in a large frying pan over a medium-high heat. Crack in the eggs, then reduce the heat to low and cook slowly until the whites are completely firm.To assemble, spread the beans onto the tortillas, add the tomatoes and jalapeños and sprinkle with cheese. Top with some avocado, a squeeze of lime juice and a fried egg, then scatter with coriander. Serve with the lime wedges on the side.'
   },
@@ -217,7 +217,7 @@ export const RECIPES: Recipe[] = [
     rating: 0,
     isFavorite: false,
     cookDuration: 10,
-    ingredients: ['cabbage', ' carrots', 'ginger', 'chilli', 'lime'],
+    ingredients: ['cabbage', 'carrots', 'ginger', 'chilli', 'lime'],
     steps:
       'Very simply, you just mix the cabbage, carrots, ginger, chilli, lime zest and juice, the sesame seeds and oils with salt, then add a little sugar to taste. It will keep in the fridge for up to a couple of days.'
   },
@@ -234,7 +234,7 @@ export const RECIPES: Recipe[] = [
     cookDuration: 90,
     ingredients: [
       'chicken wings',
-      ' celery',
+      'celery',
       'tomato',
       'vinegar',
       'bourbon',
@@ -261,7 +261,7 @@ export const RECIPES: Recipe[] = [
       'mustard',
       'bacon',
       'flour',
-      ' bread',
+      'bread',
       'worcestershire sauce'
     ],
     steps:
