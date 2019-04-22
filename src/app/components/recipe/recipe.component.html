@@ -5,12 +5,12 @@
       <img mat-card-image
            src={{recipe.imageSrc}}
            alt={{recipe.title}}>
-      <div class="recipe-component__button">
+      <div class="recipe-component__buttons">
         <mat-card-actions>
           <button mat-button><mat-icon>favorite_border</mat-icon></button>
           <button mat-button><mat-icon>share</mat-icon></button>
         </mat-card-actions>
-        <mat-card-actions class="rate">
+        <mat-card-actions class="recipe-component__buttons_rate">
           <button mat-button><mat-icon>star_border</mat-icon></button>
           <button mat-button><mat-icon>star_border</mat-icon></button>
           <button mat-button><mat-icon>star_border</mat-icon></button>
@@ -20,13 +20,13 @@
       </div>
     </div>
 
-    <div class="info">
-      <div class="title">
+    <div class="recipe-component__info">
+      <div class="recipe-component__info_title">
         <mat-card-title>{{recipe.title}}</mat-card-title>
         <h6>Coock duration: {{recipe.cookDuration}} min</h6>
       </div>
 
-      <div class="ingredients">
+      <div class="recipe-component__info_ingredients">
         <h5>Ingredients:</h5>
         <ul>
           <li *ngFor="let ingredient of recipe.ingredients"><mat-card-subtitle>{{ingredient}}</mat-card-subtitle></li>
@@ -37,7 +37,7 @@
 
 
 
-  <mat-card-content class="recipe-content">
+  <mat-card-content class="recipe-component__recipe-content">
     <p>{{recipe.steps}}</p>
   </mat-card-content>
 

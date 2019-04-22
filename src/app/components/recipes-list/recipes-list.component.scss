@@ -7,21 +7,24 @@
   div {
     display: flex;
     justify-content: space-between;
-    .recipe-component_image-btn-wrapper {
+    .recipe-component__image-btn-wrapper {
       .mat-card-image {
         max-height: 300px;
         max-width: 350px;
       }
     }
-    .info {
+    .recipe-component__info {
       display: block;
       margin-left: 16px;
-      .title {
+      .recipe-component__info_title {
         display: block;
         text-align: center;
         width: 350px;
         h4 {
           margin: 40px 0 20px;
+        }
+        .recipe-component__info_title_recipe-content {
+          font-size: 20px;
         }
       }
       .mat-card-actions {
@@ -29,14 +32,12 @@
       }
     }
   }
-  .recipe-content {
-    font-size: 20px;
-  }
+
   &:hover {
     cursor: pointer;
     background-color: #9aa8b333;
   }
-  .recipe-component__button {
+  .recipe-component__buttons {
     .mat-button {
       width: 35px;
       min-width: 0;
@@ -48,7 +49,7 @@
       margin: 0;
       padding: 0;
     }
-    .rate {
+    .recipe-component__buttons_rate {
       display: block;
     }
   }

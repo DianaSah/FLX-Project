@@ -17,7 +17,7 @@
         max-height: 300px;
         max-width: 350px;
       }
-      .recipe-component__button {
+      .recipe-component__buttons {
         position: absolute;
         top: 290px;
         width: 320px;
@@ -29,17 +29,17 @@
           padding: 0;
           margin: 0;
         }
-        .rate {
+        .recipe-component__buttons_rate {
           display: block;
         }
       }
     }
 
-    .info {
+    .recipe-component__info {
       display: block;
       margin-left: 16px;
       min-height: 320px;
-      .title {
+      .recipe-component__info_title {
         display: block;
         text-align: center;
         width: 350px;
@@ -50,7 +50,7 @@
       .mat-card-actions {
         margin: 0;
       }
-      .ingredients {
+      .recipe-component__info_ingredients {
         display: block;
         text-align: center;
         h5 {
@@ -70,7 +70,7 @@
       }
     }
   }
-  .recipe-content {
+  .recipe-component__recipe-content {
     font-size: 20px;
   }
 }
