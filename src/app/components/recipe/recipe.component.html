@@ -1,50 +1,45 @@
-<mat-card class="recipe-card">
+<mat-card class="recipe-component">
 
   <div>
-    <img mat-card-image
-         src="https://www.bbcgoodfood.com/sites/default/files/styles/category_retina/public/recipe-collections/collection-image/2013/05/slow-cooker-lamb-curry.jpg"
-         alt="Name of recipe dish">
+    <div class="recipe-component_image-btn-wrapper">
+      <img mat-card-image
+           src={{recipe.imageSrc}}
+           alt={{recipe.title}}>
+      <div class="recipe-component__button">
+        <mat-card-actions>
+          <button mat-button><mat-icon>favorite_border</mat-icon></button>
+          <button mat-button><mat-icon>share</mat-icon></button>
+        </mat-card-actions>
+        <mat-card-actions class="rate">
+          <button mat-button><mat-icon>star_border</mat-icon></button>
+          <button mat-button><mat-icon>star_border</mat-icon></button>
+          <button mat-button><mat-icon>star_border</mat-icon></button>
+          <button mat-button><mat-icon>star_border</mat-icon></button>
+          <button mat-button><mat-icon>star_border</mat-icon></button>
+        </mat-card-actions>
+      </div>
+    </div>
+
     <div class="info">
       <div class="title">
-        <mat-card-title>Recipe name Lorem ipsum dolor sit amet, consectetur adipisicing elit. </mat-card-title>
+        <mat-card-title>{{recipe.title}}</mat-card-title>
+        <h6>Coock duration: {{recipe.cookDuration}} min</h6>
       </div>
 
       <div class="ingredients">
         <h5>Ingredients:</h5>
         <ul>
-          <li><mat-card-subtitle>ingredient 1</mat-card-subtitle></li>
-          <li><mat-card-subtitle>Second ingredient 2</mat-card-subtitle></li>
-          <li><mat-card-subtitle>ingredient number three</mat-card-subtitle></li>
-          <li><mat-card-subtitle>ingredient 4</mat-card-subtitle></li>
-          <li><mat-card-subtitle>ingredient 5</mat-card-subtitle></li>
+          <li *ngFor="let ingredient of recipe.ingredients"><mat-card-subtitle>{{ingredient}}</mat-card-subtitle></li>
         </ul>
       </div>
     </div>
   </div>
 
-  <div class="btnWrapper">
-    <mat-card-actions>
-      <button mat-button><mat-icon>favorite_border</mat-icon></button>
-      <button mat-button><mat-icon>share</mat-icon></button>
-    </mat-card-actions>
-    <mat-card-actions class="rate">
-      <button mat-button><mat-icon>star_border</mat-icon></button>
-      <button mat-button><mat-icon>star_border</mat-icon></button>
-      <button mat-button><mat-icon>star_border</mat-icon></button>
-      <button mat-button><mat-icon>star_border</mat-icon></button>
-      <button mat-button><mat-icon>star_border</mat-icon></button>
-    </mat-card-actions>
-  </div>
 
-      <mat-card-content class="recipe-content">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque eaque error eum eveniet impedit,
-          molestiae
-          nam quam quasi ullam voluptatum! Consectetur debitis dolore natus possimus veritatis. Nulla quae saepe
-          voluptate.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, at, beatae culpa dignissimos distinctio
-          ducimus, eius enim est impedit iusto labore magni nisi nostrum odit provident quae quam suscipit voluptatem?
-        </p>
-      </mat-card-content>
+
+  <mat-card-content class="recipe-content">
+    <p>{{recipe.steps}}</p>
+  </mat-card-content>
 
 </mat-card>
+<button class="back-btn" mat-button (click)="goBack()">Go back to recipes list <mat-icon>keyboard_backspace</mat-icon></button>

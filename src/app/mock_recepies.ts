@@ -32,7 +32,6 @@ export const RECIPES: Recipe[] = [
       'beef ',
       'tomato',
       'celery',
-      'onion',
       'spaghetti',
       'carrot',
       'bacon',

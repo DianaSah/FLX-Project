@@ -12,6 +12,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { SearchByIngredientsComponent } from './components/search-by-ingredients/search-by-ingredients.component';
+import { SearchByNameComponent } from './components/search-by-name/search-by-name.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SearchByIngredientsComponent } from './components/search-by-ingredients
     ProfileComponent,
     RecipesListComponent,
     LoginFormComponent,
-    SearchByIngredientsComponent
+    SearchByIngredientsComponent,
+    SearchByNameComponent
   ],
   imports: [
     BrowserModule,

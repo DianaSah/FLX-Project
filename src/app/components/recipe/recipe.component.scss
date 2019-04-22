@@ -1,4 +1,9 @@
-.recipe-card {
+.back-btn {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+}
+.recipe-component {
   max-width: 700px;
   margin: 10px auto;
   background-color: white;
@@ -7,18 +12,40 @@
   div {
     display: flex;
     justify-content: space-between;
-    .mat-card-image {
-      max-height: 300px;
-      max-width: 350px;
+    .recipe-component_image-btn-wrapper {
+      .mat-card-image {
+        max-height: 300px;
+        max-width: 350px;
+      }
+      .recipe-component__button {
+        position: absolute;
+        top: 290px;
+        width: 320px;
+        margin-left: 5px;
+        display: flex;
+        .mat-button {
+          width: 35px;
+          min-width: 0;
+          padding: 0;
+          margin: 0;
+        }
+        .rate {
+          display: block;
+        }
+      }
     }
+
     .info {
       display: block;
+      margin-left: 16px;
+      min-height: 320px;
       .title {
-        display: flex;
-        justify-content: space-between;
-        padding-left: 10px;
+        display: block;
+        text-align: center;
         width: 350px;
-
+        h6 {
+          margin: 0 0 5px;
+        }
       }
       .mat-card-actions {
         margin: 0;
@@ -27,7 +54,7 @@
         display: block;
         text-align: center;
         h5 {
-          margin: 0;
+          margin: 5px 0 0;
         }
         ul {
           padding-left: 0;
@@ -41,20 +68,6 @@
         }
 
       }
-    }
-  }
-  .btnWrapper {
-    .mat-button {
-      width: 35px;
-      min-width: 0;
-      padding: 0;
-      margin: 0;
-    }
-    width: 320px;
-    margin-left: 5px;
-    display: flex;
-    .rate {
-      display: block;
     }
   }
   .recipe-content {
