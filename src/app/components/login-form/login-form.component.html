@@ -1,9 +1,9 @@
 <section>
-<div class="login-form wrapper">
+<div class="login-form">
   <ngx-auth-firebaseui  appearance="outline"
   [providers]="['google']"
   (onSuccess)="printUser($event)"
-  (onError)="printError()" [guestEnabled]="false">
+  (onError)="printError($event)" [guestEnabled]="false">
   </ngx-auth-firebaseui>
 </div>
 </section>
