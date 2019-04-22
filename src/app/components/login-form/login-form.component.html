@@ -1,3 +1,9 @@
-<p>
-  login-form works!
-</p>
+<section>
+<div class="login-form">
+  <ngx-auth-firebaseui  appearance="outline"
+  [providers]="['google']"
+  (onSuccess)="printUser($event)"
+  (onError)="printError($event)" [guestEnabled]="false">
+  </ngx-auth-firebaseui>
+</div>
+</section>
