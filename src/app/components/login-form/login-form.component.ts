@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  public printUser(event: Event): void {
+    console.log(event);
   }
 
+  public printError(event: Event): void {
+    console.error(event);
+  }
+
+  constructor() {}
+
+  ngOnInit() {}
 }

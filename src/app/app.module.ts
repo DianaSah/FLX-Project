@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatMenuModule, MatInputModule, MatIconModule, MatCardModule} from '@angular/material';
 import {StarRatingModule} from 'angular-star-rating';
+import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
+import { FirestoreSettingsToken} from '@angular/fire/firestore';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -37,9 +39,17 @@ import { SearchByNameComponent } from './components/search-by-name/search-by-nam
     MatInputModule,
     MatIconModule,
     MatCardModule,
-    StarRatingModule.forRoot()
+    StarRatingModule.forRoot(),
+    NgxAuthFirebaseUIModule.forRoot({
+      apiKey: "AIzaSyDFRKhQ0MIfPRQz8htnyBntkpChVkLYiDE",
+      authDomain: "cookbook-bf1ce.firebaseapp.com",
+      databaseURL: "https://cookbook-bf1ce.firebaseio.com",
+      projectId: "cookbook-bf1ce",
+      storageBucket: "cookbook-bf1ce.appspot.com",
+      messagingSenderId: "77682848734"
+    }),
   ],
-  providers: [],
+  providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
