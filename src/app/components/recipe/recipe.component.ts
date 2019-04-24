@@ -25,8 +25,10 @@ export class RecipeComponent implements OnInit {
     this.getRecipe();
     if (!this.recipe.isFavorite) {
       this.favorite = 'favorite_border';
+      this.recipe.isFavorite = true;
     } else {
       this.favorite = 'favorite';
+      this.recipe.isFavorite = false;
     }
   }
 
