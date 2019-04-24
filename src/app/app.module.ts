@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule, MatCheckboxModule, MatMenuModule, MatInputModule, MatIconModule, MatCardModule} from '@angular/material';
+import {StarRatingModule} from 'angular-star-rating';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,7 +36,8 @@ import { SearchByNameComponent } from './components/search-by-name/search-by-nam
     MatMenuModule,
     MatInputModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    StarRatingModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

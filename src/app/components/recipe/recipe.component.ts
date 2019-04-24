@@ -12,6 +12,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class RecipeComponent implements OnInit {
   @Input() recipe: Recipe;
+  clicked = false;
+  favorite = 'favorite_border';
 
   constructor(
     private route: ActivatedRoute,
@@ -21,6 +23,11 @@ export class RecipeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRecipe();
+    if (!this.recipe.isFavorite) {
+      this.favorite = 'favorite_border';
+    } else {
+      this.favorite = 'favorite';
+    }
   }
 
   getRecipe(): void {
@@ -31,6 +38,15 @@ export class RecipeComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+
+  handleFavorite() {
+    if (this.favorite === 'favorite_border') {
+      this.favorite = 'favorite';
+    } else {
+      this.favorite = 'favorite_border';
+    }
   }
 
 }

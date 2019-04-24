@@ -1,13 +1,18 @@
+@import "../../../variables";
+
 .back-btn {
   display: block;
   margin: 0 auto;
   width: 200px;
+  &:hover {
+    background-color: $green-light_opacity35;
+  }
 }
 .recipe-component {
   max-width: 700px;
   margin: 10px auto;
-  background-color: white;
-  color: #25333B;
+  background-color: $green-light_opacity35;
+  color: $gray;
   box-shadow: 0 2px 5px -1px #25333b9c, 0 1px 4px 0 rgba(0,0,0,.14), 0 1px 10px 5px rgba(0,0,0,.12);
   div {
     display: flex;
@@ -16,11 +21,13 @@
       .mat-card-image {
         max-height: 300px;
         max-width: 350px;
+        margin: 0 0 10px;
+        box-shadow: 0 2px 5px -1px #25333b9c, 0 1px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 5px rgba(0, 0, 0, 0.12);
       }
       .recipe-component__buttons {
         position: absolute;
-        top: 290px;
-        width: 320px;
+        top: 310px;
+        width: 350px;
         margin-left: 5px;
         display: flex;
         .mat-button {
@@ -29,16 +36,18 @@
           padding: 0;
           margin: 0;
         }
-        .recipe-component__buttons_rate {
-          display: block;
+        star-rating {
+          margin-top: 18px;
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
     }
 
     .recipe-component__info {
       display: block;
-      margin-left: 16px;
-      min-height: 320px;
+      min-height: 340px;
       .recipe-component__info_title {
         display: block;
         text-align: center;
@@ -54,15 +63,22 @@
         display: block;
         text-align: center;
         h5 {
-          margin: 5px 0 0;
+          margin-top: 25px;
         }
-        ul {
-          padding-left: 0;
-          li {
-            list-style: none;
+        div {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          width: 330px;
+          margin-top: 20px;
+          padding-left: 20px;
+          p {
+            display: inline-block;
+            width: auto;
+            margin: 0 10px;
             .mat-card-subtitle {
               margin-bottom: 5px;;
-              color: #25333B;
+              color: $gray;
             }
           }
         }

@@ -1,8 +1,10 @@
+@import "../../../variables";
+
 .recipe-component {
   max-width: 700px;
   margin: 10px auto;
   background-color: white;
-  color: #25333B;
+  color: $gray;
   box-shadow: 0 2px 5px -1px #25333b9c, 0 1px 4px 0 rgba(0,0,0,.14), 0 1px 10px 5px rgba(0,0,0,.12);
   div {
     display: flex;
@@ -11,6 +13,8 @@
       .mat-card-image {
         max-height: 300px;
         max-width: 350px;
+        margin: 0 0 10px;
+        box-shadow: 0 2px 5px -1px #25333b9c, 0 1px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 5px rgba(0, 0, 0, 0.12);
       }
     }
     .recipe-component__info {
@@ -35,7 +39,7 @@
 
   &:hover {
     cursor: pointer;
-    background-color: #9aa8b333;
+    background-color: $green-light_opacity35;
   }
   .recipe-component__buttons {
     .mat-button {
@@ -44,6 +48,7 @@
       padding: 0;
       margin: 0;
       line-height: 20px;
+      color: $gray-light;
     }
     .mat-card-actions {
       margin: 0;

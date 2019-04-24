@@ -13,17 +13,7 @@ export class RecipeService {
 
   constructor() { }
 
-  getRecipes(): Observable<Recipe[]> {
-    return of(RECIPES);
-  }
-
-  getRecipe(id: number): Observable<Recipe> {
+  getRecipe(id): Observable<Recipe> {
     return of(RECIPES.find(recipe => recipe.id === id));
-  }
-
-  searchRecipes(term: string): Observable<Recipe[]> {
-    if (!term.trim()) {
-      return of([]);
-    }
   }
 }

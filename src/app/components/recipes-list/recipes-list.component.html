@@ -3,8 +3,8 @@
   <div>
     <div class="recipe-component__image-btn-wrapper">
       <img mat-card-image
-          src={{recipe.imageSrc}}
-          alt={{recipe.title}}>
+           src={{recipe.imageSrc}}
+           alt={{recipe.title}}>
     </div>
 
     <div class="recipe-component__info">
@@ -20,15 +20,21 @@
 
   <div class="recipe-component__buttons">
     <mat-card-actions>
-      <button mat-button><mat-icon>favorite_border</mat-icon></button>
-      <button mat-button><mat-icon>share</mat-icon></button>
+      <button mat-button>
+        <mat-icon *ngIf="recipe.isFavorite; else isNotFavorite">favorite</mat-icon>
+        <ng-template #isNotFavorite>
+          <mat-icon>favorite_border</mat-icon>
+        </ng-template>
+      </button>
     </mat-card-actions>
     <mat-card-actions class="recipe-component__rate">
-      <button mat-button><mat-icon>star_border</mat-icon></button>
-      <button mat-button><mat-icon>star_border</mat-icon></button>
-      <button mat-button><mat-icon>star_border</mat-icon></button>
-      <button mat-button><mat-icon>star_border</mat-icon></button>
-      <button mat-button><mat-icon>star_border</mat-icon></button>
+      <star-rating [starType]="'svg'"
+                   [rating]="recipe.rating"
+                   [id]="recipe.id"
+                   staticColor="default"
+                   [showHalfStars]="true"
+                   [disabled]="true">
+      </star-rating>
     </mat-card-actions>
   </div>
 
