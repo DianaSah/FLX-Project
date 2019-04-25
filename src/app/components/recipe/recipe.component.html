@@ -10,9 +10,7 @@
           <button mat-button (click)="handleFavorite()">
             <mat-icon>{{favorite}}</mat-icon>
           </button>
-          <button mat-button>
-            <mat-icon>share</mat-icon>
-          </button>
+          <app-share></app-share>
         </mat-card-actions>
         <star-rating [starType]="'svg'"
                      labelText={{recipe.rating}}
