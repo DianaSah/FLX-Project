@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
+import {MatDialog } from '@angular/material';
 import '../../../icons';
 
 

@@ -13,7 +13,7 @@ import {
 import { StarRatingModule } from 'angular-star-rating';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 import { FirestoreSettingsToken} from '@angular/fire/firestore';
-import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ShareButtonsModule } from '@ngx-share/buttons';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -63,7 +63,6 @@ import {ModalComponent, ShareComponent} from './components/share/share.component
       messagingSenderId: "77682848734"
     }),
     HttpClientModule,
-    HttpClientJsonpModule,
     ShareButtonsModule
   ],
   entryComponents: [

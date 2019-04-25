@@ -4,7 +4,6 @@ import { faFacebookF } from '@fortawesome/free-brands-svg-icons/faFacebookF';
 import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter';
 import { faRedditAlien } from '@fortawesome/free-brands-svg-icons/faRedditAlien';
 import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons/faLinkedinIn';
-import { faTumblr } from '@fortawesome/free-brands-svg-icons/faTumblr';
 import { faWhatsapp } from '@fortawesome/free-brands-svg-icons/faWhatsapp';
 import { faVk } from '@fortawesome/free-brands-svg-icons/faVk';
 import { faTelegramPlane } from '@fortawesome/free-brands-svg-icons/faTelegramPlane';
@@ -23,7 +22,7 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons/faCoffee';
 import { faInfo } from '@fortawesome/free-solid-svg-icons/faInfo';
 
 const icons = [
-  faFacebookF, faTwitter, faLinkedinIn, faRedditAlien, faTumblr,
+  faFacebookF, faTwitter, faLinkedinIn, faRedditAlien,
   faWhatsapp, faVk, faTelegramPlane, faCommentAlt, faBook,
   faEnvelope, faCheck, faPrint, faExclamation, faLink, faEllipsisH, faMinus, faLightbulb, faCoffee, faInfo
 ];
