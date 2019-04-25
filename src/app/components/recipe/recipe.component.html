@@ -15,6 +15,7 @@
           </button>
         </mat-card-actions>
         <star-rating [starType]="'svg'"
+                     labelText={{recipe.rating}}
                      [rating]="recipe.rating"
                      [id]="recipe.id"
                      staticColor="default"
