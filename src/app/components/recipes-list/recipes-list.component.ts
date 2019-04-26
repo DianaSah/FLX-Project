@@ -7,7 +7,7 @@ import { RECIPES } from '../../mock_recepies';
   styleUrls: ['./recipes-list.component.scss']
 })
 export class RecipesListComponent implements OnInit {
-  recipes = RECIPES;
+  recipes: RECIPES[] =  RECIPES;
 
   constructor() { }
 

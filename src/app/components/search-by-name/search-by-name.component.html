@@ -1,6 +1,6 @@
 <form class="search-form" *ngIf="clicked">
   <mat-form-field>
-    <input matInput #searchRecipe (blur)="handleInpSearch()" placeholder="Enter recipe name" />
+    <input matInput type="text" (blur)="toggleFocus()" placeholder="Enter recipe name" appAutofocus/>
   </mat-form-field>
   <ul class="search-result">
     <li *ngFor="let recipe of recipes | async" >
@@ -10,6 +10,6 @@
     </li>
   </ul>
 </form>
-<button class="log-btn" mat-button *ngIf="!clicked" (click)="handleNavSearch()">
+<button class="log-btn" mat-button *ngIf="!clicked" (click)="toggleFocus()">
   Search <mat-icon>search</mat-icon>
 </button>

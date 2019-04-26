@@ -7,22 +7,13 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 })
 export class SearchByNameComponent implements OnInit {
   @ViewChild('searchRecipe') searchElement: ElementRef;
-  clicked = false;
+  clicked: boolean = false;
   constructor() { }
 
   ngOnInit() {
   }
-  handleNavSearch() {
-    this.clicked = !this.clicked;
-    setTimeout(()=>{
-      this.searchElement.nativeElement.focus();
-    },150);
-  }
-  handleInpSearch(){
-    setTimeout(()=>{
-      this.searchElement.nativeElement.focus();
+  toggleFocus() {
       this.clicked = !this.clicked;
-    },150);
   }
 
 }

@@ -27,6 +27,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { SearchByIngredientsComponent } from './components/search-by-ingredients/search-by-ingredients.component';
 import { SearchByNameComponent } from './components/search-by-name/search-by-name.component';
 import {ModalComponent, ShareComponent} from './components/share/share.component';
+import { AutofocusDirective } from './autofocus.directive';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {ModalComponent, ShareComponent} from './components/share/share.component
     SearchByIngredientsComponent,
     SearchByNameComponent,
     ShareComponent,
-    ModalComponent
+    ModalComponent,
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,
