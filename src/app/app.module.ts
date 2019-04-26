@@ -1,9 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatMenuModule,
+  MatInputModule,
+  MatIconModule,
+  MatCardModule,
+  MatDialogModule
+} from '@angular/material';
+import { StarRatingModule } from 'angular-star-rating';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 import { FirestoreSettingsToken} from '@angular/fire/firestore';
-import {MatButtonModule, MatCheckboxModule, MatMenuModule, MatInputModule, MatIconModule} from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { ShareButtonsModule } from '@ngx-share/buttons';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +25,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { SearchByIngredientsComponent } from './components/search-by-ingredients/search-by-ingredients.component';
+import { SearchByNameComponent } from './components/search-by-name/search-by-name.component';
+import {ModalComponent, ShareComponent} from './components/share/share.component';
+import { AutofocusDirective } from './autofocus.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +38,11 @@ import { SearchByIngredientsComponent } from './components/search-by-ingredients
     ProfileComponent,
     RecipesListComponent,
     LoginFormComponent,
-    SearchByIngredientsComponent
+    SearchByIngredientsComponent,
+    SearchByNameComponent,
+    ShareComponent,
+    ModalComponent,
+    AutofocusDirective
   ],
   imports: [
     BrowserModule,
@@ -35,6 +53,9 @@ import { SearchByIngredientsComponent } from './components/search-by-ingredients
     MatMenuModule,
     MatInputModule,
     MatIconModule,
+    MatCardModule,
+    MatDialogModule,
+    StarRatingModule.forRoot(),
     NgxAuthFirebaseUIModule.forRoot({
       apiKey: "AIzaSyDFRKhQ0MIfPRQz8htnyBntkpChVkLYiDE",
       authDomain: "cookbook-bf1ce.firebaseapp.com",
@@ -43,7 +64,11 @@ import { SearchByIngredientsComponent } from './components/search-by-ingredients
       storageBucket: "cookbook-bf1ce.appspot.com",
       messagingSenderId: "77682848734"
     }),
-
+    HttpClientModule,
+    ShareButtonsModule
+  ],
+  entryComponents: [
+    ModalComponent
   ],
   providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent]

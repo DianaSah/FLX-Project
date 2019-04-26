@@ -1,3 +1,51 @@
-<p>
-  recipe works!
-</p>
+<mat-card class="recipe-component">
+
+  <div>
+    <div class="recipe-component_image-btn-wrapper">
+      <img mat-card-image
+           src={{recipe.imageSrc}}
+           alt={{recipe.title}}>
+      <div class="recipe-component__buttons">
+        <mat-card-actions>
+          <button mat-button (click)="handleFavorite()">
+            <mat-icon>{{favorite}}</mat-icon>
+          </button>
+          <app-share></app-share>
+        </mat-card-actions>
+        <star-rating [starType]="'svg'"
+                     labelText={{recipe.rating}}
+                     [rating]="recipe.rating"
+                     [id]="recipe.id"
+                     staticColor="default"
+                     [showHalfStars]="true"
+                     [hoverEnabled]="true">
+        </star-rating>
+      </div>
+    </div>
+
+    <div class="recipe-component__info">
+      <div class="recipe-component__info_title">
+        <mat-card-title>{{recipe.title}}</mat-card-title>
+        <h6>Coock duration: {{recipe.cookDuration}} min</h6>
+      </div>
+
+      <div class="recipe-component__info_ingredients">
+        <h5>Ingredients:</h5>
+        <div>
+          <p *ngFor="let ingredient of recipe.ingredients">
+            <mat-card-subtitle>{{ingredient}}</mat-card-subtitle>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <mat-card-content class="recipe-component__recipe-content">
+    <p>{{recipe.steps}}</p>
+  </mat-card-content>
+
+</mat-card>
+<button class="back-btn" mat-button (click)="goBack()">Go back to recipes list
+  <mat-icon>keyboard_backspace</mat-icon>
+</button>

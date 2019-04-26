@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-nav',
@@ -6,20 +6,11 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
-  @ViewChild('searchRecipe') searchElement: ElementRef;
-  clicked = false;
+
   constructor() { }
 
   ngOnInit() {
   }
-  handleNavSearch() {
-    this.clicked = !this.clicked;
-    setTimeout(()=>{
-      this.searchElement.nativeElement.focus();
-    },0);
-  }
-  handleInpSearch(){
-    this.clicked = !this.clicked;
-  }
+
 
 }
