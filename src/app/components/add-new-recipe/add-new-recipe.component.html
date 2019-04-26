@@ -12,15 +12,11 @@
     </mat-form-field>
 
     <mat-form-field color="accent">
-        <mat-select placeholder="Cuisine type">
-            <mat-option *ngFor="let recipe of recipes" value="recipe.id" >{{recipe.cuisineType}}</mat-option>
-        </mat-select>
+        <textarea matInput placeholder="Cuisine type" name='cuisineType' ngModel></textarea>
     </mat-form-field>
 
     <mat-form-field color="accent">
-        <mat-select placeholder="Cook duration">
-            <mat-option *ngFor="let recipe of recipes" value="recipe.id">{{recipe.cookDuration}}</mat-option>
-        </mat-select>
+        <textarea matInput placeholder="Cook duration" name='cookDuration' ngModel></textarea>
     </mat-form-field>
 
     <mat-form-field color="accent">
