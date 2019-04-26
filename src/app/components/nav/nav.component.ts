@@ -16,7 +16,7 @@ export class NavComponent implements OnInit {
     this.clicked = !this.clicked;
     setTimeout(()=>{
       this.searchElement.nativeElement.focus();
-    },0);
+    },50);
   }
   handleInpSearch(){
     this.clicked = !this.clicked;

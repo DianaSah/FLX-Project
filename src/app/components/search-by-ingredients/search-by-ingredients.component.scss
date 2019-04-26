@@ -1,3 +1,7 @@
+$base-color: #25333B;
+$border: 1px solid $base-color;
+
+
 section {
   padding-top: 28px;
   background-image: url('../../../assets/images/food-pattern.jpg');
@@ -5,7 +9,7 @@ section {
   h3 {
     margin-top: 0;
     text-align: center;
-    color: #25333B;
+    color: $base-color;
   }
 
   .home-search {
@@ -18,32 +22,39 @@ section {
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
+      div{
+        padding: 20px 11px;
+        img{
+          cursor: pointer;
+          max-width: 42px;
+        }
+      }
     }
     .fridge-left{
       background-image: url("../../../assets/images/fridge-left.png");
       .shelfs{
-        padding-left: 76px;
+        padding-left: 78px;
         padding-top: 74px;
         display: flex;
         flex-wrap: wrap;
-        div{
-          padding: 21px;
-          img{
-            cursor: pointer;
-            max-width: 42px;
-          }
-        }
       }
     }
     .fridge-right{
       background-image: url("../../../assets/images/fridge-right.png");
+      .shelfs{
+        padding-left: 20px;
+        padding-right:  30px;
+        padding-top: 74px;
+        display: flex;
+        flex-wrap: wrap;
+      }
     }
     
 
     .search-by-ingredients {
       .search-list{
-          border: 2px solid #25333B;
-          border-radius:  10px;
+          border: 2px solid $base-color;
+          border-radius: 10px;
           width: 420px;
           height: 500px;
           mat-list{
@@ -51,8 +62,7 @@ section {
                 mat-list-item{
                     height: 35px;
                     background-color: rgba(185, 217, 148, 0.616);
-                    width: inherit !important;
-                    color: #25333B;
+                    color: $base-color;
                     display: flex;
                     justify-content: space-between;
                     p{
@@ -60,7 +70,7 @@ section {
                       width: 353px;
                     }
                     mat-icon{
-                        color: #25333B;
+                        color: $base-color;
                         border-radius: 50%;
                         padding: 3px;
                         cursor: pointer;
@@ -94,10 +104,10 @@ section {
           z-index: 1000;
           position: absolute;
               mat-list-item{
-                color: #25333B;
-              border-bottom: 1px solid #25333B;
-              border-left: 1px solid #25333B;
-              border-right: 1px solid #25333B;
+              color: $base-color;
+              border-bottom: $border;
+              border-left: $border;
+              border-right: $border;
               width: 195px;
               height: 16px;
               padding: 5px;
@@ -105,7 +115,7 @@ section {
               cursor: pointer;
               list-style-type: none;
               &:hover{
-                background-color: #607D8B;
+                background-color: rgb(163, 221, 97);
               }
             }
             #search-box {

@@ -3,18 +3,7 @@
   <div class='home-search'>
       <div class='fridge-left'>
         <div class="shelfs" #fridgeList1='cdkDropList' cdkDropList (cdkDropListDropped)="drop($event)">
-                <div cdkDrag data-name="garlic"><img src="../../../assets/images/food-images/garlic.png" alt="garlic"></div>
-                <div cdkDrag data-name="tomato"><img src="../../../assets/images/food-images/tomato.png" alt="tomato"></div>
-                <div cdkDrag data-name="onion"><img src="../../../assets/images/food-images/onion.png" alt="onion"></div>
-                <div cdkDrag data-name="beef"><img src="../../../assets/images/food-images/beef.png" alt="beef" ></div>
-                <div cdkDrag data-name="almond"><img src="../../../assets/images/food-images/almond.png" alt="almond"></div>
-                <div cdkDrag data-name="anise"><img src="../../../assets/images/food-images/anise.png" alt="anise"></div>
-                <div cdkDrag data-name="apple"><img src="../../../assets/images/food-images/apple.png" alt="apple"></div>
-                <div cdkDrag data-name="bacon"><img src="../../../assets/images/food-images/bacon.png" alt="bacon"></div>
-                <div cdkDrag data-name="baguette"><img src="../../../assets/images/food-images/baguette.png" alt="baguette"></div>
-                <div cdkDrag data-name="beetroot"><img src="../../../assets/images/food-images/beetroot.png" alt="beetroot"></div>
-                <div cdkDrag data-name="butter"><img src="../../../assets/images/food-images/butter.png" alt="butter"></div>
-                <div cdkDrag data-name="cabbage"><img src="../../../assets/images/food-images/cabbage.png" alt="cabbage"></div>
+                <div cdkDrag *ngFor="let image of imagesSrc1"><img src={{image.src}} name={{image.name}} alt={{image.name}}></div>
         </div>
       </div>
 
@@ -28,7 +17,7 @@
           <mat-form-field>
             <input matInput #searchBox placeholder="Enter ingredient" (input)="search(searchBox.value)" autocomplete="off" [(ngModel)]="choosenIngr" (keydown.enter)="addIngredientToList()"/>
             <mat-list class="search-result" #searchHintList>
-                <mat-list-item *ngFor="let ingredient of ingredients$ | async" (click)="addToInput(ingredient)"> {{ingredient}} </mat-list-item>
+                <mat-list-item *ngFor="let ingredient of ingredients$ | async" (click)="addToListFromHint(ingredient)"> {{ingredient}} </mat-list-item>
             </mat-list>
           </mat-form-field>
           <button mat-flat-button (click)="addIngredientToList()">Add</button>
@@ -57,7 +46,9 @@
       </div>
 
       <div class='fridge-right'>
-          
+        <div class="shelfs" #fridgeList1='cdkDropList' cdkDropList (cdkDropListDropped)="drop($event)">
+          <div cdkDrag *ngFor="let image of imagesSrc2"><img src={{image.src}} name={{image.name}} alt={{image.name}}></div>
+        </div>
       </div>
   </div>
 </section>

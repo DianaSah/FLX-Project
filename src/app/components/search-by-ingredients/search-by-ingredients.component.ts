@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SearchByIngredientsService } from '../../search-by-ingredients.service';
 import { Observable, Subject, of } from 'rxjs';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
+import { IMAGES_SRC } from '../../mock-images-src';
 import {
   debounceTime, distinctUntilChanged, switchMap
 } from 'rxjs/operators';
@@ -11,8 +12,11 @@ import {
   templateUrl: './search-by-ingredients.component.html',
   styleUrls: ['./search-by-ingredients.component.scss']
 })
+
 export class SearchByIngredientsComponent implements OnInit {
-  isMouseOverList = false;
+  isMouseOverList: boolean;
+  imagesSrc1: object[] = IMAGES_SRC.slice(0, Math.floor((IMAGES_SRC.length) / 2));
+  imagesSrc2: object[] = IMAGES_SRC.slice(Math.floor((IMAGES_SRC.length) / 2), IMAGES_SRC.length);
   choosenIngr: string;
   ingredients$: Observable<string[]>;
   private searchTerms = new Subject<string>();
@@ -27,6 +31,7 @@ export class SearchByIngredientsComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    this.isMouseOverList = false;
     this.ingredients$ = this.searchTerms.pipe(
       // wait 100ms after each keystroke before considering the term
       debounceTime(100),
@@ -39,9 +44,9 @@ export class SearchByIngredientsComponent implements OnInit {
     );
   }
 
-  addToInput(ingredient: string): void {
-    this.search('');
+  addToListFromHint(ingredient: string): void {
     this.choosenIngr = ingredient;
+    this.addIngredientToList();
   }
 
   deleteIngredient(ingredient: string): void {
@@ -49,13 +54,14 @@ export class SearchByIngredientsComponent implements OnInit {
   }
 
   addIngredientToList(): void {
+    this.search('');
     this.choosenIngredients.push(this.choosenIngr);
-    this.choosenIngr = '';
+    this.choosenIngr = null;
   }
 
   drop(event: CdkDragDrop<string[]>) {
       if (this.isMouseOverList) {
-        this.choosenIngr = event.item.element.nativeElement.dataset.name;
+        this.choosenIngr = event.item.element.nativeElement.firstElementChild.getAttribute('name');
         this.addIngredientToList();
       }
   }

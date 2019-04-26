@@ -6,7 +6,6 @@ import { INGREDIENTS } from './mock_ingredients';
   providedIn: 'root'
 })
 export class SearchByIngredientsService {
-  console: Console;
 
   getIngredients(): Observable< string[] > {
     return of(INGREDIENTS);
