@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RECIPES } from '../../mock_recepies';
+import {Recipe} from '../../models/recipe';
 
 @Component({
   selector: 'app-recipes-list',
@@ -7,7 +8,7 @@ import { RECIPES } from '../../mock_recepies';
   styleUrls: ['./recipes-list.component.scss']
 })
 export class RecipesListComponent implements OnInit {
-  recipes: RECIPES[] =  RECIPES;
+  public recipes: Recipe[] = RECIPES;
 
   constructor() { }
 

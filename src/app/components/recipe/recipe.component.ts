@@ -11,7 +11,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./recipe.component.scss']
 })
 export class RecipeComponent implements OnInit {
-  @Input() recipe: Recipe[] = Recipe;
+  public recipe: Recipe;
   favorite: string = 'favorite_border';
 
   constructor(
