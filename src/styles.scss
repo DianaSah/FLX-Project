@@ -1,11 +1,11 @@
-@import "~@angular/material/prebuilt-themes/purple-green.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "green_theme.scss";
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+@import "~@ngx-share/button/themes/material/material-light-theme";
+@import "./variables";
 
-$green: #036004;
-$green-light: #B9D994;
-$yellow: #F2B705;
-$gray: #25333B;
-$gray-light: #9AA8B3;
+$color-default-rating: $gray;
+@import '~css-star-rating/scss/star-rating';
 
 body{
     box-sizing: border-box;
@@ -16,3 +16,14 @@ body{
 a {
     text-decoration: none;
 }
+.rating {
+  margin: 0;
+  .star.medium, .rating.medium .star {
+    width: 25px;
+    height: 22px;
+  }
+  .label-value.medium, .rating.medium .label-value {
+    line-height: 18px;
+  }
+}
+

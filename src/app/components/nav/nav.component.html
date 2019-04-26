@@ -1,22 +1,8 @@
 <header>
   <div class="logo" routerLink="">Logo</div>
-  <form class="search-form" *ngIf="clicked">
-    <mat-form-field>
-      <input matInput #searchRecipe (blur)="handleInpSearch()" placeholder="Enter recipe name" />
-    </mat-form-field>
-  </form>
-  <button class="log-btn" mat-button *ngIf="!clicked" (click)="handleNavSearch()">
-    Search <mat-icon>search</mat-icon>
-  </button>
-  <button class="log-btn" mat-button>Sign Up</button>
-  <button class="log-btn" mat-button>Sing In</button>
-  <button mat-button [matMenuTriggerFor]="menu" routerLink="/profile">
+  <app-search-by-name></app-search-by-name>
+  <button class="log-btn" mat-button routerLink="/login">Sing In</button>
+  <button mat-button routerLink="/profile">
     <mat-icon class="user-icon">face</mat-icon>
   </button>
-
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>Personal page</button>
-    <button mat-menu-item>Edit profile</button>
-    <button mat-menu-item>Log out</button>
-  </mat-menu>
 </header>

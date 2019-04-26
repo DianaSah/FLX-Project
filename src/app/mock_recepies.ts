@@ -9,8 +9,8 @@ export const RECIPES: Recipe[] = [
     description:
       'Our best ever spaghetti Bolognese is super easy and a true Italian classic',
     cuisineType: 'italian',
-    rating: 0,
-    isFavorite: false,
+    rating: 3.5,
+    isFavorite: true,
     cookDuration: 30,
     ingredients: ['garlic', 'tomato', 'parmesan', 'beef', 'onion', 'spaghetti'],
     steps:
@@ -32,7 +32,6 @@ export const RECIPES: Recipe[] = [
       'beef ',
       'tomato',
       'celery',
-      'onion',
       'spaghetti',
       'carrot',
       'bacon',
@@ -334,7 +333,7 @@ export const RECIPES: Recipe[] = [
     id: 19,
     title: 'Chicken wings with cumin, lemon and garlic',
     imageSrc:
-      'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--7360_11.jpg?itok=yQ571UNj',
+      'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--327675_12.jpg?itok=Tff7Qhln',
     description:
       'Pick up a few extras from the deli and turn this into a Middle Eastern mezze spread to share with friends',
     cuisineType: 'turkish',
@@ -409,7 +408,7 @@ export const RECIPES: Recipe[] = [
     id: 24,
     title: 'Vietnamese lamb shanks with sweet potatoes',
     imageSrc:
-      'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/bhanmi.jpg?itok=aDtQhHcS',
+      'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1079567_11.jpg?itok=sag1DTD7',
     description:
       'Meltingly tender and full of classic Asian flavours, these lamb shanks are perfect for freezing',
     cuisineType: 'vietnamese',

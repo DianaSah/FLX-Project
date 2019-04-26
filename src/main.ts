@@ -1,5 +1,6 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 import 'hammerjs';
 
 import { AppModule } from './app/app.module';
