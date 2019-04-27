@@ -8,7 +8,8 @@ import {
   MatInputModule,
   MatIconModule,
   MatCardModule,
-  MatDialogModule
+  MatDialogModule,
+  MatListModule
 } from '@angular/material';
 import { StarRatingModule } from 'angular-star-rating';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
@@ -16,6 +17,7 @@ import { FirestoreSettingsToken} from '@angular/fire/firestore';
 import { HttpClientModule } from '@angular/common/http';
 import { ShareButtonsModule } from '@ngx-share/buttons';
 
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -25,6 +27,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { SearchByIngredientsComponent } from './components/search-by-ingredients/search-by-ingredients.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 import { SearchByNameComponent } from './components/search-by-name/search-by-name.component';
 import {ModalComponent, ShareComponent} from './components/share/share.component';
 import { AutofocusDirective } from './autofocus.directive';
@@ -53,6 +56,9 @@ import { AutofocusDirective } from './autofocus.directive';
     MatMenuModule,
     MatInputModule,
     MatIconModule,
+    MatListModule,
+    FormsModule,
+    DragDropModule,
     MatCardModule,
     MatDialogModule,
     StarRatingModule.forRoot(),

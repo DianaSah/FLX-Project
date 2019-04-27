@@ -1,3 +1,54 @@
-<p>
-  search-by-ingredients works!
-</p>
+<section>
+  <h3>Check out your fridge and say what you have!</h3>
+  <div class='home-search'>
+      <div class='fridge-left'>
+        <div class="shelfs" #fridgeList1='cdkDropList' cdkDropList (cdkDropListDropped)="drop($event)">
+                <div cdkDrag *ngFor="let image of imagesSrc1"><img src={{image.src}} name={{image.name}} alt={{image.name}}></div>
+        </div>
+      </div>
+
+      <div class="left-arrow">
+          <h4>Drag and Drop</h4>
+          <mat-icon>arrow_forward</mat-icon>
+      </div>
+
+      <div class="search-by-ingredients">
+        <div class="search-form">
+          <mat-form-field>
+            <input matInput #searchBox placeholder="Enter ingredient" (input)="search(searchBox.value)" autocomplete="off" [(ngModel)]="choosenIngr" (keydown.enter)="addIngredientToList()"/>
+            <mat-list class="search-result" #searchHintList>
+                <mat-list-item *ngFor="let ingredient of ingredients$ | async" (click)="addToListFromHint(ingredient)"> {{ingredient}} </mat-list-item>
+            </mat-list>
+          </mat-form-field>
+          <button mat-flat-button (click)="addIngredientToList()">Add</button>
+        </div>
+
+        <div class="search-list" #ingredientList (mouseover)="isMouseOverList=true" (mouseleave)="isMouseOverList=false">
+          <h3>Your Ingredients</h3>
+          <div class="search-list-table">
+              <mat-list>
+                  <mat-list-item *ngFor="let ingredient of choosenIngredients">
+                     <p>- {{ingredient}}</p>
+                    <mat-icon (click)='deleteIngredient(ingredient)'>clear</mat-icon>
+                  </mat-list-item>
+                </mat-list>
+          </div>
+        </div>
+
+        <form class="search-recipies">
+            <button mat-flat-button>Search Recipes</button>
+          </form>
+      </div>
+
+      <div class="right-arrow">
+          <h4>Drag and Drop</h4>
+          <mat-icon>arrow_back</mat-icon>
+      </div>
+
+      <div class='fridge-right'>
+        <div class="shelfs" #fridgeList1='cdkDropList' cdkDropList (cdkDropListDropped)="drop($event)">
+          <div cdkDrag *ngFor="let image of imagesSrc2"><img src={{image.src}} name={{image.name}} alt={{image.name}}></div>
+        </div>
+      </div>
+  </div>
+</section>

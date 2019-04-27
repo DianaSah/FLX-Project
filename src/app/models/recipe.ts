@@ -9,4 +9,4 @@ export class Recipe {
     cookDuration: number;
     ingredients: string[];
     steps: string;
-};
+}
