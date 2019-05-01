@@ -6,6 +6,10 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatDialogModule} from '@angular/material/dialog';
 import {FormsModule} from '@angular/forms';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +21,8 @@ import { RecipesListComponent } from './components/recipes-list/recipes-list.com
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { SearchByIngredientsComponent } from './components/search-by-ingredients/search-by-ingredients.component';
 import { AddNewRecipeComponent } from './components/add-new-recipe/add-new-recipe.component';
+
+import {RecipesFbService} from './services/recipes-fb.service';
 
 @NgModule({
   declarations: [
@@ -43,9 +49,11 @@ import { AddNewRecipeComponent } from './components/add-new-recipe/add-new-recip
     MatDialogModule,
     MatFormFieldModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase, 'FLX-project'),
+    AngularFirestoreModule
   ],
-  providers: [],
+  providers: [RecipesFbService],
   bootstrap: [AppComponent],
   entryComponents: [AddNewRecipeComponent]
 })
