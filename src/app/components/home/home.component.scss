@@ -1,7 +1,8 @@
-.home-img {
-    height: 70vh;
+section {
+  background-image: url('../../../assets/images/food-pattern.jpg');
+  .home-img {
     img {
       width: 100%;
-      height: 100%;
     }
   }
+}
