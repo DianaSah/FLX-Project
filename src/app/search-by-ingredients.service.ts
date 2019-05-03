@@ -61,8 +61,7 @@ export class SearchByIngredientsService {
         }
       }
     });
-
-    // // this.exportIngr.next(this.filteredRecipes);
+    this.exportIngr.next(this.filteredRecipes);
   }
 
 

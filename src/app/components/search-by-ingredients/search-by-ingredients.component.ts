@@ -25,7 +25,6 @@ export class SearchByIngredientsComponent implements OnInit {
   public choosenIngredients: string[] = [];
 
   public constructor(private searchByIngredientsService: SearchByIngredientsService ) {
-    this.searchByIngredientsService.checkIngredients(this.choosenIngredients);
   }
 
     // Push a search term into the observable stream.
@@ -67,6 +66,9 @@ export class SearchByIngredientsComponent implements OnInit {
         this.choosenIngr = event.item.element.nativeElement.firstElementChild.getAttribute('name');
         this.addIngredientToList();
       }
+  }
+  exportIngredients() {
+    this.searchByIngredientsService.checkIngredients(this.choosenIngredients);
   }
 
 }
