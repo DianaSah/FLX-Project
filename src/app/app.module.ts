@@ -31,6 +31,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { SearchByNameComponent } from './components/search-by-name/search-by-name.component';
 import {ModalComponent, ShareComponent} from './components/share/share.component';
 import { AutofocusDirective } from './autofocus.directive';
+import {SearchComponent} from './components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AutofocusDirective } from './autofocus.directive';
     SearchByNameComponent,
     ShareComponent,
     ModalComponent,
-    AutofocusDirective
+    AutofocusDirective,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

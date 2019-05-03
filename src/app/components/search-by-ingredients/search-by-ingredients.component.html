@@ -36,7 +36,8 @@
         </div>
 
         <form class="search-recipies">
-            <button mat-flat-button>Search Recipes</button>
+            <button mat-flat-button (click)="this.searchByIngredientsService.checkIngredients(this.choosenIngredients)"
+                    routerLink="search">Search Recipes</button>
           </form>
       </div>
 

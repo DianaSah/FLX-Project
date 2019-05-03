@@ -21,9 +21,12 @@ export class SearchByIngredientsComponent implements OnInit {
   ingredients$: Observable<string[]>;
   private searchTerms = new Subject<string>();
 
-  choosenIngredients: string[] = [];
 
-  constructor(private searchByIngredientsService: SearchByIngredientsService ) { }
+  public choosenIngredients: string[] = [];
+
+  public constructor(private searchByIngredientsService: SearchByIngredientsService ) {
+    this.searchByIngredientsService.checkIngredients(this.choosenIngredients);
+  }
 
     // Push a search term into the observable stream.
     search(term: string): void {
@@ -65,4 +68,5 @@ export class SearchByIngredientsComponent implements OnInit {
         this.addIngredientToList();
       }
   }
+
 }
