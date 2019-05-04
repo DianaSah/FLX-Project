@@ -20,7 +20,6 @@
                 <mat-list-item *ngFor="let ingredient of ingredients$ | async" (click)="addToListFromHint(ingredient)"> {{ingredient}} </mat-list-item>
             </mat-list>
           </mat-form-field>
-          <button mat-flat-button (click)="addIngredientToList()">Add</button>
         </div>
 
         <div class="search-list" #ingredientList (mouseover)="isMouseOverList=true" (mouseleave)="isMouseOverList=false">
@@ -36,7 +35,8 @@
         </div>
 
         <form class="search-recipies">
-            <button mat-flat-button>Search Recipes</button>
+            <button mat-flat-button (click)="exportIngredients()"
+                    routerLink="search">Search Recipes</button>
           </form>
       </div>
 

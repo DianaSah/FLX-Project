@@ -1,5 +1,5 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule, DomSanitizer} from '@angular/platform-browser';
+import {NgModule, Pipe, PipeTransform} from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
@@ -31,6 +31,15 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import { SearchByNameComponent } from './components/search-by-name/search-by-name.component';
 import {ModalComponent, ShareComponent} from './components/share/share.component';
 import { AutofocusDirective } from './autofocus.directive';
+import {SearchComponent} from './components/search/search.component';
+
+@Pipe({ name: 'safe' })
+export class SafePipe implements PipeTransform {
+  constructor(private sanitizer: DomSanitizer) {}
+  transform(url) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+  }
+}
 
 @NgModule({
   declarations: [
@@ -45,7 +54,9 @@ import { AutofocusDirective } from './autofocus.directive';
     SearchByNameComponent,
     ShareComponent,
     ModalComponent,
-    AutofocusDirective
+    AutofocusDirective,
+    SearchComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
