@@ -3,7 +3,8 @@
   <div class='home-search'>
       <div class='fridge-left'>
         <div class="shelfs" #fridgeList1='cdkDropList' cdkDropList (cdkDropListDropped)="drop($event)">
-                <div cdkDrag *ngFor="let image of imagesSrc1"><img src={{image.src}} name={{image.name}} alt={{image.name}}></div>
+                <div cdkDrag *ngFor="let image of imagesSrc1"><img src={{image.src}} name={{image.name}}
+                                                                   matTooltip={{image.name}} alt={{image.name}}></div>
         </div>
       </div>
 
@@ -22,7 +23,8 @@
           </mat-form-field>
         </div>
 
-        <div class="search-list" #ingredientList (mouseover)="isMouseOverList=true" (mouseleave)="isMouseOverList=false">
+        <div class="search-list" #ingredientList matTooltip="Drag ingrediends from the fridge inside this field"
+             (mouseover)="isMouseOverList=true" (mouseleave)="isMouseOverList=false">
           <h3>Your Ingredients</h3>
           <div class="search-list-table">
               <mat-list>
@@ -47,7 +49,8 @@
 
       <div class='fridge-right'>
         <div class="shelfs" #fridgeList1='cdkDropList' cdkDropList (cdkDropListDropped)="drop($event)">
-          <div cdkDrag *ngFor="let image of imagesSrc2"><img src={{image.src}} name={{image.name}} alt={{image.name}}></div>
+          <div cdkDrag *ngFor="let image of imagesSrc2"><img src={{image.src}} name={{image.name}}
+                                                             matTooltip={{image.name}} alt={{image.name}}></div>
         </div>
       </div>
   </div>

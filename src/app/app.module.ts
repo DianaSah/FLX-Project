@@ -9,8 +9,9 @@ import {
   MatIconModule,
   MatCardModule,
   MatDialogModule,
-  MatListModule
+  MatListModule,
 } from '@angular/material';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { StarRatingModule } from 'angular-star-rating';
 import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 import { FirestoreSettingsToken} from '@angular/fire/firestore';
@@ -68,6 +69,7 @@ export class SafePipe implements PipeTransform {
     MatInputModule,
     MatIconModule,
     MatListModule,
+    MatTooltipModule,
     FormsModule,
     DragDropModule,
     MatCardModule,
