@@ -8,5 +8,6 @@ export interface Recipe {
     isFavorite?: boolean;
     cookDuration: number;
     ingredients: string[];
-    steps: string;
-};
+    steps: string[];
+    videos: string[];
+}
