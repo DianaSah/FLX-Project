@@ -1,1 +1,18 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+$green: #036004;
+$green-light: #B9D994;
+$yellow: #F2B705;
+$gray: #25333B;
+$gray-light: #9AA8B3;
+
+body{
+    box-sizing: border-box;
+    margin: 0 auto;
+    font-family: 'Montserrat';
+    font-size: 18px;
+}
+a {
+    text-decoration: none;
+}
