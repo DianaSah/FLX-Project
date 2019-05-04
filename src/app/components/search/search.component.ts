@@ -11,7 +11,6 @@ import {SearchByIngredientsService} from '../../search-by-ingredients.service';
 })
 export class SearchComponent implements OnInit {
   public recipes: Recipe[];
-
   // public filteredRecipes$: Observable<string[]>;
 
   public constructor(private searchByIngredientsService: SearchByIngredientsService) {
