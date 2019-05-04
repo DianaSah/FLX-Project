@@ -8,5 +8,6 @@ export class Recipe {
     isFavorite: boolean;
     cookDuration: number;
     ingredients: string[];
-    steps: string;
+    steps: any;
+    videos: string[];
 }
