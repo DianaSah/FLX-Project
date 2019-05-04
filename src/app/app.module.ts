@@ -1,4 +1,8 @@
 import {BrowserModule, DomSanitizer} from '@angular/platform-browser';
+import {MatTabsModule} from '@angular/material/tabs';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
 import {NgModule, Pipe, PipeTransform} from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -10,6 +14,9 @@ import {
   MatCardModule,
   MatDialogModule,
   MatListModule,
+  MatFormFieldModule,
+  MatSelectModule
+
 } from '@angular/material';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { StarRatingModule } from 'angular-star-rating';
@@ -28,6 +35,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { SearchByIngredientsComponent } from './components/search-by-ingredients/search-by-ingredients.component';
+import { AddNewRecipeComponent } from './components/add-new-recipe/add-new-recipe.component';
+
+import {RecipesFbService} from './services/recipes-fb.service';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { SearchByNameComponent } from './components/search-by-name/search-by-name.component';
 import {ModalComponent, ShareComponent} from './components/share/share.component';
@@ -52,6 +62,7 @@ export class SafePipe implements PipeTransform {
     RecipesListComponent,
     LoginFormComponent,
     SearchByIngredientsComponent,
+    AddNewRecipeComponent,
     SearchByNameComponent,
     ShareComponent,
     ModalComponent,
@@ -68,6 +79,13 @@ export class SafePipe implements PipeTransform {
     MatMenuModule,
     MatInputModule,
     MatIconModule,
+    MatTabsModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase, 'FLX-project'),
+    AngularFirestoreModule,
     MatListModule,
     MatTooltipModule,
     FormsModule,
@@ -88,9 +106,10 @@ export class SafePipe implements PipeTransform {
     ShareButtonsModule
   ],
   entryComponents: [
-    ModalComponent
+    ModalComponent,
+    AddNewRecipeComponent
   ],
-  providers: [{ provide: FirestoreSettingsToken, useValue: {} }],
+  providers: [RecipesFbService, { provide: FirestoreSettingsToken, useValue: {} }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
