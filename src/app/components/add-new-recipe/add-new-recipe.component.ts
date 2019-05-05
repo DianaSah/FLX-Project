@@ -11,13 +11,13 @@ import { getInjectorIndex } from '@angular/core/src/render3/di';
   styleUrls: ['./add-new-recipe.component.scss']
 })
 export class AddNewRecipeComponent implements OnInit {
-  
+
   genId(){
     return (RECIPES.length +1);
   }
 
   onSubmitNewRecipe(value: any) {
-    
+
     let CustomRecipe = {
       id: this.genId(),
       title: value.title,
@@ -28,13 +28,14 @@ export class AddNewRecipeComponent implements OnInit {
       isFavorite: false,
       cookDuration: value.cookDuration,
       ingredients: value.ingredients,
-      steps: value.steps
+      steps: value.steps,
+      videos: value.videos,
     };
     console.log(CustomRecipe);
     RECIPES[RECIPES.length] = CustomRecipe;
     console.log(RECIPES);
   }
-  
+
   constructor() { }
 
   ngOnInit() {
