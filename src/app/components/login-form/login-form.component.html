@@ -3,6 +3,7 @@
   <ngx-auth-firebaseui  appearance="outline"
   [providers]="['google']"
   (onSuccess)="printUser($event)"
+  (onSuccess)="loginRedirect()"
   (onError)="printError($event)" [guestEnabled]="false">
   </ngx-auth-firebaseui>
 </div>
