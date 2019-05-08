@@ -28,6 +28,7 @@ export class RecipeComponent implements OnInit {
         this.recipe.id = data.payload.id;
       }
     });
+    this.favorite = this.recipe.isFavorite ? 'favorite' : 'favorite_border';
   }
   goBack(): void {
     this.location.back();
