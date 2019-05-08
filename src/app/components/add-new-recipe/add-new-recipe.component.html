@@ -1,0 +1,32 @@
+<form #newRecipeForm = 'ngForm' class="add-new-recipe-form" (ngSubmit)="onSubmitNewRecipe(newRecipeForm.value)">
+    <mat-form-field color="accent" >
+        <input matInput placeholder="Title" name='title' ngModel>
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+        <input matInput placeholder="Ingredients" type="text" name='ingredients' ngModel>
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+        <textarea matInput placeholder="Description" name='description' ngModel></textarea>
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+        <textarea matInput placeholder="Cuisine type" name='cuisineType' ngModel></textarea>
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+        <textarea matInput placeholder="Cook duration" name='cookDuration' ngModel></textarea>
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+        <textarea matInput placeholder="Steps" name='steps' ngModel></textarea>
+    </mat-form-field>
+
+    <label for="picture-upload" class="custom-picture-upload" >
+        <input id="picture-upload" type="file"/>
+        Upload picture
+    </label>
+    
+    <button mat-stroked-button color="accent" type='submit'>Add this recipe</button>
+</form>
