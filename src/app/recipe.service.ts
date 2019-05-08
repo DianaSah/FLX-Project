@@ -1,19 +1,23 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
-import { Observable, of } from 'rxjs';
 
-import { Recipe } from './models/recipe';
-import { RECIPES } from './mock_recepies';
-
+export interface Recipe { name: string; }
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipeService {
 
-  constructor() { }
-
-  getRecipe(id): Observable<Recipe> {
-    return of(RECIPES.find(recipe => recipe.id === id));
+  constructor(private afs: AngularFirestore) {
   }
+
+  getRecipes() {
+    return this.afs.collection('recipes').snapshotChanges();
+  }
+
+  getRecipeById(recipeKey) {
+    return this.afs.collection('recipes').doc(recipeKey).snapshotChanges();
+  }
+
 }
