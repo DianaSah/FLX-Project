@@ -1,32 +1,49 @@
-<form #newRecipeForm = 'ngForm' class="add-new-recipe-form" (ngSubmit)="onSubmitNewRecipe(newRecipeForm.value)">
-    <mat-form-field color="accent" >
-        <input matInput placeholder="Title" name='title' ngModel>
-    </mat-form-field>
+<form class="add-new-recipe-form" [formGroup]="newRecipeForm" (ngSubmit)="onSubmitNewRecipe(newRecipeForm.value)">
+    <div class="form-group">
+        <mat-form-field>
+            <input matInput placeholder="Title" class="form-control" formControlName="title">
+        </mat-form-field>
+    </div>
 
-    <mat-form-field color="accent">
-        <input matInput placeholder="Ingredients" type="text" name='ingredients' ngModel>
-    </mat-form-field>
-
-    <mat-form-field color="accent">
-        <textarea matInput placeholder="Description" name='description' ngModel></textarea>
-    </mat-form-field>
-
-    <mat-form-field color="accent">
-        <textarea matInput placeholder="Cuisine type" name='cuisineType' ngModel></textarea>
-    </mat-form-field>
-
-    <mat-form-field color="accent">
-        <textarea matInput placeholder="Cook duration" name='cookDuration' ngModel></textarea>
-    </mat-form-field>
-
-    <mat-form-field color="accent">
-        <textarea matInput placeholder="Steps" name='steps' ngModel></textarea>
-    </mat-form-field>
-
-    <label for="picture-upload" class="custom-picture-upload" >
-        <input id="picture-upload" type="file"/>
-        Upload picture
-    </label>
+    <div class="form-group">
+        <mat-form-field>
+            <input matInput placeholder="Ingredients" class="form-control" formControlName="ingredients">
+        </mat-form-field>
+    </div>
     
-    <button mat-stroked-button color="accent" type='submit'>Add this recipe</button>
+    <div class="form-group">
+        <mat-form-field>
+            <input matInput placeholder="Description" class="form-control" formControlName="description">
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field>
+            <input matInput placeholder="Cuisine type" class="form-control" formControlName="cuisineType">
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field>
+            <input matInput placeholder="Cook duration" class="form-control" formControlName="cookDuration">
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field>
+            <input matInput placeholder="Steps" class="form-control" formControlName="steps">
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+            <label for="picture-upload" class="custom-picture-upload" >
+                <input id="picture-upload" class="form-control" formControlName="imageSrc" type="file"/>
+                Upload picture
+            </label>
+    </div>
+
+
+    <div class="row submit-button-container">
+        <button mat-raised-button class="submit-button" type="submit">Add this recipe</button>
+    </div>
 </form>

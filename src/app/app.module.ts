@@ -25,7 +25,7 @@ import { FirestoreSettingsToken} from '@angular/fire/firestore';
 import { HttpClientModule } from '@angular/common/http';
 import { ShareButtonsModule } from '@ngx-share/buttons';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -43,6 +43,7 @@ import { SearchByNameComponent } from './components/search-by-name/search-by-nam
 import {ModalComponent, ShareComponent} from './components/share/share.component';
 import { AutofocusDirective } from './autofocus.directive';
 import {SearchComponent} from './components/search/search.component';
+
 
 @Pipe({ name: 'safe' })
 export class SafePipe implements PipeTransform {
@@ -84,14 +85,13 @@ export class SafePipe implements PipeTransform {
     MatFormFieldModule,
     MatSelectModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase, 'FLX-project'),
     AngularFirestoreModule,
     MatListModule,
     MatTooltipModule,
-    FormsModule,
     DragDropModule,
     MatCardModule,
-    MatDialogModule,
     StarRatingModule.forRoot(),
     NgxAuthFirebaseUIModule.forRoot({
     apiKey: "AIzaSyAPCaQl95Xh3q9DS8VhATyLxwKKuGzmick",
