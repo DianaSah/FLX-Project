@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {RECIPES} from '../../mock_recepies';
-import {NgForm} from '@angular/forms';
-import { RecipesListComponent } from '../recipes-list/recipes-list.component';
-import { getInjectorIndex } from '@angular/core/src/render3/di';
-import { fbind } from 'q';
 import {RecipesFbService, } from '../../services/recipes-fb.service'
-
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup,  FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material';
@@ -53,7 +47,7 @@ export class AddNewRecipeComponent implements OnInit {
     });
   }
 
-  onSubmitNewRecipe(value) {
+  onSubmitNewRecipe(value: any) {
     this.firebaseService.addRecipe(value)
     .then(
       res => {
@@ -61,7 +55,6 @@ export class AddNewRecipeComponent implements OnInit {
         this.router.navigate(['profile']);
       }
     )
-    console.log(value);
   }
 
 }

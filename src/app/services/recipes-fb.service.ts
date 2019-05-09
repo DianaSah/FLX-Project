@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore';
-//import {RECIPES} from '../mock_recepies';
-import{ Recipe } from '../models/Recipe';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +10,11 @@ export class RecipesFbService {
     public dataBase: AngularFirestore
     ) {}
 
-  addRecipe(value){
-    //let ingr=value.ingredients.toString();
-    //let ingredientsArray = JSON.parse("[" + ingr + "]");
-    //console.log(ingredientsArray);
+  addRecipe(value: any){
+    let ingredients=value.ingredients;
+    let ingredientsArray = ingredients.split(', ');
+    let steps = value.steps;
+    let stepsArray = steps.split('. ');
     return this.dataBase.collection('recipes').add({
       title: value.title,
       imageSrc: value.imageSrc,
@@ -24,8 +23,8 @@ export class RecipesFbService {
       rating: 0,
       isFavorite: false,
       cookDuration: parseInt(value.cookDuration),
-      ingredients: value.ingredients,
-      steps: value.steps,
+      ingredients: ingredientsArray,
+      steps: stepsArray,
       //videos: value.videos,
     });
   }
