@@ -1,0 +1,107 @@
+@import "../../../variables";
+
+.back-btn {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  &:hover {
+    background-color: $green-light_opacity35;
+  }
+}
+.recipe-component {
+  max-width: 900px;
+  margin: 10px auto;
+  background-color: $green-light_opacity35;
+  color: $gray;
+  box-shadow: 0 2px 5px -1px #25333b9c, 0 1px 4px 0 rgba(0,0,0,.14), 0 1px 10px 5px rgba(0,0,0,.12);
+  div {
+    display: flex;
+    justify-content: space-between;
+    .recipe-component_image-btn-wrapper {
+      .mat-card-image {
+        max-height: 300px;
+        width: 350px;
+        margin: 0 0 10px;
+        box-shadow: 0 2px 5px -1px #25333b9c, 0 1px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 5px rgba(0, 0, 0, 0.12);
+      }
+      .recipe-component__buttons {
+        position: absolute;
+        top: 310px;
+        width: 350px;
+        margin-left: 5px;
+        display: flex;
+        .mat-button {
+          width: 35px;
+          min-width: 0;
+          padding: 0;
+          margin: 0;
+        }
+        star-rating {
+          margin-top: 18px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .recipe-component__info {
+      display: block;
+      min-height: 340px;
+      .recipe-component__info_title {
+        display: block;
+        text-align: center;
+        width: 520px;
+        h6 {
+          margin: 0 0 5px;
+        }
+      }
+      .mat-card-actions {
+        margin: 0;
+      }
+      .recipe-component__info_ingredients {
+        display: block;
+        text-align: center;
+        h5 {
+          margin-top: 25px;
+        }
+        div {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          margin-top: 20px;
+          padding-left: 20px;
+          p {
+            display: inline-block;
+            width: auto;
+            margin: 0 10px;
+            .mat-card-subtitle {
+              margin-bottom: 5px;;
+              color: $gray;
+            }
+          }
+        }
+
+      }
+    }
+  }
+  .recipe-component__recipe-content {
+    font-size: 20px;
+    padding: 10px 20px 0 0;
+    h3 {
+      margin-left: 110px;
+      font-weight: 100;
+    }
+    li {
+      margin: 15px;
+    }
+  }
+}
+#videos {
+  text-align: center;
+  div {
+    display: flex;
+    justify-content: space-around;
+  }
+
+}

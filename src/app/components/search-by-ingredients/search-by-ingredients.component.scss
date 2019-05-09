@@ -1,0 +1,146 @@
+$base-color: #25333B;
+$border: 1px solid $base-color;
+
+section {
+  padding-top: 28px;
+
+  h3 {
+    margin-top: 0;
+    text-align: center;
+    color: $base-color;
+  }
+
+  .home-search {
+    display: flex;
+    justify-content: space-around;
+
+    .fridge-left, .fridge-right{
+      width: 420px;
+      height: 600px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      div{
+        padding: 20px 11px;
+        img{
+          cursor: pointer;
+          max-width: 42px;
+        }
+      }
+    }
+    .fridge-left{
+      background-image: url("../../../assets/images/fridge-left.png");
+      .shelfs{
+        padding-left: 78px;
+        padding-top: 74px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+    .fridge-right{
+      background-image: url("../../../assets/images/fridge-right.png");
+      .shelfs{
+        padding-left: 20px;
+        padding-right:  30px;
+        padding-top: 74px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+
+
+    .search-by-ingredients {
+      .search-list{
+          border: 2px solid $base-color;
+          border-radius: 10px;
+          width: 420px;
+          height: 500px;
+          mat-list{
+                width: 100%;
+                mat-list-item{
+                    height: 35px;
+                    background-color: rgba(185, 217, 148, 0.616);
+                    color: $base-color;
+                    display: flex;
+                    justify-content: space-between;
+                    p{
+                      margin: 0;
+                      width: 353px;
+                    }
+                    mat-icon{
+                        color: $base-color;
+                        border-radius: 50%;
+                        padding: 3px;
+                        cursor: pointer;
+                        float: right;
+                        &:hover{
+                          background-color: rgba(163, 221, 97, 0.726);
+                        }
+                    }
+                }
+            }
+      }
+
+      .search-recipies{
+          margin-top: 15px;
+      }
+
+      input,
+      button {
+        border-radius: 8px;
+        outline: none;
+      }
+
+      .search-form{
+        text-align: center;
+
+
+      /* IngredientSearch private styles */
+        .search-result{
+          margin-top: 0;
+          padding-left: 0;
+          z-index: 1000;
+          position: absolute;
+          .chosen-ingr{
+            background-color: rgb(163, 221, 97);
+          }
+              mat-list-item{
+              color: $base-color;
+              border-bottom: $border;
+              border-left: $border;
+              border-right: $border;
+              width: 195px;
+              height: 16px;
+              padding: 5px;
+              background-color: white;
+              cursor: pointer;
+              list-style-type: none;
+              &:hover{
+                background-color: rgb(163, 221, 97);
+              }
+            }
+            #search-box {
+              width: 200px;
+              height: 20px;
+            }
+          }
+      }
+
+      .search-recipies{
+        text-align: center;
+      }
+    }
+
+    .left-arrow, .right-arrow{
+        width: 55px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 60px;
+    }
+  }
+}
+
+

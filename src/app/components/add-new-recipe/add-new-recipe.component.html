@@ -1,0 +1,35 @@
+<form class="add-new-recipe-form" [formGroup]="newRecipeForm">
+        <mat-form-field>
+            <input matInput placeholder="Title" class="form-control" formControlName="title">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Ingredients" class="form-control" formControlName="ingredients">
+        </mat-form-field>
+    
+        <mat-form-field>
+            <input matInput placeholder="Description" class="form-control" formControlName="description">
+        </mat-form-field>
+  
+        <mat-form-field>
+            <input matInput placeholder="Cuisine type" class="form-control" formControlName="cuisineType">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Cook duration" class="form-control" formControlName="cookDuration">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Steps" class="form-control" formControlName="steps">
+        </mat-form-field>
+
+
+        <label for="picture-upload" class="custom-picture-upload" >
+            <input id="picture-upload" class="form-control" formControlName="imageSrc" type="file"/>
+            Upload picture
+        </label>
+ 
+    <div class="row submit-button-container">
+        <button mat-raised-button class="submit-button" type="submit" [mat-dialog-close] (click)="onSubmitNewRecipe(newRecipeForm.value)" >Add this recipe</button>
+    </div>
+</form>

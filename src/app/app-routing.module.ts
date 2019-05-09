@@ -4,12 +4,18 @@ import { HomeComponent } from './components/home/home.component';
 import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { RecipeComponent } from './components/recipe/recipe.component';
+import { SearchComponent } from './components/search/search.component';
+import { RecipeResolver } from './components/recipe/recipe.resolver';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'recipes_list', component: RecipesListComponent },
   { path: 'login', component: LoginFormComponent },
-  { path: 'profile', component: ProfileComponent }
+  { path: 'profile', component: ProfileComponent },
+  { path: 'recipe/:id', component: RecipeComponent, resolve: { data : RecipeResolver }  },
+  { path: 'search', component: SearchComponent },
 ];
 
 @NgModule({
