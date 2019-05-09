@@ -1,10 +1,7 @@
 <section>
-<div class="login-form">
-  <ngx-auth-firebaseui  appearance="outline"
-  [providers]="['google']"
-  (onSuccess)="printUser($event)"
-  (onSuccess)="loginRedirect()"
-  (onError)="printError($event)" [guestEnabled]="false">
-  </ngx-auth-firebaseui>
-</div>
+  <div class="login-form">
+    <ngx-auth-firebaseui appearance="outline" [providers]="['google']" (onSuccess)="printUser($event)" (onSuccess)="loginRedirect()"
+      (onSuccess)="confirmUserLogIn()" (onError)="printError($event)" [guestEnabled]="false">
+    </ngx-auth-firebaseui>
+  </div>
 </section>
