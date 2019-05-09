@@ -25,17 +25,17 @@ import {FirestoreSettingsToken} from '@angular/fire/firestore';
 import {HttpClientModule} from '@angular/common/http';
 import {ShareButtonsModule} from '@ngx-share/buttons';
 
-import {FormsModule} from '@angular/forms';
-import {AppRoutingModule} from './app-routing.module';
-import {AppComponent} from './app.component';
-import {NavComponent} from './components/nav/nav.component';
-import {RecipeComponent} from './components/recipe/recipe.component';
-import {HomeComponent} from './components/home/home.component';
-import {ProfileComponent} from './components/profile/profile.component';
-import {RecipesListComponent} from './components/recipes-list/recipes-list.component';
-import {LoginFormComponent} from './components/login-form/login-form.component';
-import {SearchByIngredientsComponent} from './components/search-by-ingredients/search-by-ingredients.component';
-import {AddNewRecipeComponent} from './components/add-new-recipe/add-new-recipe.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { NavComponent } from './components/nav/nav.component';
+import { RecipeComponent } from './components/recipe/recipe.component';
+import { HomeComponent } from './components/home/home.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { RecipesListComponent } from './components/recipes-list/recipes-list.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
+import { SearchByIngredientsComponent } from './components/search-by-ingredients/search-by-ingredients.component';
+import { AddNewRecipeComponent } from './components/add-new-recipe/add-new-recipe.component';
 
 import {RecipesFbService} from './services/recipes-fb.service';
 import {DragDropModule} from '@angular/cdk/drag-drop';
@@ -87,14 +87,13 @@ export class SafePipe implements PipeTransform {
     MatFormFieldModule,
     MatSelectModule,
     FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase, 'FLX-project'),
     AngularFirestoreModule,
     MatListModule,
     MatTooltipModule,
-    FormsModule,
     DragDropModule,
     MatCardModule,
-    MatDialogModule,
     StarRatingModule.forRoot(),
     NgxAuthFirebaseUIModule.forRoot({
       apiKey: 'AIzaSyAPCaQl95Xh3q9DS8VhATyLxwKKuGzmick',
