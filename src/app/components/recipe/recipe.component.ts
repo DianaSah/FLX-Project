@@ -1,9 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
-import { Recipe } from '../../models/recipe';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { RecipeService } from '../../recipe.service';
 
 import { Location } from '@angular/common';
-import {ActivatedRoute} from '@angular/router';
+
 
 @Component({
   selector: 'app-recipe',
@@ -11,7 +11,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./recipe.component.scss']
 })
 export class RecipeComponent implements OnInit {
-  public recipe: Recipe;
+  recipe: any;
   favorite: string = 'favorite_border';
 
   constructor(
@@ -20,17 +20,16 @@ export class RecipeComponent implements OnInit {
     private location: Location
   ) {}
 
-  ngOnInit(): void {
-    this.getRecipe();
+  ngOnInit() {
+    this.route.data.subscribe(routeData => {
+      let data = routeData['data'];
+      if (data) {
+        this.recipe = data.payload.data();
+        this.recipe.id = data.payload.id;
+      }
+    });
     this.favorite = this.recipe.isFavorite ? 'favorite' : 'favorite_border';
   }
-
-  getRecipe(): void {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.recipeService.getRecipe(id)
-      .subscribe(recipe => this.recipe = recipe);
-  }
-
   goBack(): void {
     this.location.back();
   }

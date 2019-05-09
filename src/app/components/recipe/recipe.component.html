@@ -3,8 +3,8 @@
   <div>
     <div class="recipe-component_image-btn-wrapper">
       <img mat-card-image
-           src={{recipe.imageSrc}}
-           alt={{recipe.title}}>
+           [src]="recipe.imageSrc"
+           [alt]="recipe.title">
       <div class="recipe-component__buttons">
         <mat-card-actions>
           <button mat-button (click)="handleFavorite()">

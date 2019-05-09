@@ -1,10 +1,10 @@
 import {BrowserModule, DomSanitizer} from '@angular/platform-browser';
 import {MatTabsModule} from '@angular/material/tabs';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { environment } from '../environments/environment';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {environment} from '../environments/environment';
 import {NgModule, Pipe, PipeTransform} from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
   MatCheckboxModule,
@@ -18,12 +18,12 @@ import {
   MatSelectModule
 
 } from '@angular/material';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { StarRatingModule } from 'angular-star-rating';
-import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
-import { FirestoreSettingsToken} from '@angular/fire/firestore';
-import { HttpClientModule } from '@angular/common/http';
-import { ShareButtonsModule } from '@ngx-share/buttons';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {StarRatingModule} from 'angular-star-rating';
+import {NgxAuthFirebaseUIModule} from 'ngx-auth-firebaseui';
+import {FirestoreSettingsToken} from '@angular/fire/firestore';
+import {HttpClientModule} from '@angular/common/http';
+import {ShareButtonsModule} from '@ngx-share/buttons';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -39,15 +39,17 @@ import { AddNewRecipeComponent } from './components/add-new-recipe/add-new-recip
 
 import {RecipesFbService} from './services/recipes-fb.service';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import { SearchByNameComponent } from './components/search-by-name/search-by-name.component';
+import {SearchByNameComponent} from './components/search-by-name/search-by-name.component';
 import {ModalComponent, ShareComponent} from './components/share/share.component';
-import { AutofocusDirective } from './autofocus.directive';
+import {AutofocusDirective} from './autofocus.directive';
 import {SearchComponent} from './components/search/search.component';
+import {RecipeResolver} from './components/recipe/recipe.resolver';
 
-
-@Pipe({ name: 'safe' })
+@Pipe({name: 'safe'})
 export class SafePipe implements PipeTransform {
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(private sanitizer: DomSanitizer) {
+  }
+
   transform(url) {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
@@ -94,13 +96,13 @@ export class SafePipe implements PipeTransform {
     MatCardModule,
     StarRatingModule.forRoot(),
     NgxAuthFirebaseUIModule.forRoot({
-    apiKey: "AIzaSyAPCaQl95Xh3q9DS8VhATyLxwKKuGzmick",
-    authDomain: "cookbook-epam2019.firebaseapp.com",
-    databaseURL: "https://cookbook-epam2019.firebaseio.com",
-    projectId: "cookbook-epam2019",
-    storageBucket: "cookbook-epam2019.appspot.com",
-    messagingSenderId: "21753682188",
-    appId: "1:21753682188:web:1888b214325b993f"
+      apiKey: 'AIzaSyAPCaQl95Xh3q9DS8VhATyLxwKKuGzmick',
+      authDomain: 'cookbook-epam2019.firebaseapp.com',
+      databaseURL: 'https://cookbook-epam2019.firebaseio.com',
+      projectId: 'cookbook-epam2019',
+      storageBucket: 'cookbook-epam2019.appspot.com',
+      messagingSenderId: '21753682188',
+      appId: '1:21753682188:web:1888b214325b993f'
     }),
     HttpClientModule,
     ShareButtonsModule
@@ -109,7 +111,8 @@ export class SafePipe implements PipeTransform {
     ModalComponent,
     AddNewRecipeComponent
   ],
-  providers: [RecipesFbService, { provide: FirestoreSettingsToken, useValue: {} }],
+  providers: [RecipesFbService, {provide: FirestoreSettingsToken, useValue: {}}, RecipeResolver],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

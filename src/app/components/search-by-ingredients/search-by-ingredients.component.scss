@@ -101,6 +101,9 @@ section {
           padding-left: 0;
           z-index: 1000;
           position: absolute;
+          .chosen-ingr{
+            background-color: rgb(163, 221, 97);
+          }
               mat-list-item{
               color: $base-color;
               border-bottom: $border;
@@ -139,3 +142,5 @@ section {
     }
   }
 }
+
+

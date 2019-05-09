@@ -1,18 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { RECIPES } from '../../mock_recepies';
-import {Recipe} from '../../models/recipe';
+import { RecipeService } from '../../recipe.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-recipes-list',
   templateUrl: './recipes-list.component.html',
-  styleUrls: ['./recipes-list.component.scss']
+  styleUrls: ['./recipes-list.component.scss'],
 })
 export class RecipesListComponent implements OnInit {
-  public recipes: Recipe[] = RECIPES;
+  recipes: any = [];
 
-  constructor() { }
-
+  constructor(
+    private recipeService: RecipeService,
+    private router: Router
+  ) { }
+  viewDetails(recipe) {
+    this.router.navigate(['/recipe/' + recipe.payload.doc.id]);
+  }
   ngOnInit() {
+    this.recipeService.getRecipes()
+      .subscribe((recipe) => this.recipes = recipe
+    );
   }
 
 }

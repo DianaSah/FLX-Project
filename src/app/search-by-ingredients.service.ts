@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {Observable, of, Subject} from 'rxjs';
 import {INGREDIENTS} from './mock_ingredients';
 import {RECIPES} from './mock_recepies';
@@ -9,13 +9,10 @@ import {Recipe} from './models/recipe';
 })
 export class SearchByIngredientsService {
   public filteredRecipes: Recipe[] = [];
-  exportIngredients$: Observable<any>;
-  private exportIngr = new Subject<any>();
 
   getIngredients(): Observable<string[]> {
     return of(INGREDIENTS);
   }
-
 
   /* GET ingredients which name contains search term */
   searchIngredients(term: string): Observable<string[]> {
@@ -27,10 +24,7 @@ export class SearchByIngredientsService {
     return of(INGREDIENTS.filter((ingr) => ingr.indexOf(term) === 0));
   }
 
-  constructor() {
-    this.exportIngredients$ = this.exportIngr.asObservable();
-  }
-
+  constructor() {}
   exportRecipes() {
     return this.filteredRecipes;
   }
