@@ -15,8 +15,9 @@ export class RecipesFbService {
     let ingredientsArray = ingredients.split(', ');
     let steps = value.steps;
     let stepsArray = steps.split('. ');
+    let nameToSearch = value.title.toLowerCase();
     return this.dataBase.collection('recipes').add({
-      title: value.title,
+      title: nameToSearch,
       imageSrc: value.imageSrc,
       description: value.description,
       cuisineType: value.cuisineType,
