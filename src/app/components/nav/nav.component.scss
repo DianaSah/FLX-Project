@@ -13,11 +13,20 @@ header {
         cursor: pointer;
     }
 
+    .search-form {
+      margin-top: 15px;
+      button {
+        margin-left: 10px;
+      }
+    }
     .log-btn {
-        font-size: 19px;
+      font-size: 19px;
+      display: flex;
+      align-items: center;
     }
 
-    .user-icon {
+
+  .user-icon {
         font-size: 29px;
     }
 

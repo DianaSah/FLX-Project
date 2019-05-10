@@ -2,10 +2,10 @@
   <div class="logo" routerLink="">Logo</div>
   <form class="search-form" *ngIf="clicked">
     <mat-form-field>
-      <input matInput #searchRecipe (blur)="handleInpSearch()" placeholder="Enter recipe name" />
+      <input matInput type="text" (blur)="toggleFocus()" placeholder="Enter recipe name" appAutofocus/>
     </mat-form-field>
   </form>
-  <button class="log-btn" mat-button *ngIf="!clicked" (click)="handleNavSearch()">
+  <button class="log-btn" mat-button *ngIf="!clicked" (click)="toggleFocus()">
     Search <mat-icon>search</mat-icon>
   </button>
   <button class="log-btn" mat-button routerLink="/login" *ngIf="!this.checkLogInService.IsUserLogIn">Sing In</button>

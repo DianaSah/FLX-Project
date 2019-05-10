@@ -39,7 +39,6 @@ import { AddNewRecipeComponent } from './components/add-new-recipe/add-new-recip
 
 import {RecipesFbService} from './services/recipes-fb.service';
 import {DragDropModule} from '@angular/cdk/drag-drop';
-import {SearchByNameComponent} from './components/search-by-name/search-by-name.component';
 import {ModalComponent, ShareComponent} from './components/share/share.component';
 import {AutofocusDirective} from './autofocus.directive';
 import {SearchComponent} from './components/search/search.component';
@@ -66,7 +65,6 @@ export class SafePipe implements PipeTransform {
     LoginFormComponent,
     SearchByIngredientsComponent,
     AddNewRecipeComponent,
-    SearchByNameComponent,
     ShareComponent,
     ModalComponent,
     AutofocusDirective,

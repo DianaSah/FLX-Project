@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class NavComponent implements OnInit {
   @ViewChild('searchRecipe') searchElement: ElementRef;
   clicked: boolean = false;
+  visibility: boolean = true;
+
   constructor(
     private router: Router,
     private checkLogInService: CheckLogInService
@@ -17,17 +19,10 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {}
 
-  handleNavSearch() {
-    this.clicked = !this.clicked;
-    setTimeout(() => {
-      this.searchElement.nativeElement.focus();
-    }, 0);
-  }
-  handleInpSearch() {
+  toggleFocus() {
     this.clicked = !this.clicked;
   }
 
-  visibility: boolean = true;
   toggle() {
     this.visibility = !this.visibility;
   }
