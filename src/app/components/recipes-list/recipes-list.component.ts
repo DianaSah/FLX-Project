@@ -17,7 +17,7 @@ export class RecipesListComponent implements OnInit {
     private router: Router
   ) { }
   viewDetails(recipe) {
-    this.router.navigate(['/recipe/' + recipe.payload.doc.id]);
+    this.router.navigate(['/recipe/' + recipe.id]);
   }
   ngOnInit() {
     this.recipes$ = this.recipeService.getRecipes();
