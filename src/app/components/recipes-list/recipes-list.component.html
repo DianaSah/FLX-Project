@@ -1,4 +1,4 @@
-<mat-card class="recipe-component" *ngFor="let recipe of recipes" (click)="viewDetails(recipe)">
+<mat-card class="recipe-component" *ngFor="let recipe of recipes$ | async" (click)="viewDetails(recipe)">
 
   <div>
     <div class="recipe-component__image-btn-wrapper">

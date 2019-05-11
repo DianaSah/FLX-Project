@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {Component, Input, OnInit} from '@angular/core';
+import { Recipe } from '../../models/recipe';
 import { RecipeService } from '../../recipe.service';
 
 import { Location } from '@angular/common';
-
+import {ActivatedRoute} from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-recipe',
@@ -11,7 +12,7 @@ import { Location } from '@angular/common';
   styleUrls: ['./recipe.component.scss']
 })
 export class RecipeComponent implements OnInit {
-  recipe: any;
+  public recipe$: Observable<Recipe>;
   favorite: string = 'favorite_border';
 
   constructor(
@@ -20,28 +21,21 @@ export class RecipeComponent implements OnInit {
     private location: Location
   ) {}
 
-  ngOnInit() {
-    this.route.data.subscribe(routeData => {
-      let data = routeData['data'];
-      if (data) {
-        this.recipe = data.payload.data();
-        this.recipe.id = data.payload.id;
-      }
-    });
-    this.favorite = this.recipe.isFavorite ? 'favorite' : 'favorite_border';
+  ngOnInit(): void {
+    this.getRecipe();
   }
+
+  getRecipe(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.recipe$ = this.recipeService.getRecipe(id);
+  }
+
   goBack(): void {
     this.location.back();
   }
 
   handleFavorite() {
-    if (this.favorite === 'favorite_border') {
-      this.favorite = 'favorite';
-      this.recipe.isFavorite = true;
-    } else {
-      this.favorite = 'favorite_border';
-      this.recipe.isFavorite = false;
-    }
+
   }
 
 }

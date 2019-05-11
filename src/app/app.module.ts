@@ -42,7 +42,6 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {ModalComponent, ShareComponent} from './components/share/share.component';
 import {AutofocusDirective} from './autofocus.directive';
 import {SearchComponent} from './components/search/search.component';
-import {RecipeResolver} from './components/recipe/recipe.resolver';
 
 @Pipe({name: 'safe'})
 export class SafePipe implements PipeTransform {
@@ -109,7 +108,7 @@ export class SafePipe implements PipeTransform {
     ModalComponent,
     AddNewRecipeComponent
   ],
-  providers: [RecipesFbService, {provide: FirestoreSettingsToken, useValue: {}}, RecipeResolver],
+  providers: [RecipesFbService, {provide: FirestoreSettingsToken, useValue: {}}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
