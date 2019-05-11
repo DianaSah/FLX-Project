@@ -12,6 +12,10 @@ export class RecipeService {
 
   constructor(public afs: AngularFirestore) { }
 
+  getRecipes() {
+    return this.afs.collection<Recipe>('recipes').valueChanges();
+  }
+
   getRecipe(id): Observable<Recipe> {
     return this.afs.collection<Recipe>('recipes').stateChanges().pipe(
       map(actions => {
