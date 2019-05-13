@@ -16,11 +16,12 @@
       <div class="search-by-ingredients">
         <div class="search-form">
           <mat-form-field>
-            <input matInput #searchBox placeholder="Enter ingredient" (input)="search(searchBox.value)" 
+            <input matInput #searchBox placeholder="Enter ingredient" (input)="search(searchBox.value)"
                     autocomplete="off" [(ngModel)]="chosenIngr" (keydown.enter)="addIngredientToList()"
                     (keydown.arrowdown)="arrowDown()" (keydown.arrowup)="arrowUp()"/>
             <mat-list class="search-result" #searchHintList>
-                <mat-list-item *ngFor="let ingredient of ingredients$ | async" (click)="addToListFromHint(ingredient)" [class.chosen-ingr]="chosenIngr === ingredient"> {{ingredient}} </mat-list-item>
+                <mat-list-item *ngFor="let ingredient of ingredients$ | async" (click)="addToListFromHint(ingredient)"
+                               [class.chosen-ingr]="chosenIngr === ingredient"> {{ingredient}} </mat-list-item>
             </mat-list>
           </mat-form-field>
         </div>
@@ -30,7 +31,7 @@
           <h3>Your Ingredients</h3>
           <div class="search-list-table">
               <mat-list>
-                  <mat-list-item *ngFor="let ingredient of choosenIngredients">
+                  <mat-list-item *ngFor="let ingredient of chosenIngredients">
                      <p>- {{ingredient}}</p>
                     <mat-icon (click)='deleteIngredient(ingredient)'>clear</mat-icon>
                   </mat-list-item>

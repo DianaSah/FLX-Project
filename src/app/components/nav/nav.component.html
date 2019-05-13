@@ -2,11 +2,20 @@
   <div class="logo" routerLink="">Logo</div>
   <form class="search-form" *ngIf="clicked">
     <mat-form-field>
-      <input matInput type="text" (blur)="toggleFocus()" placeholder="Enter recipe name" appAutofocus/>
+      <input matInput type="text" #searchBox (input)="search(searchBox.value.toLowerCase())" autocomplete="off"
+             [(ngModel)]="chosenRecp" [ngModelOptions]="{standalone: true}" (blur)="toggleFocus()"
+             placeholder="Enter recipe name" appAutofocus/>
+      <mat-list class="search-result" #searchHintList>
+        <mat-list-item *ngFor="let recipe of recipes$ | async" (click)="openRecipe(recipe)"
+                       [class.chosen-ingr]="chosenRecp === recipe">
+          {{recipe}}
+        </mat-list-item>
+      </mat-list>
     </mat-form-field>
   </form>
   <button class="log-btn" mat-button *ngIf="!clicked" (click)="toggleFocus()">
-    Search <mat-icon>search</mat-icon>
+    Search
+    <mat-icon>search</mat-icon>
   </button>
   <button class="log-btn" mat-button routerLink="/login" *ngIf="!this.checkLogInService.IsUserLogIn">Sing In</button>
   <button mat-button (click)="toggle()" routerLink="/profile" *ngIf="this.checkLogInService.IsUserLogIn">

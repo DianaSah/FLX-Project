@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class RecipeService {
-
+  chosenRecipe: string[] = [];
   constructor(public afs: AngularFirestore) { }
 
   getRecipes() {
@@ -35,6 +35,29 @@ export class RecipeService {
         });
         return recipe;
     }));
+  }
+
+
+  searchRecipes(term: string): Observable<string[]> {
+    if (!term.trim()) {
+      // if not search term, return empty ingredient array.
+      return of([]);
+    }
+    return this.afs.collection<Recipe>('recipes').stateChanges().pipe(
+      map(actions => {
+        const recipeSet = new Set();
+        actions.map(a => {
+          const recipe = a.payload.doc.data() as Recipe;
+          let recipeName = recipe.title.toLowerCase().split('.');
+          recipeName.forEach((recipe) => {
+
+            if (recipe.indexOf(term.toLowerCase()) === 0) {
+              recipeSet.add(recipe);
+            }
+          });
+        });
+        return Array.from(recipeSet);
+      }));
   }
 }
 
