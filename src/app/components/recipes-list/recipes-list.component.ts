@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../../models/recipe';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import { RecipeService} from '../../recipe.service';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-recipes-list',
@@ -10,11 +11,14 @@ import { RecipeService} from '../../recipe.service';
   styleUrls: ['./recipes-list.component.scss'],
 })
 export class RecipesListComponent implements OnInit {
-  public recipes$: Observable<Recipe[]>;
+  searchValue: string = "";
+  recipes$: Observable<Recipe[]>;
+  recipes: Array<any>;
 
   constructor(
     private recipeService: RecipeService,
-    private router: Router
+    private router: Router,
+    private afs: AngularFirestore
   ) { }
   viewDetails(recipe) {
     this.router.navigate(['/recipe/' + recipe.id]);
@@ -22,5 +26,20 @@ export class RecipesListComponent implements OnInit {
   ngOnInit() {
     this.recipes$ = this.recipeService.getRecipes();
   }
+
+  searchByName() {
+    let value = this.searchValue.toLowerCase();
+    this.searchRecipes(value)
+      .subscribe(result => {
+        this.recipes = result;
+      });
+  }
+
+  searchRecipes(searchValue) {
+    return this.afs.collection<Recipe>('recipes',ref => ref.where('nameToSearch', '>=', searchValue)
+      .where('nameToSearch', '<=', searchValue + '\uf8ff'))
+      .snapshotChanges();
+  }
+
 
 }

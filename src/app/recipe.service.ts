@@ -13,7 +13,7 @@ export class RecipeService {
   constructor(public afs: AngularFirestore) { }
 
   getRecipes() {
-    return this.afs.collection<Recipe>('recipes').snapshotChanges().pipe(
+    return this.afs.collection<Recipe>('recipes',ref => ref.orderBy('title')).snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Recipe;
         const id = a.payload.doc.id;

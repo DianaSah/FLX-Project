@@ -22,7 +22,7 @@ export class SearchByIngredientsComponent implements OnInit {
   private searchTerms = new Subject<string>();
   newSearchHintList: boolean;
 
-  public hintIngredients: string[];
+  public hintIngredients: string[] = [];
   public i: number;
   public choosenIngredients: string[] = [];
   public constructor(private searchByIngredientsService: SearchByIngredientsService ) {

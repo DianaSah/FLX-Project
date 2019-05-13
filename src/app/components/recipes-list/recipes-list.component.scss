@@ -1,5 +1,8 @@
 @import "../../../variables";
-
+#searchRecipe {
+  display: flex;
+  justify-content: center;
+}
 .recipe-component {
   max-width: 700px;
   margin: 10px auto;
