@@ -1,7 +1,10 @@
 @import "../../../variables";
-#searchRecipe {
+#searchRecipeForm {
   display: flex;
   justify-content: center;
+  #searchRecipeInput {
+    width: 300px;
+  }
 }
 .recipe-component {
   max-width: 700px;
@@ -60,4 +63,8 @@
       padding: 0;
     }
   }
+}
+
+#noRecipesFound {
+  text-align: center;
 }

@@ -41,3 +41,10 @@
   </div>
 
 </mat-card>
+
+<div *ngIf="(recipes$ | async | filter:searchText)?.length < 1">
+  <hr>
+  <p id="noRecipesFound">
+    No recipes found ☹
+  </p>
+</div>

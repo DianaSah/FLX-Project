@@ -5,6 +5,7 @@ import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {environment} from '../environments/environment';
 import {NgModule, Pipe, PipeTransform} from '@angular/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {
   MatButtonModule,
   MatCheckboxModule,
@@ -102,7 +103,8 @@ export class SafePipe implements PipeTransform {
       appId: '1:21753682188:web:1888b214325b993f'
     }),
     HttpClientModule,
-    ShareButtonsModule
+    ShareButtonsModule,
+    Ng2SearchPipeModule
   ],
   entryComponents: [
     ModalComponent,

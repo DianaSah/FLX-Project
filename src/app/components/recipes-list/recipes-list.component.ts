@@ -11,35 +11,19 @@ import {AngularFirestore} from '@angular/fire/firestore';
   styleUrls: ['./recipes-list.component.scss'],
 })
 export class RecipesListComponent implements OnInit {
-  searchValue: string = "";
   recipes$: Observable<Recipe[]>;
-  recipes: Array<any>;
 
   constructor(
     private recipeService: RecipeService,
     private router: Router,
     private afs: AngularFirestore
   ) { }
+
   viewDetails(recipe) {
     this.router.navigate(['/recipe/' + recipe.id]);
   }
   ngOnInit() {
     this.recipes$ = this.recipeService.getRecipes();
   }
-
-  searchByName() {
-    let value = this.searchValue.toLowerCase();
-    this.searchRecipes(value)
-      .subscribe(result => {
-        this.recipes = result;
-      });
-  }
-
-  searchRecipes(searchValue) {
-    return this.afs.collection<Recipe>('recipes',ref => ref.where('nameToSearch', '>=', searchValue)
-      .where('nameToSearch', '<=', searchValue + '\uf8ff'))
-      .snapshotChanges();
-  }
-
 
 }
