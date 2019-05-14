@@ -11,11 +11,7 @@ export class CheckLogInService {
 
   checkLogin() {
     firebase.auth().onAuthStateChanged(user => {
-      if (user) {
-        this.isUserLogIn = true;
-      } else {
-        this.isUserLogIn = false;
-      }
+      user ? this.isUserLogIn = true : this.isUserLogIn = false;
     });
   }
 }

@@ -2,8 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {MatDialog, MatDialogConfig} from '@angular/material';
 import {AddNewRecipeComponent} from '../add-new-recipe/add-new-recipe.component';
 //import {Recipe} from '../../models/recipe'
-import {CheckLogInService} from '../../check-log-in.service';
-
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-profile',
@@ -12,14 +11,17 @@ import {CheckLogInService} from '../../check-log-in.service';
 })
 export class ProfileComponent implements OnInit {
   //userRecipe: Recipe = {}
-  isLoggedIn: boolean = this.checkLogInService.isUserLogIn;
+  isLoggedIn: boolean;
 
   constructor(
     private dialog: MatDialog,
-    private checkLogInService: CheckLogInService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    firebase.auth().onAuthStateChanged(user => {
+      user ? this.isLoggedIn = true : this.isLoggedIn = false;
+    });
+  }
 
   addCustomerRecipe() {
     this.dialog.open(AddNewRecipeComponent);
