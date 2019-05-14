@@ -17,7 +17,9 @@ export class NavComponent implements OnInit {
     public checkLogInService: CheckLogInService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.checkLogInService.checkLogin();
+  }
 
   toggleFocus() {
     this.clicked = !this.clicked;
@@ -28,7 +30,7 @@ export class NavComponent implements OnInit {
   }
 
   catchLogOutEvent(): void {
-    this.checkLogInService.IsUserLogIn = false;
+    this.checkLogInService.isUserLogIn = false;
     this.toggle();
     this.router.navigate(['']);
   }
