@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialog, MatDialogConfig} from '@angular/material';
-import { AddNewRecipeComponent } from '../add-new-recipe/add-new-recipe.component';
-//import {Recipe} from '../../models/recipe' 
+import {AddNewRecipeComponent} from '../add-new-recipe/add-new-recipe.component';
+//import {Recipe} from '../../models/recipe'
+import {CheckLogInService} from '../../check-log-in.service';
 
 
 @Component({
@@ -11,15 +12,18 @@ import { AddNewRecipeComponent } from '../add-new-recipe/add-new-recipe.componen
 })
 export class ProfileComponent implements OnInit {
   //userRecipe: Recipe = {}
+  isLoggedIn: boolean = this.checkLogInService.isUserLogIn;
 
   constructor(
-    private dialog: MatDialog) { }
+    private dialog: MatDialog,
+    private checkLogInService: CheckLogInService
+  ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   addCustomerRecipe() {
     this.dialog.open(AddNewRecipeComponent);
   }
+
 }
 

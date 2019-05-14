@@ -17,8 +17,8 @@
     Search
     <mat-icon>search</mat-icon>
   </button>
-  <button class="log-btn" mat-button routerLink="/login" *ngIf="!this.checkLogInService.IsUserLogIn">Sing In</button>
-  <button mat-button (click)="toggle()" routerLink="/profile" *ngIf="this.checkLogInService.IsUserLogIn">
+  <button class="log-btn" mat-button routerLink="/login" *ngIf="!this.checkLogInService.isUserLogIn">Sing In</button>
+  <button mat-button (click)="toggle()" routerLink="/profile" *ngIf="this.checkLogInService.isUserLogIn">
     <mat-icon class="user-icon">face</mat-icon>
   </button>
 </header>

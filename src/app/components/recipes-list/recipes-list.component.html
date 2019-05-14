@@ -1,7 +1,7 @@
-<form id="searchRecipeForm">
-  <mat-form-field id="searchRecipeInput">
+<form class="searchRecipeForm">
+  <mat-form-field class="searchRecipeInput">
     <input matInput type="text" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}" autocomplete="off"
-           placeholder="Search recipe by title and description"/>
+           placeholder="Search recipe by title or description"/>
   </mat-form-field>
 </form>
 
@@ -51,7 +51,7 @@
 
 <div *ngIf="(recipes$ | async | filter:searchText)?.length < 1">
   <hr>
-  <p id="noRecipesFound">
+  <p class="noRecipesFound">
     No recipes found ☹
   </p>
 </div>

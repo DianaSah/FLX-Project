@@ -28,13 +28,14 @@ export class NavComponent implements OnInit {
   constructor(
     private router: Router,
     public checkLogInService: CheckLogInService,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
   ) {}
   search(term: string): void {
     this.newSearchHintList = true;
     this.searchTerms.next(term);
   }
   ngOnInit() {
+    this.checkLogInService.checkLogin();
     this.isMouseOverList = false;
     this.recipes$ = this.searchTerms.pipe(
       debounceTime(100),
@@ -67,7 +68,7 @@ export class NavComponent implements OnInit {
   }
 
   catchLogOutEvent(): void {
-    this.checkLogInService.IsUserLogIn = false;
+    this.checkLogInService.isUserLogIn = false;
     this.toggle();
     this.router.navigate(['']);
   }

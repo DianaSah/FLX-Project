@@ -1,9 +1,10 @@
 @import "../../../variables";
-#searchRecipeForm {
+
+.searchRecipeForm {
   display: flex;
   justify-content: center;
-  #searchRecipeInput {
-    width: 300px;
+  .searchRecipeInput {
+    width: 285px;
   }
 }
 .recipe-component {
@@ -65,6 +66,6 @@
   }
 }
 
-#noRecipesFound {
+.noRecipesFound {
   text-align: center;
 }
