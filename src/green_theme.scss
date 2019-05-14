@@ -5,6 +5,9 @@
     ngx-auth-firebaseui-user {
         font-size: 14px;
     }
+    mat-card {
+        z-index: 2;
+    }
 }
 
 .login-form {

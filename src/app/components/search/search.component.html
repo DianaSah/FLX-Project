@@ -1,4 +1,4 @@
-<mat-card class="recipe-component" *ngFor="let recipe of recipes" routerLink="/recipe/{{recipe.id}}">
+<mat-card class="recipe-component" *ngFor="let recipe of recipes$ | async" routerLink="/recipe/{{recipe.id}}">
 
   <div>
     <div class="recipe-component__image-btn-wrapper">

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CheckLogInService } from 'src/app/check-log-in.service';
 
 @Component({
   selector: 'app-login-form',
@@ -7,7 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private checkLogInService: CheckLogInService
+  ) {}
+
+  ngOnInit() {}
 
   public loginRedirect(): void {
     this.router.navigate(['/profile']);
@@ -20,5 +26,7 @@ export class LoginFormComponent implements OnInit {
     console.error(event);
   }
 
-  ngOnInit() {}
+  public confirmUserLogIn(): void {
+    this.checkLogInService.IsUserLogIn = true;
+  }
 }

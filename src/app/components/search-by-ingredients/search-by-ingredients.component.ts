@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SearchByIngredientsService } from '../../search-by-ingredients.service';
 import { Observable, Subject, of } from 'rxjs';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
@@ -25,8 +25,8 @@ export class SearchByIngredientsComponent implements OnInit {
   public hintIngredients: string[];
   public i: number;
   public choosenIngredients: string[] = [];
-
-  public constructor(private searchByIngredientsService: SearchByIngredientsService ) {}
+  public constructor(private searchByIngredientsService: SearchByIngredientsService ) {
+  }
 
     // Push a search term into the observable stream.
     search(term: string): void {
@@ -78,7 +78,7 @@ export class SearchByIngredientsComponent implements OnInit {
       }
   }
   exportIngredients() {
-    this.searchByIngredientsService.checkIngredients(this.choosenIngredients);
+    this.searchByIngredientsService.chosenIngre = this.choosenIngredients;
   }
 
   arrowDown() {

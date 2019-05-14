@@ -1,8 +1,18 @@
 <header>
   <div class="logo" routerLink="">Logo</div>
-  <app-search-by-name></app-search-by-name>
-  <button class="log-btn" mat-button routerLink="/login">Sing In</button>
-  <button mat-button routerLink="/profile">
+  <form class="search-form" *ngIf="clicked">
+    <mat-form-field>
+      <input matInput type="text" (blur)="toggleFocus()" placeholder="Enter recipe name" appAutofocus/>
+    </mat-form-field>
+  </form>
+  <button class="log-btn" mat-button *ngIf="!clicked" (click)="toggleFocus()">
+    Search <mat-icon>search</mat-icon>
+  </button>
+  <button class="log-btn" mat-button routerLink="/login" *ngIf="!this.checkLogInService.IsUserLogIn">Sing In</button>
+  <button mat-button (click)="toggle()" routerLink="/profile" *ngIf="this.checkLogInService.IsUserLogIn">
     <mat-icon class="user-icon">face</mat-icon>
   </button>
 </header>
+<div [ngClass]="{invisible: visibility}" class="profile-form">
+  <ngx-auth-firebaseui-user appearance="outline" (onSignOut)="catchLogOutEvent()"></ngx-auth-firebaseui-user>
+</div>

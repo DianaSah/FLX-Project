@@ -1,23 +1,40 @@
 import { Injectable } from '@angular/core';
+import { Observable, of, from } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Recipe } from './models/recipe';
+import { map } from 'rxjs/operators';
 
-
-export interface Recipe { name: string; }
 
 @Injectable({
   providedIn: 'root'
 })
 export class RecipeService {
 
-  constructor(private afs: AngularFirestore) {
-  }
+  constructor(public afs: AngularFirestore) { }
 
   getRecipes() {
-    return this.afs.collection('recipes').snapshotChanges();
+    return this.afs.collection<Recipe>('recipes').snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Recipe;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
   }
 
-  getRecipeById(recipeKey) {
-    return this.afs.collection('recipes').doc(recipeKey).snapshotChanges();
+  getRecipe(id): Observable<Recipe> {
+    return this.afs.collection<Recipe>('recipes').stateChanges().pipe(
+      map(actions => {
+        let recipe: Recipe;
+        actions.map(a => {
+          const data = a.payload.doc.data() as Recipe;
+          const ind = a.payload.doc.id;
+          if (ind === id) {
+            recipe = data;
+          }
+        });
+        return recipe;
+    }));
   }
-
 }
+

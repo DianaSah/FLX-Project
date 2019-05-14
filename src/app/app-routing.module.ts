@@ -6,7 +6,6 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
 import { SearchComponent } from './components/search/search.component';
-import { RecipeResolver } from './components/recipe/recipe.resolver';
 
 
 const routes: Routes = [
@@ -14,7 +13,7 @@ const routes: Routes = [
   { path: 'recipes_list', component: RecipesListComponent },
   { path: 'login', component: LoginFormComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'recipe/:id', component: RecipeComponent, resolve: { data : RecipeResolver }  },
+  { path: 'recipe/:id', component: RecipeComponent },
   { path: 'search', component: SearchComponent },
 ];
 
