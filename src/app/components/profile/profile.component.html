@@ -1,4 +1,4 @@
-<mat-tab-group>
+<mat-tab-group *ngIf="isLoggedIn; else isLoggedOut">
   <mat-tab>
     <ng-template mat-tab-label>
       <mat-icon class="example-tab-icon">thumb_up</mat-icon>
@@ -32,3 +32,11 @@
     </div>
   </mat-tab>
 </mat-tab-group>
+
+<ng-template #isLoggedOut>
+  <hr>
+  <p class="isLoggedOut">
+    Please log in first to see this page
+  </p>
+</ng-template>
+
