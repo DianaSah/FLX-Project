@@ -69,3 +69,25 @@
 .noRecipesFound {
   text-align: center;
 }
+
+.filter{
+  text-align: center;
+  color: #25333b9c;
+  position: fixed;
+  top: 170px;
+  left: 60px;
+  padding: 16px;
+  border: 1.5px solid #25333b9c;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  button{
+    background-color: #25333b9c;
+  }
+  .select-table{
+    option:hover{
+      background-color: #96e63b59;
+    }
+  }
+}

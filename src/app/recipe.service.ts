@@ -59,5 +59,17 @@ export class RecipeService {
       })
       );
   }
+
+  getCuisineTypes(): Observable<string[]> {
+    return this.afs.collection<Recipe>('recipes').stateChanges().pipe(
+      map(actions => {
+          const cuisineTypesSet = new Set();
+          actions.map(a => {
+            const recipe = a.payload.doc.data() as Recipe;
+            cuisineTypesSet.add(recipe.cuisineType);
+          });
+          return Array.from(cuisineTypesSet);
+      }));
+  }
 }
 
