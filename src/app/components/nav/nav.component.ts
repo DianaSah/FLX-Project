@@ -35,6 +35,7 @@ export class NavComponent implements OnInit {
     this.searchTerms.next(term);
   }
   ngOnInit() {
+    this.checkLogInService.checkLogin();
     this.recipes$ = this.searchTerms.pipe(
       debounceTime(100),
       distinctUntilChanged(),
@@ -78,7 +79,7 @@ export class NavComponent implements OnInit {
   }
 
   catchLogOutEvent(): void {
-    this.checkLogInService.IsUserLogIn = false;
+    this.checkLogInService.isUserLogIn = false;
     this.toggle();
     this.router.navigate(['']);
   }

@@ -13,7 +13,9 @@ export class LoginFormComponent implements OnInit {
     private checkLogInService: CheckLogInService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.checkLogInService.checkLogin();
+  }
 
   public loginRedirect(): void {
     this.router.navigate(['/profile']);
@@ -27,6 +29,6 @@ export class LoginFormComponent implements OnInit {
   }
 
   public confirmUserLogIn(): void {
-    this.checkLogInService.IsUserLogIn = true;
+    this.checkLogInService.isUserLogIn = true;
   }
 }

@@ -102,7 +102,7 @@ export class SafePipe implements PipeTransform {
       appId: '1:21753682188:web:1888b214325b993f'
     }),
     HttpClientModule,
-    ShareButtonsModule
+    ShareButtonsModule,
   ],
   entryComponents: [
     ModalComponent,
