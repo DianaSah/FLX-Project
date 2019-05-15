@@ -2,13 +2,14 @@
   <div class="logo" routerLink="">Logo</div>
   <form class="search-form" *ngIf="clicked">
     <mat-form-field>
-      <input matInput type="text" #searchBox (input)="search(searchBox.value.toLowerCase())" autocomplete="off"
-             [(ngModel)]="chosenRecp" [ngModelOptions]="{standalone: true}" (blur)="toggleFocus()"
+      <input matInput type="text" #searchBox (input)="search(searchBox.value)" autocomplete="off"
+             [(ngModel)]="chosenRecpTitle" [ngModelOptions]="{standalone: true}" (blur)="toggleFocus()"
+             (keydown.enter)="openRecipeEnterKey()"  (keydown.arrowdown)="arrowDown()" (keydown.arrowup)="arrowUp()"
              placeholder="Enter recipe name" appAutofocus/>
       <mat-list class="search-result" #searchHintList>
         <mat-list-item *ngFor="let recipe of recipes$ | async" (click)="openRecipe(recipe)"
-                       [class.chosen-ingr]="chosenRecp === recipe">
-          {{recipe}}
+                       [class.chosen-ingr]="chosenRecpTitle === recipe.title">
+          {{recipe.title}}
         </mat-list-item>
       </mat-list>
     </mat-form-field>
