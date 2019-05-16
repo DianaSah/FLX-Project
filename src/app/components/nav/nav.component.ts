@@ -45,14 +45,13 @@ export class NavComponent implements OnInit {
         });
         return this.recipeService.searchRecipes(term);
       }),
-    );
-  }
-
+    
   openRecipe(recipe) {
       this.router.navigate(['/recipe/' + recipe.id]);
       this.chosenRecpTitle = null;
       this.hintRecipes = [];
   }
+
 
   openRecipeEnterKey() {
     let id: string;

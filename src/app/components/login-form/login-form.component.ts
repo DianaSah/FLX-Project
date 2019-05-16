@@ -32,3 +32,4 @@ export class LoginFormComponent implements OnInit {
     this.checkLogInService.isUserLogIn = true;
   }
 }
+
