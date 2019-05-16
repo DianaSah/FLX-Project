@@ -36,31 +36,32 @@ export class RecipesListComponent implements OnInit {
     this.cuisineTypes$ = this.recipeService.getCuisineTypes();
   }
   filter() {
+    this.filteredrecipes = this.recipes;
     if (this.selectedCookDuration) {
       switch (this.selectedCookDuration) {
         case '5-15':
-          this.filteredrecipes = this.recipes.filter((recipe) => {
+          this.filteredrecipes = this.filteredrecipes.filter((recipe) => {
             if (recipe.cookDuration <= 15) {
               return recipe;
             }
           });
           break;
         case '15-30':
-          this.filteredrecipes = this.recipes.filter((recipe) => {
+          this.filteredrecipes = this.filteredrecipes.filter((recipe) => {
             if (recipe.cookDuration <= 30 && recipe.cookDuration >= 15) {
               return recipe;
             }
           });
           break;
         case '30-45':
-          this.filteredrecipes = this.recipes.filter((recipe) => {
+          this.filteredrecipes = this.filteredrecipes.filter((recipe) => {
             if (recipe.cookDuration <= 45 && recipe.cookDuration >= 30) {
               return recipe;
             }
           });
           break;
         case '45+':
-          this.filteredrecipes = this.recipes.filter((recipe) => {
+          this.filteredrecipes = this.filteredrecipes.filter((recipe) => {
             if (recipe.cookDuration >= 45) {
               return recipe;
             }
@@ -109,9 +110,6 @@ export class RecipesListComponent implements OnInit {
       });
     }
 
-    if (!this.selectedCookDuration && !this.selectedCuisineType && !this.selectedNumberOfIngr){
-      this.filteredrecipes = this.recipes;
-    }
   }
 
 }
