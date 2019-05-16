@@ -54,6 +54,7 @@ export class NavComponent implements OnInit {
       this.hintRecipes = [];
   }
 
+
   openRecipeEnterKey() {
     let id: string;
     this.hintRecipes.forEach((recipe) => {
