@@ -11,6 +11,7 @@ import {AngularFirestore} from '@angular/fire/firestore';
   styleUrls: ['./recipes-list.component.scss'],
 })
 export class RecipesListComponent implements OnInit {
+  searchText: string;
   recipes$: Observable<Recipe[]>;
   cuisineTypes$: Observable<string[]>;
   selectedCuisineType: string;
