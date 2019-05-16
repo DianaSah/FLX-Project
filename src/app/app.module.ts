@@ -42,6 +42,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
 import {ModalComponent, ShareComponent} from './components/share/share.component';
 import {AutofocusDirective} from './autofocus.directive';
 import {SearchComponent} from './components/search/search.component';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
 
 @Pipe({name: 'safe'})
 export class SafePipe implements PipeTransform {
@@ -102,7 +103,8 @@ export class SafePipe implements PipeTransform {
       appId: '1:21753682188:web:1888b214325b993f'
     }),
     HttpClientModule,
-    ShareButtonsModule
+    ShareButtonsModule,
+    Ng2SearchPipeModule
   ],
   entryComponents: [
     ModalComponent,

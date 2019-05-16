@@ -1,6 +1,7 @@
 export interface Recipe {
-    id: number;
+    id: string;
     title: string;
+    nameToSearch: string;
     imageSrc: string;
     description: string;
     cuisineType: string;
