@@ -1,5 +1,51 @@
-<mat-card class="recipe-component" *ngFor="let recipe of recipes$ | async" (click)="viewDetails(recipe)">
+<form class="searchRecipeForm">
+  <mat-form-field class="searchRecipeInput">
+    <input matInput type="text" [(ngModel)]="searchText" [ngModelOptions]="{standalone: true}" autocomplete="off"
+           placeholder="Search recipe by title or description"/>
+  </mat-form-field>
+</form>
 
+<div class="filter">
+  <h3>Filter</h3>
+  <div class="cook-duration">
+    <mat-form-field>
+      <mat-label>Cook duration</mat-label>
+      <select matNativeControl [(ngModel)]="selectedCookDuration" name="cookDuration" class="select-table">
+        <option value="" selected></option>
+        <option value="5-15">5-15</option>
+        <option value="15-30">15-30</option>
+        <option value="30-45">30-45</option>
+        <option value="45+">45+</option>
+      </select>
+    </mat-form-field>
+  </div>
+  <div class="cuisine">
+      <mat-form-field>
+          <mat-label>Cuisine type</mat-label>
+          <mat-select [(ngModel)]="selectedCuisineType" name="cuisineType" class="select-table">
+            <mat-option selected>None</mat-option>
+            <mat-option *ngFor="let cuisineType of cuisineTypes$ | async" [value]="cuisineType">
+              {{cuisineType}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field>
+  </div>
+  <div class="ingredients-count">
+    <mat-form-field>
+      <mat-label>Number of ingredients</mat-label>
+      <select matNativeControl [(ngModel)]="selectedNumberOfIngr" name="numberOfIngr" class="select-table">
+        <option value="" selected></option>
+        <option value="2-5">2-5</option>
+        <option value="5-8">5-8</option>
+        <option value="8-11">8-11</option>
+        <option value="11+">11+</option>
+      </select>
+    </mat-form-field>
+  </div>
+  <button mat-raised-button (click)='filter()'>Filter</button>
+</div>
+<mat-card class="recipe-component" *ngFor="let recipe of filteredrecipes | filter:searchText"
+          (click)="viewDetails(recipe)">
   <div>
     <div class="recipe-component__image-btn-wrapper">
       <img mat-card-image
@@ -13,6 +59,7 @@
         <h3>Coock duration: {{recipe.cookDuration}} min</h3>
         <mat-card-content class="recipe-component__info_title_recipe-content">
           <p>{{recipe.description}}</p>
+          <p>Cuisine: {{recipe.cuisineType}}</p>
         </mat-card-content>
       </div>
     </div>
@@ -41,3 +88,10 @@
   </div>
 
 </mat-card>
+
+<div *ngIf="(filteredrecipes | filter:searchText)?.length < 1">
+  <hr>
+  <p class="noRecipesFound">
+    No recipes found ☹
+  </p>
+</div>

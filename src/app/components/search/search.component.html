@@ -13,6 +13,7 @@
         <h3>Coock duration: {{recipe.cookDuration}} min</h3>
         <mat-card-content class="recipe-component__info_title_recipe-content">
           <p>{{recipe.description}}</p>
+          <p>Cuisine: {{recipe.cuisineType}}</p>
         </mat-card-content>
       </div>
     </div>
@@ -41,3 +42,10 @@
   </div>
 
 </mat-card>
+
+<div *ngIf="(recipes$ | async | filter:searchText)?.length < 1">
+  <hr>
+  <p id="noRecipesFound">
+    No recipes found ☹
+  </p>
+</div>

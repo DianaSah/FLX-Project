@@ -2,8 +2,9 @@ import { Recipe } from './models/recipe';
 
 export const RECIPES: Recipe[] = [
   {
-    id: 1,
+    id: '1',
     title: 'Spaghetti Bolognese',
+    nameToSearch: 'spaghetti bolognese',
     imageSrc:
       'https://www.themealdb.com/images/media/meals/sutysw1468247559.jpg',
     description:
@@ -31,8 +32,9 @@ export const RECIPES: Recipe[] = [
 
   },
   {
-    id: 2,
+    id: '2',
     title: 'Lasagne',
+    nameToSearch: 'lasagne',
     imageSrc:
       'https://www.themealdb.com/images/media/meals/wtsvxx1511296896.jpg',
     description:
@@ -73,8 +75,9 @@ export const RECIPES: Recipe[] = [
     videos: ['UWzpjPQvsT8','M6eVRYX2h1E','x64gbjmtnHM']
   },
   {
-    id: 3,
+    id: '3',
     title: 'Chocolate Caramel Crispy',
+    nameToSearch: 'chocolate caramel crispy',
     imageSrc: 'https://www.themealdb.com/images/media/meals/1550442508.jpg',
     description: 'Sweet and easy to cook caramel crispy',
     cuisineType: 'american',
@@ -98,8 +101,9 @@ export const RECIPES: Recipe[] = [
     videos: ['qsk_At_gjv0','UNEDmT9Hfos','6tmzRlEpKgo']
   },
   {
-    id: 4,
+    id: '4',
     title: 'Breakfast Potatoes',
+    nameToSearch: 'breakfast Potatoes',
     imageSrc: 'https://www.themealdb.com/images/media/meals/1550441882.jpg',
     description:
       'Homemade diner-style skillet breakfast potatoes are perfect to whip up for breakfast.',
@@ -136,8 +140,9 @@ export const RECIPES: Recipe[] = [
     videos: ['aDjDwUj09oA','BoD0TIO9nE4','cZMTlReUQ8o']
   },
   {
-    id: 5,
+    id: '5',
     title: 'French Omelette',
+    nameToSearch: 'french omelette',
     imageSrc:
       'https://www.themealdb.com/images/media/meals/yvpuuy1511797244.jpg',
     description:
@@ -174,8 +179,9 @@ export const RECIPES: Recipe[] = [
     videos: ['U7iKekuL5YU','qXPhVYpQLPA','M2-UV9IR8yA']
   },
   {
-    id: 6,
+    id: '6',
     title: 'Classic lasagne',
+    nameToSearch: 'classic lasagne',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/classic-lasange.jpg?itok=aYJg59N3',
     description:
@@ -215,8 +221,9 @@ export const RECIPES: Recipe[] = [
     videos: ['O0bWSiiew2A','aApkcTfMako','n7X35UGU1X0']
   },
   {
-    id: 7,
+    id: '7',
     title: 'Apple pie',
+    nameToSearch: 'apple pie',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/user-collections/my-colelction-image/2015/12/apple-pie.jpg?itok=4g0UAGj_',
     description:
@@ -249,8 +256,9 @@ export const RECIPES: Recipe[] = [
     videos: ['FKvpX8lIWgY','8kNE4XNIQH4','0in9XQkiVuA']
   },
   {
-    id: 8,
+    id: '8',
     title: 'Chicken with quinoa',
+    nameToSearch: 'chicken with quinoa',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/one-pot-chicken-with-quinoa.jpg?itok=82B_12_m',
     description:
@@ -279,8 +287,9 @@ export const RECIPES: Recipe[] = [
     videos: ['Lu2ugpeRpF4','4ncNCc47qDg','eRVTP1Skj9Q']
   },
   {
-    id: 9,
+    id: '9',
     title: 'Greek-style roast fish',
+    nameToSearch: 'greek-style roast fish',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/user-collections/my-colelction-image/2015/12/greek-style-roast-fish.jpg?itok=fAXt00pT',
     description:
@@ -304,8 +313,9 @@ export const RECIPES: Recipe[] = [
     videos: ['laKnqDxdKoA','KkSBfGUxAAU','R3EDClFDwdo']
   },
   {
-    id: 10,
+    id: '10',
     title: 'Burrata bruschetta',
+    nameToSearch: 'burrata bruschetta',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2017/09/burrata-bruschetta-with-summer-beans.jpg?itok=NsRYE5Xl',
     description:
@@ -334,8 +344,9 @@ export const RECIPES: Recipe[] = [
     videos: ['DNXGuOvGfMw','aZKaXaz7vhA','sR4__OtdwJU']
   },
   {
-    id: 11,
+    id: '11',
     title: 'Feta and peach couscous',
+    nameToSearch: 'feta and peach couscous',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2017/08/feta-peach-couscous.jpg?itok=55zneekI',
     description:
@@ -358,8 +369,9 @@ export const RECIPES: Recipe[] = [
     videos: ['6v9lWue0sT4','fJw__5kZC1o','sBm6-lk1SXk']
   },
   {
-    id: 12,
+    id: '12',
     title: 'Huevos rancheros',
+    nameToSearch: 'huevos rancheros',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2018/06/huevos-rancheros.jpg?itok=chP6q4JU',
     description:
@@ -389,8 +401,9 @@ export const RECIPES: Recipe[] = [
     videos: ['Z_MSUZRoWNE','mr-it5OJUfM','FfhbegN_gcQ']
   },
   {
-    id: 13,
+    id: '13',
     title: 'Asian slaw',
+    nameToSearch: 'asian slaw',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1354_11.jpg?itok=BjG8Wr-f',
     description:
@@ -412,8 +425,9 @@ export const RECIPES: Recipe[] = [
     videos: ['Wlf9IIsynXo','h2nXvevD8mo','45LtFnmc8GU']
   },
   {
-    id: 14,
+    id: '14',
     title: 'Sticky bourbon BBQ wings with blue cheese dip',
+    nameToSearch: 'sticky bourbon bbq wings with blue cheese dip',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe/recipe-image/2016/11/sticky-bourbon-bbq-wings-with-blue-cheese-dip.jpg?itok=WnsjXOUe',
     description:
@@ -450,8 +464,9 @@ export const RECIPES: Recipe[] = [
     videos: ['N0-Rb37LGc0','E7C91jVem-w','0A93I0GlXxE']
   },
   {
-    id: 15,
+    id: '15',
     title: 'Scotch eggs',
+    nameToSearch: 'scotch eggs',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1273686_8.jpg?itok=jVLaLL6T',
     description:
@@ -502,8 +517,9 @@ export const RECIPES: Recipe[] = [
     videos: ['hkPPn5ycsnc','k8SXf5V8aPM','Ekya7OoJjlE']
   },
   {
-    id: 16,
+    id: '16',
     title: 'Creamy beetroot curry',
+    nameToSearch: 'creamy beetroot curry',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1125484_11.jpg?itok=Ss3-snfR',
     description:
@@ -534,8 +550,9 @@ export const RECIPES: Recipe[] = [
     videos: ['QslMci1SH_Y','cC6nChrf58Q','qP0YpV1H0_4']
   },
   {
-    id: 17,
+    id: '17',
     title: 'Spanish chicken pie',
+    nameToSearch: 'spanish chicken pie',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1035696_10.jpg?itok=BCRuc_WE',
     description:
@@ -565,8 +582,9 @@ export const RECIPES: Recipe[] = [
     videos: ['ZnfvvpPTKnU','SrQ-jbOX0f8','F_b4RPG_Hx4']
   },
   {
-    id: 18,
+    id: '18',
     title: 'Quick gazpacho',
+    nameToSearch: 'quick gazpacho',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--7360_11.jpg?itok=yQ571UNj',
     description:
@@ -588,8 +606,9 @@ export const RECIPES: Recipe[] = [
     videos: ['vO_0joLyBOY','XQfuSbxHKhQ','idOKFJN9wtQ']
   },
   {
-    id: 19,
+    id: '19',
     title: 'Chicken wings with cumin, lemon and garlic',
+    nameToSearch: 'chicken wings with cumin, lemon and garlic',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--327675_12.jpg?itok=Tff7Qhln',
     description:
@@ -615,8 +634,9 @@ export const RECIPES: Recipe[] = [
     videos: ['qscv5kZphVg','fYQdps4MlWA','WZMNTD5ZR0s']
   },
   {
-    id: 20,
+    id: '20',
     title: 'Chilli ginger lamb chops',
+    nameToSearch: 'chilli ginger lamb chops',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1036499_11.jpg?itok=x89qTgqthttps://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--7360_11.jpg?itok=yQ571UNj',
     description:
@@ -641,8 +661,9 @@ export const RECIPES: Recipe[] = [
     videos: ['MNrNHToyvtI','iWuqIAsiw0s','XF51S_GeTig']
   },
   {
-    id: 21,
+    id: '21',
     title: 'Chinese-style kale',
+    nameToSearch: 'chinese-style kale',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--8692_12.jpg?itok=mqn76vWH',
     description:
@@ -664,8 +685,9 @@ export const RECIPES: Recipe[] = [
     videos: ['iBx0kE-8JNQ','OLOMIuREg7k','PDKrDL-77l8']
   },
   {
-    id: 22,
+    id: '22',
     title: 'Hot and sour fish soup',
+    nameToSearch: 'hot and sour fish soup',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--815477_11.jpg?itok=7mgGHK7h',
     description:
@@ -699,8 +721,9 @@ export const RECIPES: Recipe[] = [
     videos: ['NsJFMq0NNmM','Ri6YAwK2U7Y','uOYMJV3vA7I']
   },
   {
-    id: 23,
+    id: '23',
     title: 'Vietnamese chicken baguettes',
+    nameToSearch: 'vietnamese chicken baguettes',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/bhanmi.jpg?itok=aDtQhHcS',
     description:
@@ -732,8 +755,9 @@ export const RECIPES: Recipe[] = [
     videos: ['Dz9r3vNRxPA','cQPboki2YnI','sVEmgfilosg']
   },
   {
-    id: 24,
+    id: '24',
     title: 'Vietnamese lamb shanks with sweet potatoes',
+    nameToSearch: 'vietnamese lamb shanks with sweet potatoes',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1079567_11.jpg?itok=sag1DTD7',
     description:
@@ -766,8 +790,9 @@ export const RECIPES: Recipe[] = [
     videos: ['AF3Smp8xC_c','XpnRGn_SjBM','oToVUzBB6ec']
   },
   {
-    id: 25,
+    id: '25',
     title: 'Vietnamese chicken salad',
+    nameToSearch: 'vietnamese chicken salad',
     imageSrc:
       'https://www.bbcgoodfood.com/sites/default/files/styles/recipe/public/recipe_images/recipe-image-legacy-id--1069573_11.jpg?itok=LKSI2GNF',
     description:
