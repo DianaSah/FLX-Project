@@ -15,27 +15,9 @@ export class AddFavoritesService {
     }, { merge: true });
    }
 
-   checkIfFieldExist() {
+   addUserRecipe(userRecipe):void {
     firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        this.afs.collection('users').doc(user.uid)
-          .ref.get()
-          .then(doc => {
-            if (!doc.exists) {
-              console.log('No such document!');
-            } else {
-              if (doc.get('favorites') != null) {
-                console.log('Document data:', doc.data().userRecipes);
-              } else {
-                console.log('yourPropertyName does not exist!');
-                this.generateNewField(user.uid);
-              }
-            }
-          })
-          .catch(err => {
-            console.log('Error getting document', err);
-          });
-      }
+      this.afs.collection('users').doc(user.uid).collection('favoriteRecipes').add({userRecipe});
     });
   }
 }

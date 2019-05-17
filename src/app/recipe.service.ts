@@ -16,6 +16,7 @@ export class RecipeService {
     return this.afs.collection<Recipe>('recipes').snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as Recipe;
+        console.log(data);
         const id = a.payload.doc.id;
         return { id, ...data };
       }))
@@ -36,5 +37,23 @@ export class RecipeService {
         return recipe;
     }));
   }
+
+  getUserRecipe(id): Observable<Recipe> {
+    return this.afs.collection('users').doc('kwW1OGz0fOYZThrWOjNOQCEyf3H3').collection<Recipe>('userRecipes').stateChanges().pipe(
+      map(actions => {
+        let recipe: Recipe;
+        actions.map(a => {
+          const data = a.payload.doc.data() as Recipe;
+          const ind = a.payload.doc.id;
+          if (ind === id) {
+            recipe = data;
+          }
+        });
+        return recipe;
+    }));
+  }
+
+
+
 }
 

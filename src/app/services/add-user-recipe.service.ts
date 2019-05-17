@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore} from '@angular/fire/firestore';
 import * as firebase from 'firebase/app';
+import { Recipe } from '../models/recipe';
+import { map } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -8,44 +11,44 @@ import * as firebase from 'firebase/app';
 export class AddUserRecipeService {
 
   constructor(public afs: AngularFirestore) { }
-  generateNewField(userKey) {
-    this.afs.collection('users').doc(userKey).set({
-      userRecipes: [],
-    }, { merge: true });
+
+  // addUserRecipe(userRecipe) {
+  //   firebase.auth().onAuthStateChanged((user) => {
+  //     this.afs.collection('users').doc(user.uid).collection('userRecipes').add(userRecipe);
+  //   });
+  // }
+
+  getRecipes(userId) {
+      return this.afs.collection('users').doc(userId).collection<Recipe>('userRecipes').snapshotChanges().pipe(
+        map(actions => actions.map(a => {
+          const data = a.payload.doc.data() as Recipe;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        }))
+      );
   }
 
-  checkIfFieldExist() {
+  addUserRecipe(userRecipe) {
     firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        this.afs.collection('users').doc(user.uid)
-          .ref.get()
-          .then(doc => {
-            if (!doc.exists) {
-              console.log('No such document!');
-            } else {
-              if (doc.get('userRecipes') != null) {
-                console.log('Document data:', doc.data().userRecipes);
-
-              } else {
-                console.log('yourPropertyName does not exist!');
-                this.generateNewField(user.uid);
-              }
-            }
-          })
-          .catch(err => {
-            console.log('Error getting document', err);
-          });
-      }
-    });
-  }
-
-  addUserRecipe(userRecipe){
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        this.afs.collection('users').doc(user.uid).update({
-          userRecipes: firebase.firestore.FieldValue.arrayUnion(userRecipe)
+      let ingredients = userRecipe.ingredients;
+      let ingredientsArray = ingredients.split(',');
+      let steps = userRecipe.steps;
+      let stepsArray = steps.split('.');
+      let nameToSearch = userRecipe.title.toLowerCase();
+      this.afs.collection('users').doc(user.uid).collection('userRecipes').add({
+        title: nameToSearch,
+        imageSrc: userRecipe.imageSrc,
+        description: userRecipe.description,
+        cuisineType: userRecipe.cuisineType,
+        rating: 0,
+        isFavorite: false,
+        cookDuration: parseInt(userRecipe.cookDuration),
+        ingredients: ingredientsArray,
+        steps: stepsArray,
+        //videos: value.videos,
       });
-      }
     });
   }
+
+
 }

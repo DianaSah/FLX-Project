@@ -23,11 +23,19 @@ export class RecipeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getRecipe();
+    this.getUserRecipe();
+    this.handleFavorite();
+    // this.recipeService.getRecipe('3JEkryxB0IMVtHXIRW6h').subscribe(val => console.log(val));
   }
 
   getRecipe(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.recipe$ = this.recipeService.getRecipe(id);
+  }
+
+  getUserRecipe(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.recipe$ = this.recipeService.getUserRecipe(id);
   }
 
   goBack(): void {

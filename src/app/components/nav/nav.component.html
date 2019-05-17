@@ -9,6 +9,10 @@
     Search
     <mat-icon>search</mat-icon>
   </button>
+  <button class="log-btn" routerLink="/recipes_list" mat-button>
+   all recipes
+  </button>
+
   <button class="log-btn" mat-button routerLink="/login" *ngIf="!this.checkLogInService.isUserLogIn">Sing In</button>
   <button mat-button (click)="toggle()" routerLink="/profile" *ngIf="this.checkLogInService.isUserLogIn">
     <mat-icon class="user-icon">face</mat-icon>

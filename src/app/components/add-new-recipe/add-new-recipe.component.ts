@@ -24,7 +24,6 @@ export class AddNewRecipeComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    this.addUserRecipe.checkIfFieldExist();
   }
 
   createForm() {
