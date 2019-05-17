@@ -36,9 +36,13 @@
           padding: 0;
           margin: 0;
         }
-        app-star-review, .recipe-component__buttons--isNotLoggedIn {
+        app-star-review {
           margin-top: 18px;
           width: 200px;
+        }
+        .recipe-component__buttons--isNotLoggedIn {
+          margin-top: 18px;
+          width: 110px;
         }
       }
     }
