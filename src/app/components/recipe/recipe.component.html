@@ -18,7 +18,7 @@
                            [userId]="userId"></app-star-review>
           <ng-template #isNotLoggedIn>
             <p class="recipe-component__buttons--isNotLoggedIn">
-              Rating {{recipe.rating}}
+              Rating {{recipe.rating | number}}
             </p>
           </ng-template>
 
