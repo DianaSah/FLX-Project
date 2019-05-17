@@ -12,7 +12,6 @@ import {AngularFirestore} from '@angular/fire/firestore';
 })
 export class RecipesListComponent implements OnInit {
   searchText: string;
-  recipes$: Observable<Recipe[]>;
   cuisineTypes$: Observable<string[]>;
   selectedCuisineType: string;
   selectedCookDuration: string;

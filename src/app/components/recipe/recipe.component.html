@@ -13,14 +13,9 @@
             </button>
             <app-share></app-share>
           </mat-card-actions>
-          <star-rating [starType]="'svg'"
-                      labelText={{recipe.rating}}
-                      [rating]="recipe.rating"
-                      [id]="recipe.id"
-                      staticColor="default"
-                      [showHalfStars]="true"
-                      [hoverEnabled]="true">
-          </star-rating>
+
+          <app-star-review [recipeId]="recipeId" [userId]="userId"></app-star-review>
+
         </div>
       </div>
 
@@ -41,12 +36,12 @@
       </div>
     </div>
 
-
     <mat-card-content class="recipe-component__recipe-content">
       <h3>Steps:</h3>
       <ol>
         <li *ngFor="let step of recipe.steps">{{step}}</li>
       </ol>
+
     </mat-card-content>
 
   </mat-card>

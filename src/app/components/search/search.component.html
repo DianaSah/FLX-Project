@@ -29,21 +29,13 @@
       </button>
     </mat-card-actions>
     <mat-card-actions>
-      <star-rating [starType]="'svg'"
-                   labelText={{recipe.rating}}
-                   labelPosition="right"
-                   [rating]="recipe.rating"
-                   [id]="recipe.id"
-                   staticColor="default"
-                   [showHalfStars]="true"
-                   [disabled]="true">
-      </star-rating>
+      <p class="recipe-component__rating">Rating: {{recipe.rating}}</p>
     </mat-card-actions>
   </div>
 
 </mat-card>
 
-<div *ngIf="(recipes$ | async)">
+<div *ngIf="(recipes$ | async)?.length < 1">
   <hr>
   <p id="noRecipesFound">
     No recipes found ☹
