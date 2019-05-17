@@ -32,7 +32,7 @@ export class StarReviewComponent implements OnInit {
       const ratings = arr.map(v => {
         return v.value;
       });
-      return ratings.length ? ratings.reduce((total, val) => total + val) / arr.length : '-';
+      return ratings.length ? ratings.reduce((total, val) => total + val) / arr.length : '0';
     }));
 
     this.avgRating.subscribe(rate => {
