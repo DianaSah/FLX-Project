@@ -16,12 +16,6 @@ export class SearchComponent implements OnInit {
 
   public constructor(private searchByIngredientsService: SearchByIngredientsService) {
     this.recipes$ = this.searchByIngredientsService.getRecipesInDb();
-    // this.searchByIngredientsService.exportIngredients$.subscribe((filteredRecipes) => {
-    //     this.filteredRecipes$ = filteredRecipes; // And he have data here too!
-    //   console.log(filteredRecipes)
-    //   }
-    // );
-    // https://stackoverflow.com/questions/44066905/angular-2-send-data-from-component-to-service
   }
 
   ngOnInit() {

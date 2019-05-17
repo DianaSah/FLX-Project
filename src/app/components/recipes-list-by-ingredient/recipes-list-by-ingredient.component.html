@@ -1,5 +1,6 @@
-<mat-card class="recipe-component" *ngFor="let recipe of recipes$ | async" routerLink="/recipe/{{recipe.id}}">
 
+<div class="title"><h3>All Recipes which have ingredient {{chosenIngre}}</h3></div>
+<mat-card class="recipe-component" *ngFor="let recipe of recipes$ | async" routerLink="/recipe/{{recipe.id}}">
   <div>
     <div class="recipe-component__image-btn-wrapper">
       <img mat-card-image

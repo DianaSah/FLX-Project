@@ -25,7 +25,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   public printError(event: Event): void {
-    console.error(event);
+    console.log(event);
   }
 
   public confirmUserLogIn(): void {
