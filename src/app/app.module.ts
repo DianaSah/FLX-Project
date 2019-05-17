@@ -43,6 +43,7 @@ import {AutofocusDirective} from './autofocus.directive';
 import {SearchComponent} from './components/search/search.component';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import { StarReviewComponent } from './components/star-review/star-review.component';
+import { RecipesListByIngredientComponent } from './components/recipes-list-by-ingredient/recipes-list-by-ingredient.component';
 
 @Pipe({name: 'safe'})
 export class SafePipe implements PipeTransform {
@@ -70,7 +71,8 @@ export class SafePipe implements PipeTransform {
     AutofocusDirective,
     SearchComponent,
     SafePipe,
-    StarReviewComponent
+    StarReviewComponent,
+    RecipesListByIngredientComponent
   ],
   imports: [
     BrowserModule,

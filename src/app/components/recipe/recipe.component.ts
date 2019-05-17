@@ -1,12 +1,13 @@
-import {Component, Input, OnInit, OnChanges} from '@angular/core';
+import {Component, OnInit, OnChanges, ViewChild, ElementRef} from '@angular/core';
 import { Recipe } from '../../models/recipe';
 import { RecipeService } from '../../recipe.service';
-
+import { IMAGES_SRC } from '../../mock-images-src';
 import { Location } from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
 import { Observable } from 'rxjs';
 import {AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore';
 import * as firebase from 'firebase/app';
+import { icon } from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-recipe',
@@ -14,9 +15,10 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./recipe.component.scss']
 })
 export class RecipeComponent implements OnInit, OnChanges {
+  @ViewChild('IngredientIcon') icon: ElementRef;
   public recipe$: Observable<Recipe>;
   favorite: string = 'favorite_border';
-
+  imgSrc: string[] = IMAGES_SRC.map((imageData) => imageData.name);
   userDoc: AngularFirestoreDocument<any>;
   recipeDoc: AngularFirestoreDocument<any>;
 
@@ -61,6 +63,13 @@ export class RecipeComponent implements OnInit, OnChanges {
       return this.userDoc.ref.id;
     }
 
+  }
+
+  clickOnIngredient(event: any) {
+    if (event.target.className === 'icon') {
+      this.recipeService.chosenIngredient = event.target.name;
+      this.router.navigate(['ingredient_search']);
+    }
   }
 
   getRecipe(): void {

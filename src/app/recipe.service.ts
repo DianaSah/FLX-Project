@@ -9,6 +9,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class RecipeService {
+  chosenIngredient: string;
   constructor(
     public afs: AngularFirestore,
     ) { }
@@ -38,6 +39,28 @@ export class RecipeService {
       }));
   }
 
+  getRecipesByIngredient(ingredient) {
+    return this.afs.collection<Recipe>('recipes').stateChanges().pipe(
+      map(actions => {
+        const recipes: Recipe[] = [];
+        actions.map(a => {
+          const data = a.payload.doc.data() as Recipe;
+          const id = a.payload.doc.id;
+          if (data.ingredients.indexOf(ingredient) !== -1) {
+            recipes.push({id, ...data});
+          }
+        });
+        return recipes;
+    }));
+  }
+
+  getRecipesByIngr() {
+    return this.getRecipesByIngredient(this.chosenIngredient);
+  }
+
+  getIngredient() {
+    return this.chosenIngredient;
+  }
 
   searchRecipes(term: string): Observable<Recipe[]> {
     if (!term.trim()) {
