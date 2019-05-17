@@ -40,6 +40,21 @@ export class RecipeService {
       }));
   }
 
+  getUserRecipe(id, userId): Observable<Recipe> {
+    return this.afs.collection('users').doc(userId).collection<Recipe>('userRecipes').stateChanges().pipe(
+      map(actions => {
+        let recipe: Recipe;
+        actions.map(a => {
+          const data = a.payload.doc.data() as Recipe;
+          const ind = a.payload.doc.id;
+          if (ind === id) {
+            recipe = data;
+          }
+        });
+        return recipe;
+    }));
+  }
+
   getRecipesByIngredient(ingredient) {
     return this.afs.collection<Recipe>('recipes').stateChanges().pipe(
       map(actions => {

@@ -11,23 +11,15 @@ import { map } from 'rxjs/operators';
 export class AddUserRecipeService {
 
   constructor(public afs: AngularFirestore) { }
-
-  // addUserRecipe(userRecipe) {
-  //   firebase.auth().onAuthStateChanged((user) => {
-  //     this.afs.collection('users').doc(user.uid).collection('userRecipes').add(userRecipe);
-  //   });
-  // }
-
   getRecipes(userId) {
-      return this.afs.collection('users').doc(userId).collection<Recipe>('userRecipes').snapshotChanges().pipe(
-        map(actions => actions.map(a => {
-          const data = a.payload.doc.data() as Recipe;
-          const id = a.payload.doc.id;
-          return { id, ...data };
-        }))
-      );
+    return this.afs.collection('users').doc(userId).collection<Recipe>('userRecipes').snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Recipe;
+        const id = a.payload.doc.id;
+        return { id, ...data };
+      }))
+    );
   }
-
   addUserRecipe(userRecipe) {
     firebase.auth().onAuthStateChanged((user) => {
       let ingredients = userRecipe.ingredients;
@@ -49,6 +41,4 @@ export class AddUserRecipeService {
       });
     });
   }
-
-
 }

@@ -40,28 +40,6 @@
             </div>
           </div>
 
-          <div class="recipe-component__buttons">
-            <mat-card-actions>
-              <button mat-button disabled>
-                <mat-icon *ngIf="recipe.isFavorite; else isNotFavorite">favorite</mat-icon>
-                <ng-template #isNotFavorite>
-                  <mat-icon>favorite_border</mat-icon>
-                </ng-template>
-              </button>
-            </mat-card-actions>
-            <mat-card-actions>
-              <star-rating [starType]="'svg'"
-                           labelText={{recipe.rating}}
-                           labelPosition="right"
-                           [rating]="recipe.rating"
-                           [id]="recipe.id"
-                           staticColor="default"
-                           [showHalfStars]="true"
-                           [disabled]="true">
-              </star-rating>
-            </mat-card-actions>
-          </div>
-
         </mat-card>
       </div>
       <div class='my-recipes-btn'>

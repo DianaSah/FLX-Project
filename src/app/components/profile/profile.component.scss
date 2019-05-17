@@ -1,3 +1,4 @@
+@import "../../../variables";
 mat-tab-group {
     color: #25333B;
     background-color: #9AA8B3;
@@ -12,5 +13,64 @@ mat-tab-group {
     }
 }
 .isLoggedOut {
-  text-align: center;
-}
+    text-align: center;
+  }
+
+  .recipe-component {
+    max-width: 700px;
+    margin: 10px auto;
+    background-color: white;
+    color: $gray;
+    box-shadow: 0 2px 5px -1px #25333b9c, 0 1px 4px 0 rgba(0,0,0,.14), 0 1px 10px 5px rgba(0,0,0,.12);
+    div {
+      display: flex;
+      justify-content: space-between;
+      .recipe-component__image-btn-wrapper {
+        .mat-card-image {
+          max-height: 300px;
+          width: 350px;
+          margin: 0 0 10px;
+          box-shadow: 0 2px 5px -1px #25333b9c, 0 1px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 5px rgba(0, 0, 0, 0.12);
+        }
+      }
+      .recipe-component__info {
+        display: block;
+        margin-left: 16px;
+        .recipe-component__info_title {
+          display: block;
+          text-align: center;
+          width: 350px;
+          h4 {
+            margin: 40px 0 20px;
+          }
+          .recipe-component__info_title_recipe-content {
+            font-size: 20px;
+          }
+        }
+        .mat-card-actions {
+          margin: 0;
+        }
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: $green-light_opacity35;
+    }
+    .recipe-component__buttons {
+      .mat-button {
+        width: 35px;
+        min-width: 0;
+        padding: 0;
+        margin: 0;
+        line-height: 20px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .mat-card-actions {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }

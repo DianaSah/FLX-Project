@@ -43,6 +43,7 @@ export class RecipeComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.getRecipe();
+    this.getUserRecipe();
 
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -79,7 +80,9 @@ export class RecipeComponent implements OnInit, OnChanges {
 
   getUserRecipe(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    this.recipe$ = this.recipeService.getUserRecipe(id);
+    firebase.auth().onAuthStateChanged(user => {
+    this.recipe$ = this.recipeService.getUserRecipe(id, user.uid);
+    });
   }
 
   goBack(): void {
