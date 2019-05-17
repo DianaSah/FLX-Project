@@ -19,7 +19,6 @@ import {
 
 } from '@angular/material';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import {StarRatingModule} from 'angular-star-rating';
 import {NgxAuthFirebaseUIModule} from 'ngx-auth-firebaseui';
 import {FirestoreSettingsToken} from '@angular/fire/firestore';
 import {HttpClientModule} from '@angular/common/http';
@@ -43,6 +42,7 @@ import {ModalComponent, ShareComponent} from './components/share/share.component
 import {AutofocusDirective} from './autofocus.directive';
 import {SearchComponent} from './components/search/search.component';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import { StarReviewComponent } from './components/star-review/star-review.component';
 
 @Pipe({name: 'safe'})
 export class SafePipe implements PipeTransform {
@@ -69,7 +69,8 @@ export class SafePipe implements PipeTransform {
     ModalComponent,
     AutofocusDirective,
     SearchComponent,
-    SafePipe
+    SafePipe,
+    StarReviewComponent
   ],
   imports: [
     BrowserModule,
@@ -92,7 +93,6 @@ export class SafePipe implements PipeTransform {
     MatTooltipModule,
     DragDropModule,
     MatCardModule,
-    StarRatingModule.forRoot(),
     NgxAuthFirebaseUIModule.forRoot({
       apiKey: 'AIzaSyAPCaQl95Xh3q9DS8VhATyLxwKKuGzmick',
       authDomain: 'cookbook-epam2019.firebaseapp.com',
