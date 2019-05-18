@@ -21,7 +21,7 @@ export class StarService {
     return starsRef.valueChanges();
   }
 
-  // Get all stars that belog to a Movie
+  // Get all stars that belog to a Recipe
   getRecipeStars(recipeId) {
     const starsRef = this.afs.collection('stars', ref => ref.where('recipeId', '==', recipeId) );
     return starsRef.valueChanges();

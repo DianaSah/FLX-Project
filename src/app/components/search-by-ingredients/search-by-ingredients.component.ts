@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { SearchByIngredientsService } from '../../search-by-ingredients.service';
 import { Observable, Subject, of } from 'rxjs';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';

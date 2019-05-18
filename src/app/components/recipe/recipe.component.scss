@@ -24,7 +24,7 @@
         margin: 0 0 10px;
         box-shadow: 0 2px 5px -1px #25333b9c, 0 1px 4px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 5px rgba(0, 0, 0, 0.12);
       }
-      .recipe-component__buttons {
+      .recipe-component__buttons, .recipe-component__isNotLoggedIn {
         position: absolute;
         top: 320px;
         height: 45px;
@@ -45,7 +45,7 @@
           display: inline-block;
           line-height: 36px;
         }
-        .recipe-component__buttons--isNotLoggedIn {
+        .recipe-component__isNotLoggedIn--rating {
           width: 140px;
           margin: 0;
           font-size: 24px;
@@ -85,31 +85,8 @@
             width: auto;
             margin: 0 10px;
             .mat-card-subtitle {
-              display: flex;
-              height: 100%;
-              align-items: center;
-              align-content: center;
-              justify-content: center;
               margin-bottom: 5px;;
               color: $gray;
-              .ingredient-name{
-                height: inherit;
-                padding: 0;
-                align-self: center;
-                align-content: center;
-                margin: 0;
-              }
-              .ingredient-icon{
-                padding: 0 5px;
-                margin: 0;
-                img{
-                  max-width: 30px;
-                  max-height: 30px;
-                }
-                &:hover{
-                  cursor: pointer;
-                }
-              }
             }
           }
         }
