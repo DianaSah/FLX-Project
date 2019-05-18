@@ -6,11 +6,11 @@ import {AngularFirestore} from '@angular/fire/firestore';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
-  selector: 'app-star-review',
-  templateUrl: './star-review.component.html',
-  styleUrls: ['./star-review.component.scss']
+  selector: 'app-star-rating',
+  templateUrl: './star-rating.component.html',
+  styleUrls: ['./star-rating.component.scss']
 })
-export class StarReviewComponent implements OnInit {
+export class StarRatingComponent implements OnInit {
 
   constructor(
     private starService: StarService,
@@ -32,7 +32,7 @@ export class StarReviewComponent implements OnInit {
       const ratings = arr.map(v => {
         return v.value;
       });
-      return ratings.length ? ratings.reduce((total, val) => total + val) / arr.length : '-';
+      return ratings.length ? ratings.reduce((total, val) => total + val) / arr.length : '0';
     }));
 
     this.avgRating.subscribe(rate => {

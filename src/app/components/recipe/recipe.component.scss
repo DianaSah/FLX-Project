@@ -17,7 +17,7 @@
   div {
     display: flex;
     justify-content: space-between;
-    .recipe-component_image-btn-wrapper {
+      .recipe-component_image-btn-wrapper {
       .mat-card-image {
         max-height: 300px;
         width: 350px;
@@ -26,7 +26,8 @@
       }
       .recipe-component__buttons {
         position: absolute;
-        top: 310px;
+        top: 320px;
+        height: 45px;
         width: 350px;
         margin-left: 5px;
         display: flex;
@@ -36,9 +37,19 @@
           padding: 0;
           margin: 0;
         }
-        app-star-review {
-          margin-top: 18px;
-          width: 200px;
+        .mat-card-actions {
+          margin: 0;
+          padding: 0;
+        }
+        app-star-rating {
+          display: inline-block;
+          line-height: 36px;
+        }
+        .recipe-component__buttons--isNotLoggedIn {
+          width: 140px;
+          margin: 0;
+          font-size: 24px;
+          line-height: 31px;
         }
       }
     }

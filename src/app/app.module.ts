@@ -42,7 +42,7 @@ import {ModalComponent, ShareComponent} from './components/share/share.component
 import {AutofocusDirective} from './autofocus.directive';
 import {SearchComponent} from './components/search/search.component';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
-import { StarReviewComponent } from './components/star-review/star-review.component';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
 
 @Pipe({name: 'safe'})
 export class SafePipe implements PipeTransform {
@@ -70,7 +70,7 @@ export class SafePipe implements PipeTransform {
     AutofocusDirective,
     SearchComponent,
     SafePipe,
-    StarReviewComponent
+    StarRatingComponent
   ],
   imports: [
     BrowserModule,
