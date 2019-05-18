@@ -3,6 +3,8 @@ import {RecipesFbService, } from '../../services/recipes-fb.service'
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup,  FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material';
+import { AddUserRecipeService } from 'src/app/services/add-user-recipe.service';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-add-new-recipe',
@@ -11,12 +13,13 @@ import { MatDialog } from '@angular/material';
 })
 export class AddNewRecipeComponent implements OnInit {
   newRecipeForm: FormGroup;
-  
+
   constructor(
     private fb: FormBuilder,
     public dialog: MatDialog,
     private router: Router,
     public firebaseService: RecipesFbService,
+    public addUserRecipe: AddUserRecipeService
   ) { }
 
   ngOnInit() {
@@ -48,6 +51,7 @@ export class AddNewRecipeComponent implements OnInit {
   }
 
   onSubmitNewRecipe(value: any) {
+    this.addUserRecipe.addUserRecipe(value)
     this.firebaseService.addRecipe(value)
     .then(
       res => {
