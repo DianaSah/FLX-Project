@@ -1,13 +1,13 @@
 import {Component, OnInit, OnChanges, ViewChild, ElementRef} from '@angular/core';
-import { Recipe } from '../../models/recipe';
-import { RecipeService } from '../../recipe.service';
-import { IMAGES_SRC } from '../../mock-images-src';
-import { Location } from '@angular/common';
+import {Recipe} from '../../models/recipe';
+import {RecipeService} from '../../recipe.service';
+import {IMAGES_SRC} from '../../mock-images-src';
+import {Location} from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';
-import { Observable } from 'rxjs';
+import {Observable} from 'rxjs';
 import {AngularFirestore, AngularFirestoreDocument} from '@angular/fire/firestore';
 import * as firebase from 'firebase/app';
-import { icon } from '@fortawesome/fontawesome-svg-core';
+import {icon} from '@fortawesome/fontawesome-svg-core';
 
 @Component({
   selector: 'app-recipe',
@@ -40,6 +40,7 @@ export class RecipeComponent implements OnInit, OnChanges {
   ngOnChanges() {
 
   }
+
   ngOnInit(): void {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.getRecipe();
@@ -80,7 +81,9 @@ export class RecipeComponent implements OnInit, OnChanges {
   getUserRecipe(): void {
     const id = this.route.snapshot.paramMap.get('id');
     firebase.auth().onAuthStateChanged(user => {
-    this.recipe$ = this.recipeService.getUserRecipe(id, user.uid);
+      if (user ) {
+        this.recipe$ = this.recipeService.getUserRecipe(id, user.uid);
+      }
     });
   }
 

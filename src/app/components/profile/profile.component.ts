@@ -27,8 +27,10 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     firebase.auth().onAuthStateChanged(user => {
-      user ? this.isLoggedIn = true : this.isLoggedIn = false;
-      this.recipes$ =  this.addUserRecipe.getRecipes(user.uid);
+      if (user) {
+        user ? this.isLoggedIn = true : this.isLoggedIn = false;
+        this.recipes$ =  this.addUserRecipe.getRecipes(user.uid);
+      }
     });
   }
 
