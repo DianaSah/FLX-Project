@@ -63,7 +63,6 @@ export class RecipeComponent implements OnInit, OnChanges {
     if (this.currentUser) {
       return this.userDoc.ref.id;
     }
-
   }
 
   clickOnIngredient(event: any) {
