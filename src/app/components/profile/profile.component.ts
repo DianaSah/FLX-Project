@@ -31,7 +31,9 @@ export class ProfileComponent implements OnInit {
   }
 
   viewDetails(recipe) {
-    this.router.navigate(['/recipe/' + recipe.id]);
+    const fullId = recipe.id;
+    const id = fullId.substring(fullId.indexOf('_') + 1, fullId.length);
+    this.router.navigate(['/recipe/' + id]);
   }
 
   addCustomerRecipe() {
