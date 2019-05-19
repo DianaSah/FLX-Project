@@ -73,6 +73,7 @@
 
 .noRecipesFound {
   text-align: center;
+  min-height: calc(100vh - 284px);
 }
 
 .filter{
@@ -95,4 +96,8 @@
       background-color: #96e63b59;
     }
   }
+}
+
+.spinner {
+  margin: 30vh auto;
 }

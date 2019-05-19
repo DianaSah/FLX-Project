@@ -54,6 +54,7 @@ export class FavoriteService {
           const ind = a.payload.doc.id;
           if (ind === id) {
             recipe = data;
+            console.log(recipe)
           }
         });
         return recipe;

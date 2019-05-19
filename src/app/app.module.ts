@@ -15,8 +15,8 @@ import {
   MatDialogModule,
   MatListModule,
   MatFormFieldModule,
-  MatSelectModule
-
+  MatSelectModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {NgxAuthFirebaseUIModule} from 'ngx-auth-firebaseui';
@@ -44,6 +44,7 @@ import {SearchComponent} from './components/search/search.component';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Pipe({name: 'safe'})
 export class SafePipe implements PipeTransform {
@@ -72,7 +73,8 @@ export class SafePipe implements PipeTransform {
     SearchComponent,
     SafePipe,
     StarRatingComponent,
-    FavoriteComponent
+    FavoriteComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -106,7 +108,8 @@ export class SafePipe implements PipeTransform {
     }),
     HttpClientModule,
     ShareButtonsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatProgressSpinnerModule
   ],
   entryComponents: [
     ModalComponent,

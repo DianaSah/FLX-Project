@@ -1,4 +1,4 @@
-<div *ngIf="recipe$ | async as recipe">
+<div *ngIf="recipe$ | async as recipe; else loading">
   <mat-card class="recipe-component">
 
     <div>
@@ -67,3 +67,8 @@
 
   </mat-card>
 </div>
+
+
+  <ng-template #loading>
+    <mat-spinner class="spinner"></mat-spinner>
+  </ng-template>

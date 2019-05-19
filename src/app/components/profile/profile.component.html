@@ -30,13 +30,12 @@
 
       </mat-card>
 
-      <div *ngIf="(recipes)?.length < 1">
-        <hr>
-        <p class="noRecipesFound">
-          No favorite recipes yet ☹
-        </p>
-      </div>
-
+      <div *ngIf="recipes?.length < 1">
+          <hr>
+          <p class="noRecipesFound">
+            No favorite recipes yet ☹
+          </p>
+        </div>
     </div>
   </mat-tab>
 

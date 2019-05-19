@@ -39,8 +39,19 @@ export class FavoriteComponent implements OnInit {
       this.favIcon = 'favorite';
       this.afs.doc(`recipes/${this.recipeId}`)
         .ref.get().then((doc) => {
-        this.favoriteService.setFav(this.userId, this.recipeId, isFavorite, doc.data().title, doc.data().imageSrc, doc.data().description,
-          doc.data().cuisineType, doc.data().rating, doc.data().cookDuration, doc.data().ingredients, doc.data().steps, doc.data().videos);
+        this.favoriteService.setFav(
+          this.userId,
+          this.recipeId,
+          isFavorite,
+          doc.data().title,
+          doc.data().imageSrc,
+          doc.data().description,
+          doc.data().cuisineType,
+          doc.data().rating,
+          doc.data().cookDuration,
+          doc.data().ingredients,
+          doc.data().steps,
+          doc.data().videos);
       })
     } else {
       this.favIcon = 'favorite_border';
@@ -59,7 +70,6 @@ export class FavoriteComponent implements OnInit {
             this.favorite = doc.data().isFavorite;
           } else {
             this.favIcon = 'favorite_border';
-
           }
         });
       }

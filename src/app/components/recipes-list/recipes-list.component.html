@@ -74,8 +74,13 @@
 </mat-card>
 
 <div *ngIf="(filteredrecipes | filter:searchText)?.length < 1">
-  <hr>
-  <p class="noRecipesFound">
-    No recipes found ☹
-  </p>
+  <div *ngIf="searchText?.length > 1; else loading">
+    <hr>
+    <p class="noRecipesFound">
+      No recipes found ☹
+    </p>
+  </div>
+  <ng-template #loading>
+    <mat-spinner class="spinner"></mat-spinner>
+  </ng-template>
 </div>

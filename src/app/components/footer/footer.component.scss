@@ -1,0 +1,24 @@
+footer {
+  display: flex;
+  align-items: center;
+  color: #9AA8B3;
+  background: #25333B;
+  padding: 5px 10px;
+  height: 77px;
+  text-decoration: none;
+  justify-content: space-between;
+  a {
+    font-size: 19px;
+    color: #9AA8B3;
+    &:visited {
+      color: #c7dce8;
+    }
+  }
+  p {
+    font-size: 14px;
+    margin: 0;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
