@@ -1,5 +1,5 @@
 <header>
-  <div class="logo" routerLink="">Logo</div>
+  <div class="logo" routerLink=""><img src="assets/images/cookbook.png"><span>CookBook</span></div>
   <form class="search-form" *ngIf="clicked">
     <mat-form-field>
       <input matInput type="text" #searchBox (input)="search(searchBox.value)" autocomplete="off"
@@ -22,7 +22,10 @@
     all recipes
    </button>
   <button class="log-btn" mat-button routerLink="/login" *ngIf="!this.checkLogInService.isUserLogIn">Sing In</button>
-  <button mat-button (click)="toggle()" routerLink="/profile" *ngIf="this.checkLogInService.isUserLogIn">
+  <button  class="log-btn" mat-button  routerLink="/profile" *ngIf="this.checkLogInService.isUserLogIn">
+    <mat-icon class="user-icon">library_books</mat-icon>
+  </button>
+  <button mat-button  class="log-btn" (click)="toggle()" *ngIf="this.checkLogInService.isUserLogIn">
     <mat-icon class="user-icon">face</mat-icon>
   </button>
 </header>
