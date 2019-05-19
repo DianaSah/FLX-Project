@@ -18,7 +18,6 @@ export class RecipeComponent implements OnInit, OnChanges {
 
   userDoc: AngularFirestoreDocument<any>;
   recipeDoc: AngularFirestoreDocument<any>;
-
   user: Observable<any>;
   recipe: Observable<any>;
   currRecipeId = this.route.snapshot.paramMap.get('id');
