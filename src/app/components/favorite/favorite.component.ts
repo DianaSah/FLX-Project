@@ -1,10 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FavoriteService} from '../../services/favorite.service';
 import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {ActivatedRoute} from '@angular/router';
-
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-favorite',
@@ -19,7 +18,8 @@ export class FavoriteComponent implements OnInit {
     private favoriteService: FavoriteService,
     private afs: AngularFirestore,
     private route: ActivatedRoute,
-  ) { }
+  ) {
+  }
 
   @Input() userId;
   @Input() recipeId;
@@ -29,28 +29,42 @@ export class FavoriteComponent implements OnInit {
 
   ngOnInit() {
     this.fav = this.favoriteService.getRecipeFavs(this.recipeId);
-    let docRef = this.afs.collection('favorite').doc(`${this.userId}_${this.recipeId}`);
-
-    docRef.ref.get().then((doc) => {
-      if (doc.exists) {
-        this.favorite = doc.data().value;
-        console.log(this.favorite);
-      } else {
-        // doc.data() will be undefined in this case
-        console.log('No such document!');
-      }
-    }).catch((error) => {
-      console.log('Error getting document:', error);
-    });
-
+    this.checkFav()
   }
 
-  favHandler(value) {
+  favHandler(isFavorite) {
     this.favorite = !this.favorite;
-    this.favIcon === 'favorite_border' ? this.favIcon = 'favorite' : this.favIcon = 'favorite_border';
-    this.favoriteService.setFav(this.userId, this.recipeId, value);
+
+    if (isFavorite === true) {
+      this.favIcon = 'favorite';
+      this.afs.doc(`recipes/${this.recipeId}`)
+        .ref.get().then((doc) => {
+        this.favoriteService.setFav(this.userId, this.recipeId, isFavorite, doc.data().title, doc.data().imageSrc, doc.data().description,
+          doc.data().cuisineType, doc.data().rating, doc.data().cookDuration, doc.data().ingredients, doc.data().steps, doc.data().videos);
+      })
+    } else {
+      this.favIcon = 'favorite_border';
+      this.afs.collection('favorite').doc(`${this.userId}_${this.recipeId}`).delete();
+    }
+
   }
 
+  checkFav() {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.afs.collection('favorite').doc(`${this.userId}_${this.recipeId}`)
+          .ref.get().then((doc) => {
+          if (doc.exists) {
+            this.favIcon = 'favorite';
+            this.favorite = doc.data().isFavorite;
+          } else {
+            this.favIcon = 'favorite_border';
+
+          }
+        });
+      }
+    });
+  }
 
 
 }

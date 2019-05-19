@@ -23,7 +23,7 @@ export class RecipeComponent implements OnInit, OnChanges {
   recipe: Observable<any>;
   currRecipeId = this.route.snapshot.paramMap.get('id');
 
-  currentUser = firebase.auth().currentUser;
+  currentUser;
 
   constructor(
     private route: ActivatedRoute,
@@ -43,6 +43,7 @@ export class RecipeComponent implements OnInit, OnChanges {
 
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
+        this.currentUser = firebase.auth().currentUser;
         this.userDoc = this.afs.doc(`users/` + user.uid);
         this.user = this.userDoc.valueChanges();
       }

@@ -1,12 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-
-export interface Star {
-  userId: any;
-  recipeId: any;
-  value: number;
-}
+import { AngularFirestore } from '@angular/fire/firestore';
+import {Star} from '../models/star';
 
 @Injectable({
   providedIn: 'root'
