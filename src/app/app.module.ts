@@ -16,7 +16,6 @@ import {
   MatListModule,
   MatFormFieldModule,
   MatSelectModule
-
 } from '@angular/material';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {NgxAuthFirebaseUIModule} from 'ngx-auth-firebaseui';
@@ -42,7 +41,7 @@ import {ModalComponent, ShareComponent} from './components/share/share.component
 import {AutofocusDirective} from './autofocus.directive';
 import {SearchComponent} from './components/search/search.component';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
-import { StarReviewComponent } from './components/star-review/star-review.component';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { RecipesListByIngredientComponent } from './components/recipes-list-by-ingredient/recipes-list-by-ingredient.component';
 
 @Pipe({name: 'safe'})
@@ -71,7 +70,7 @@ export class SafePipe implements PipeTransform {
     AutofocusDirective,
     SearchComponent,
     SafePipe,
-    StarReviewComponent,
+    StarRatingComponent,
     RecipesListByIngredientComponent
   ],
   imports: [

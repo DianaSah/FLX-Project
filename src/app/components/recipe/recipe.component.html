@@ -14,8 +14,8 @@
             <app-share></app-share>
           </mat-card-actions>
 
-          <app-star-review *ngIf="currentUser; else isNotLoggedIn" [recipeId]="recipeId"
-                           [userId]="userId"></app-star-review>
+          <app-star-rating *ngIf="currentUser; else isNotLoggedIn" [recipeId]="recipeId"
+                           [userId]="userId"></app-star-rating>
           <ng-template #isNotLoggedIn>
             <p class="recipe-component__buttons--isNotLoggedIn">
               Rating {{recipe.rating | number}}
@@ -39,7 +39,7 @@
                 <div class="ingredient-name">{{ingredient}} </div>
                 <div class="ingredient-icon" #IngredientIcon *ngIf="imgSrc.indexOf(ingredient) !== -1" (click)="clickOnIngredient($event)">
                   <img class='icon' src="../../../assets/images/food-images/{{ingredient}}.png" alt={{ingredient}} name={{ingredient}}>
-                </div> 
+                </div>
               </mat-card-subtitle>
             </p>
           </div>

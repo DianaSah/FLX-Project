@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  &:first-child {
+    position: relative;
+    font-size: 24px;
+    line-height: 31px;
+  }
+
+  .container-rating {
+    border: none;
+    display: inline-block;
+    bottom: 35px;
+    margin: 0;
+    padding: 0;
+    input {
+      display: none;
+    }
+
+    label {
+      color: #25333b;
+      float: right;
+      &:before {
+        margin: 5px;
+        font-size: 1.25em;
+        display: inline-block;
+        content: ' ';
+        background-image: url("../../../assets/images/star-solid.svg");
+        background-size: 20px 20px;
+        height: 20px;
+        width: 20px;
+      }
+    }
+
+    .half{
+      &:before {
+        display: block;
+        content: ' ';
+        background-image: url("../../../assets/images/star-half-solid.svg");
+        position: absolute;
+        background-size: 20px 20px;
+        height: 20px;
+        width: 10px;
+      }
+    }
+  }
+
+  .container-rating > input:checked ~ label,
+  .container-rating:not(:checked) > label:hover,
+  .container-rating:not(:checked) > label:hover ~ label {
+    filter: invert(0.5) sepia(1) saturate(4) brightness(1.3);
+    cursor: pointer
+  }
+
+  .container-rating > input:checked + label:hover,
+  .container-rating > input:checked ~ label:hover,
+  .container-rating > label:hover ~ input:checked ~ label,
+  .container-rating > input:checked ~ label:hover ~ label {
+    filter: invert(0.7) sepia(1) saturate(6) brightness(2);
+    cursor: pointer
+  }
+}
+
+
+
