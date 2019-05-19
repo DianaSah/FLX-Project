@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore';
+import { AngularFirestore} from '@angular/fire/firestore';
+import { AddUserRecipeService } from './add-user-recipe.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +9,8 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument}
 export class RecipesFbService {
 
   constructor(
-    public dataBase: AngularFirestore
+    public dataBase: AngularFirestore,
+    public addUserRecipeService: AddUserRecipeService
     ) {}
 
   addRecipe(value: any){
@@ -16,6 +19,7 @@ export class RecipesFbService {
     let steps = value.steps;
     let stepsArray = steps.split('. ');
     let nameToSearch = value.title.toLowerCase();
+    let service =  this.addUserRecipeService;
     return this.dataBase.collection('recipes').add({
       title: nameToSearch,
       imageSrc: value.imageSrc,
@@ -27,6 +31,10 @@ export class RecipesFbService {
       ingredients: ingredientsArray,
       steps: stepsArray,
       //videos: value.videos,
-    });
+    }).then(docRef => {
+      docRef.get().then(function(doc) {
+        service.addUserRecipe(doc.data(), doc.id)
+    })
+  });
   }
 }
