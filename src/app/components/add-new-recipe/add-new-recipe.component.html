@@ -6,11 +6,11 @@
         <mat-form-field>
             <input matInput placeholder="Ingredients" class="form-control" formControlName="ingredients">
         </mat-form-field>
-
+    
         <mat-form-field>
             <input matInput placeholder="Description" class="form-control" formControlName="description">
         </mat-form-field>
-
+  
         <mat-form-field>
             <input matInput placeholder="Cuisine type" class="form-control" formControlName="cuisineType">
         </mat-form-field>
@@ -28,7 +28,7 @@
             <input id="picture-upload" class="form-control" formControlName="imageSrc" type="file"/>
             Upload picture
         </label>
-
+ 
     <div class="row submit-button-container">
         <button mat-raised-button class="submit-button" type="submit" [mat-dialog-close] (click)="onSubmitNewRecipe(newRecipeForm.value)" >Add this recipe</button>
     </div>

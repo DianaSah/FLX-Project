@@ -1,12 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
-
-export interface Star {
-  userId: any;
-  recipeId: any;
-  value: number;
-}
+import { AngularFirestore } from '@angular/fire/firestore';
+import {Star} from '../models/star';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +15,7 @@ export class StarService {
     return starsRef.valueChanges();
   }
 
-  // Get all stars that belog to a Movie
+  // Get all stars that belog to a Recipe
   getRecipeStars(recipeId) {
     const starsRef = this.afs.collection('stars', ref => ref.where('recipeId', '==', recipeId) );
     return starsRef.valueChanges();

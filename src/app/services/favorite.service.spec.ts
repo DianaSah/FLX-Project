@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AddUserRecipeService } from './add-user-recipe.service';
+import { FavoriteService } from './favorite.service';
 
-describe('AddUserRecipeService', () => {
+describe('FavoriteService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: AddUserRecipeService = TestBed.get(AddUserRecipeService);
+    const service: FavoriteService = TestBed.get(FavoriteService);
     expect(service).toBeTruthy();
   });
 });

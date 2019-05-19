@@ -66,14 +66,6 @@
   </div>
 
   <div class="recipe-component__buttons">
-    <mat-card-actions>
-      <button mat-button disabled>
-        <mat-icon *ngIf="recipe.isFavorite; else isNotFavorite">favorite</mat-icon>
-        <ng-template #isNotFavorite>
-          <mat-icon>favorite_border</mat-icon>
-        </ng-template>
-      </button>
-    </mat-card-actions>
     <div>
       <p class="recipe-component__rating">Rating: {{recipe.rating | number}}</p>
     </div>
@@ -82,8 +74,13 @@
 </mat-card>
 
 <div *ngIf="(filteredrecipes | filter:searchText)?.length < 1">
-  <hr>
-  <p class="noRecipesFound">
-    No recipes found ☹
-  </p>
+  <div *ngIf="searchText?.length > 1; else loading">
+    <hr>
+    <p class="noRecipesFound">
+      No recipes found ☹
+    </p>
+  </div>
+  <ng-template #loading>
+    <mat-spinner class="spinner"></mat-spinner>
+  </ng-template>
 </div>

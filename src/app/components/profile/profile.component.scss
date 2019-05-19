@@ -1,21 +1,8 @@
 @import "../../../variables";
+
 mat-tab-group {
     color: #25333B;
-    background-color: #9AA8B3;
     text-align: center;
-    .my-recipes{
-        display: flex;
-        align-items: center;
-        *{
-            flex: 50%;
-        }
-
-    }
-}
-.isLoggedOut {
-    text-align: center;
-  }
-
   .recipe-component {
     max-width: 700px;
     margin: 10px auto;
@@ -57,20 +44,24 @@ mat-tab-group {
       cursor: pointer;
       background-color: $green-light_opacity35;
     }
-    .recipe-component__buttons {
-      .mat-button {
-        width: 35px;
-        min-width: 0;
-        padding: 0;
-        margin: 0;
-        line-height: 20px;
-        &:hover {
-          cursor: pointer;
-        }
-      }
-      .mat-card-actions {
-        margin: 0;
-        padding: 0;
-      }
-    }
   }
+
+  .noRecipesFound {
+    text-align: center;
+  }
+    .my-recipes{
+        display: flex;
+        align-items: center;
+        *{
+            flex: 50%;
+        }
+
+    }
+}
+.isLoggedOut {
+  text-align: center;
+}
+
+.spinner {
+  margin: 30vh auto;
+}
