@@ -5,6 +5,7 @@ import * as firebase from 'firebase/app';
 import {FavoriteService} from '../../services/favorite.service';
 import {Router} from '@angular/router';
 import {Favorite} from '../../models/favorite';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-profile',
@@ -19,26 +20,23 @@ export class ProfileComponent implements OnInit {
     private dialog: MatDialog,
     private favoriteService: FavoriteService,
     private router: Router,
+    private afs: AngularFirestore,
   ) { }
 
   ngOnInit() {
     firebase.auth().onAuthStateChanged(user => {
       user ? this.isLoggedIn = true : this.isLoggedIn = false;
-
+      let userFavRecipes = [];
       this.favoriteService.getFavRecipes().subscribe((recipes) => {
-        // if (recipes.id === `${this.userId}_${this.recipeId}`)
         recipes.forEach(function (recipe) {
-
           if (recipe.id.substring(0, recipe.id.indexOf('_')) === user.uid) {
-            console.log(recipe.id.substring(0, recipe.id.indexOf('_')))
+            console.log(recipe.id.substring(0, recipe.id.indexOf('_')));
+            return userFavRecipes.push(recipe)
           }
         });
-
-        this.recipes = recipes;
       });
+      this.recipes = userFavRecipes;
     });
-
-
   }
 
   viewDetails(recipe) {

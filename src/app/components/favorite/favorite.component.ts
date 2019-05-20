@@ -28,7 +28,7 @@ export class FavoriteComponent implements OnInit {
 
   ngOnInit() {
     this.fav = this.favoriteService.getRecipeFavs(this.recipeId);
-    this.checkFav()
+    this.checkFav();
   }
 
   favHandler(isFavorite) {
