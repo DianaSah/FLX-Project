@@ -23,11 +23,13 @@
             <input matInput placeholder="Steps" class="form-control" formControlName="steps">
         </mat-form-field>
 
+        <mat-form-field>
+            <input matInput placeholder="Source (src) of your image" class="form-control" formControlName="imageSrc">
+        </mat-form-field>
 
-        <label for="picture-upload" class="custom-picture-upload" >
-            <input id="picture-upload" class="form-control" formControlName="imageSrc" type="file"/>
-            Upload picture
-        </label>
+        <mat-form-field>
+            <input matInput placeholder="Source (src) of related videos (maximum 3)" class="form-control" formControlName="videos">
+        </mat-form-field>
  
     <div class="row submit-button-container">
         <button mat-raised-button class="submit-button" type="submit" [mat-dialog-close] (click)="onSubmitNewRecipe(newRecipeForm.value)" >Add this recipe</button>

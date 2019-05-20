@@ -32,7 +32,7 @@ export class AddUserRecipeService {
         cookDuration: parseInt(userRecipe.cookDuration),
         ingredients: userRecipe.ingredients,
         steps: userRecipe.steps,
-        //videos: value.videos,
+        videos: userRecipe.videos,
       })
     });
   }
