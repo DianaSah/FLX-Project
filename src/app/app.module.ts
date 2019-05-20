@@ -45,6 +45,7 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { FavoriteComponent } from './components/favorite/favorite.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { RecipesListByIngredientComponent } from './components/recipes-list-by-ingredient/recipes-list-by-ingredient.component';
 
 @Pipe({name: 'safe'})
 export class SafePipe implements PipeTransform {
@@ -74,7 +75,8 @@ export class SafePipe implements PipeTransform {
     SafePipe,
     StarRatingComponent,
     FavoriteComponent,
-    FooterComponent
+    FooterComponent,
+    RecipesListByIngredientComponent
   ],
   imports: [
     BrowserModule,
