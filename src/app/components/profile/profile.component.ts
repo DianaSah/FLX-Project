@@ -25,17 +25,24 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     firebase.auth().onAuthStateChanged(user => {
-      user ? this.isLoggedIn = true : this.isLoggedIn = false;
-      let userFavRecipes = [];
-      this.favoriteService.getFavRecipes().subscribe((recipes) => {
-        recipes.forEach(function (recipe) {
-          if (recipe.id.substring(0, recipe.id.indexOf('_')) === user.uid) {
-            console.log(recipe.id.substring(0, recipe.id.indexOf('_')));
-            return userFavRecipes.push(recipe)
+      if (user){
+        this.isLoggedIn = true;
+        let userFavRecipes = [];
+
+        this.favoriteService.getFavRecipes().subscribe((recipes) => {
+          if (userFavRecipes !== []) {
+            recipes.forEach(function (recipe) {
+              if (recipe.id.substring(0, recipe.id.indexOf('_')) === user.uid) {
+                return userFavRecipes.push(recipe)
+              }
+            });
+            userFavRecipes = [];
           }
         });
-      });
-      this.recipes = userFavRecipes;
+        this.recipes = userFavRecipes;
+      } else {
+        this.isLoggedIn = false;
+      }
     });
   }
 
