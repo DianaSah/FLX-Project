@@ -18,10 +18,11 @@ export class RecipesFbService {
     let ingredientsArray = ingredients.split(', ');
     let steps = value.steps;
     let stepsArray = steps.split('. ');
-    let nameToSearch = value.title.toLowerCase();
+    let videos = value.videos;
+    let videosArray = videos.split(', ')
     let service =  this.addUserRecipeService;
     return this.dataBase.collection('recipes').add({
-      title: nameToSearch,
+      title: value.title,
       imageSrc: value.imageSrc,
       description: value.description,
       cuisineType: value.cuisineType,
@@ -30,7 +31,7 @@ export class RecipesFbService {
       cookDuration: parseInt(value.cookDuration),
       ingredients: ingredientsArray,
       steps: stepsArray,
-      //videos: value.videos,
+      videos: videosArray,
     }).then(docRef => {
       docRef.get().then(function(doc) {
         service.addUserRecipe(doc.data(), doc.id)

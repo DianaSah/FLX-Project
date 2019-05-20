@@ -34,7 +34,8 @@ export class AddNewRecipeComponent implements OnInit {
       cuisineType: [''],
       cookDuration: [''],
       ingredients: [''],
-      steps: ['']
+      steps: [''],
+      videos: ['']
     });
   }
 
@@ -46,7 +47,8 @@ export class AddNewRecipeComponent implements OnInit {
       cuisineType: new FormControl(''),
       cookDuration: new FormControl(''),
       ingredients: new FormControl(''),
-      steps: new FormControl('')
+      steps: new FormControl(''),
+      videos: new FormControl('')
     });
   }
 
