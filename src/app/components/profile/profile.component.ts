@@ -6,6 +6,9 @@ import {FavoriteService} from '../../services/favorite.service';
 import {Router} from '@angular/router';
 import {Favorite} from '../../models/favorite';
 import {AngularFirestore} from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { Recipe } from '../../models/recipe';
+import { AddUserRecipeService } from '../../services/add-user-recipe.service';
 
 @Component({
   selector: 'app-profile',
@@ -13,12 +16,14 @@ import {AngularFirestore} from '@angular/fire/firestore';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  public recipes$: Observable<Recipe[]>;
   isLoggedIn: boolean;
   recipes: Favorite[] = [];
 
   constructor(
     private dialog: MatDialog,
     private favoriteService: FavoriteService,
+    public addUserRecipe: AddUserRecipeService,
     private router: Router,
     private afs: AngularFirestore,
   ) { }
