@@ -22,6 +22,7 @@ export class RecipeComponent implements OnInit, OnChanges {
   user: Observable<any>;
   recipe: Observable<any>;
   currRecipeId = this.route.snapshot.paramMap.get('id');
+  recipeObservable;
 
   currentUser;
 
@@ -48,8 +49,12 @@ export class RecipeComponent implements OnInit, OnChanges {
         this.user = this.userDoc.valueChanges();
       }
     });
+
     this.recipeDoc = this.afs.doc('recipes/' + this.currRecipeId);
-    this.recipe = this.recipeDoc.valueChanges();
+    this.recipeObservable = this.recipeDoc.valueChanges();
+    this.recipeObservable.subscribe(recipe => {
+      this.recipe = recipe;
+    });
   }
 
   get recipeId() {

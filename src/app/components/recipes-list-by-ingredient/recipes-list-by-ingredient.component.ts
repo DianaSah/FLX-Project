@@ -10,14 +10,18 @@ import { RecipeService } from 'src/app/recipe.service';
   styleUrls: ['./recipes-list-by-ingredient.component.scss']
 })
 export class RecipesListByIngredientComponent implements OnInit {
-  public recipes$: Observable<Recipe[]>;
+  public recipes: Observable<Recipe[]>;
+  recipeObservable;
   chosenIngre: string;
 
   public constructor(private recipeService: RecipeService) {
   }
 
   ngOnInit() {
-    this.recipes$ = this.recipeService.getRecipesByIngr();
+    this.recipeObservable = this.recipeService.getRecipesByIngr();
+    this.recipeObservable.subscribe(recipe => {
+      this.recipes = recipe;
+    });
     this.chosenIngre = this.recipeService.getIngredient();
   }
 }
