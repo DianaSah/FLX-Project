@@ -46,6 +46,7 @@ import { StarRatingComponent } from './components/star-rating/star-rating.compon
 import { FavoriteComponent } from './components/favorite/favorite.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RecipesListByIngredientComponent } from './components/recipes-list-by-ingredient/recipes-list-by-ingredient.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @Pipe({name: 'safe'})
 export class SafePipe implements PipeTransform {
@@ -76,7 +77,8 @@ export class SafePipe implements PipeTransform {
     StarRatingComponent,
     FavoriteComponent,
     FooterComponent,
-    RecipesListByIngredientComponent
+    RecipesListByIngredientComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
