@@ -19,7 +19,7 @@ export class SearchByIngredientsService {
       // if not search term, return empty ingredient array.
       return of([]);
     }
-    return this.afs.collection<Recipe>('recipes').stateChanges().pipe(
+    return this.afs.collection<Recipe>('recipes', ref => ref.orderBy('title')).snapshotChanges().pipe(
       map(actions => {
           const ingrSet = new Set();
           actions.map(a => {
