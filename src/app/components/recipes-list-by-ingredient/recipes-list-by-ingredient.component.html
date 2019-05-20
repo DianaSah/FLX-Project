@@ -27,9 +27,9 @@
 
 </mat-card>
 
-<div *ngIf="(recipes)?.length < 1">
+<div *ngIf="!recipes">
   <hr>
   <p id="noRecipesFound">
-    No recipes found ☹
+    No recipes was found ☹
   </p>
 </div>
