@@ -35,7 +35,7 @@ export class AddNewRecipeComponent implements OnInit {
     });
   }
 
-  resetFields(){
+  resetFields() {
     this.newRecipeForm = this.fb.group({
       title: new FormControl(''),
       imageSrc: new FormControl(''),
