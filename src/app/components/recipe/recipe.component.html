@@ -38,7 +38,12 @@
           <h5>Ingredients:</h5>
           <div>
             <p *ngFor="let ingredient of recipe.ingredients">
-              <mat-card-subtitle>{{ingredient}}</mat-card-subtitle>
+              <mat-card-subtitle>
+                <div class="ingredient-name">{{ingredient}} </div>
+                <div class="ingredient-icon" #IngredientIcon *ngIf="imgSrc.indexOf(ingredient) !== -1" (click)="clickOnIngredient($event)">
+                  <img class='icon' src="../../../assets/images/food-images/{{ingredient}}.png" alt={{ingredient}} name={{ingredient}}>
+                </div>
+              </mat-card-subtitle>
             </p>
           </div>
         </div>
@@ -64,7 +69,6 @@
       <iframe *ngFor="let url of recipe.videos" width="360" height="205"
               [src]="('https://www.youtube.com/embed/' + url) | safe" frameborder="0" allowfullscreen></iframe>
     </div>
-
   </mat-card>
 
 </div>

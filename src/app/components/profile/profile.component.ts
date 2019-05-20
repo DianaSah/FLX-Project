@@ -5,6 +5,7 @@ import * as firebase from 'firebase/app';
 import {FavoriteService} from '../../services/favorite.service';
 import {Router} from '@angular/router';
 import {Favorite} from '../../models/favorite';
+import {AngularFirestore} from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Recipe } from '../../models/recipe';
 import { AddUserRecipeService } from '../../services/add-user-recipe.service';
@@ -24,15 +25,29 @@ export class ProfileComponent implements OnInit {
     private favoriteService: FavoriteService,
     public addUserRecipe: AddUserRecipeService,
     private router: Router,
+    private afs: AngularFirestore,
   ) { }
 
   ngOnInit() {
     firebase.auth().onAuthStateChanged(user => {
-      user ? this.isLoggedIn = true : this.isLoggedIn = false;
-      this.recipes$ =  this.addUserRecipe.getRecipes(user.uid);
-    });
-    this.favoriteService.getFavRecipes().subscribe((recipes) => {
-      this.recipes = recipes;
+      if (user){
+        this.isLoggedIn = true;
+        let userFavRecipes = [];
+
+        this.favoriteService.getFavRecipes().subscribe((recipes) => {
+          if (userFavRecipes !== []) {
+            recipes.forEach(function (recipe) {
+              if (recipe.id.substring(0, recipe.id.indexOf('_')) === user.uid) {
+                return userFavRecipes.push(recipe)
+              }
+            });
+            userFavRecipes = [];
+          }
+        });
+        this.recipes = userFavRecipes;
+      } else {
+        this.isLoggedIn = false;
+      }
     });
   }
 
