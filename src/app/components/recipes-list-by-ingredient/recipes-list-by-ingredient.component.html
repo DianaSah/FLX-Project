@@ -1,5 +1,5 @@
-<mat-card class="recipe-component" *ngFor="let recipe of recipes$ | async" routerLink="/recipe/{{recipe.id}}">
-
+<div class="title"><h3>All Recipes which have ingredient {{chosenIngre}}</h3></div>
+<mat-card class="recipe-component" *ngFor="let recipe of recipes" routerLink="/recipe/{{recipe.id}}">
   <div>
     <div class="recipe-component__image-btn-wrapper">
       <img mat-card-image
@@ -27,7 +27,7 @@
 
 </mat-card>
 
-<div *ngIf="(recipes$ | async)?.length < 1">
+<div *ngIf="(recipes)?.length < 1">
   <hr>
   <p id="noRecipesFound">
     No recipes found ☹

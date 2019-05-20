@@ -6,6 +6,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
 import { SearchComponent } from './components/search/search.component';
+import { RecipesListByIngredientComponent } from './components/recipes-list-by-ingredient/recipes-list-by-ingredient.component';
+import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
@@ -15,6 +17,9 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'recipe/:id', component: RecipeComponent },
   { path: 'search', component: SearchComponent },
+  { path: 'ingredient_search', component: RecipesListByIngredientComponent },
+  { path: '404', component: PageNotFoundComponent },
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

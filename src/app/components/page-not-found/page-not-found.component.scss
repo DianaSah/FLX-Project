@@ -1,0 +1,30 @@
+* {
+  font-size: 30px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+
+img {
+  max-height: 485px;
+  margin: 0 auto;
+}
+
+h3 {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+ul {
+  li {
+    list-style: none;
+    width: 320px;
+    &:hover {
+      cursor: pointer;
+      background-color: #eecc99b0;
+      color: #c0311b;
+      border-radius: 40px;
+      box-sizing: border-box;
+    }
+  }
+}

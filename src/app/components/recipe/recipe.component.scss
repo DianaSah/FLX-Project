@@ -85,8 +85,31 @@
             width: auto;
             margin: 0 10px;
             .mat-card-subtitle {
+              display: flex;
+              height: 100%;
+              align-items: center;
+              align-content: center;
+              justify-content: center;
               margin-bottom: 5px;;
               color: $gray;
+              .ingredient-name{
+                height: inherit;
+                padding: 0;
+                align-self: center;
+                align-content: center;
+                margin: 0;
+              }
+              .ingredient-icon{
+                padding: 0 5px;
+                margin: 0;
+                img{
+                  max-width: 30px;
+                  max-height: 30px;
+                }
+                &:hover{
+                  cursor: pointer;
+                }
+              }
             }
           }
         }

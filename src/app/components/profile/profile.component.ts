@@ -8,6 +8,7 @@ import {Favorite} from '../../models/favorite';
 import { Observable } from 'rxjs';
 import { Recipe } from '../../models/recipe';
 import { AddUserRecipeService } from '../../services/add-user-recipe.service';
+import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-profile',
@@ -28,11 +29,27 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     firebase.auth().onAuthStateChanged(user => {
-      user ? this.isLoggedIn = true : this.isLoggedIn = false;
+      if (user) {
+        this.isLoggedIn = true;
+
+        this.isLoggedIn = true;
+        let userFavRecipes = [];
+
+        this.favoriteService.getFavRecipes().subscribe((recipes) => {
+          if (userFavRecipes !== []) {
+            recipes.forEach( (recipe) => {
+              if (recipe.id.substring(0, recipe.id.indexOf('_')) === user.uid) {
+                return userFavRecipes.push(recipe);
+              }
+            });
+            userFavRecipes = [];
+          }
+        });
+        this.recipes = userFavRecipes;
+      } else {
+        this.isLoggedIn = false;
+      }
       this.recipes$ =  this.addUserRecipe.getRecipes(user.uid);
-    });
-    this.favoriteService.getFavRecipes().subscribe((recipes) => {
-      this.recipes = recipes;
     });
   }
 
