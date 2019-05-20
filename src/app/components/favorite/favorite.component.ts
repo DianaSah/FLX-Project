@@ -25,6 +25,7 @@ export class FavoriteComponent implements OnInit {
   @Input() recipeId;
 
   fav: Observable<any>;
+  avgRating: Observable<any>;
 
   ngOnInit() {
     this.fav = this.favoriteService.getRecipeFavs(this.recipeId);

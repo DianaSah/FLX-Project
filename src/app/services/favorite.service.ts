@@ -15,18 +15,22 @@ export class FavoriteService {
 
   constructor(private afs: AngularFirestore) { }
 
+  // Get all favs that belog to a Recipe
   getRecipeFavs(recipeId) {
     const favsRef = this.afs.collection('favorite', ref => ref.where('recipeId', '==', recipeId) );
     return favsRef.valueChanges();
   }
 
+  // Create or update favorite
   setFav(userId, recipeId, isFavorite, title, imageSrc, description, cuisineType, rating, cookDuration, ingredients, steps, videos) {
-
+    // Favorite document data
     const fav: Favorite = { userId, recipeId, isFavorite, title, imageSrc, description, cuisineType, rating, cookDuration, ingredients,
       steps, videos };
 
+    // Custom doc ID for relationship
     const favPath = `favorite/${fav.userId}_${fav.recipeId}`;
 
+    // Set the data, return the promise
     return this.afs.doc(favPath).set(fav);
   }
 

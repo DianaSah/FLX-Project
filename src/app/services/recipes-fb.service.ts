@@ -20,6 +20,7 @@ export class RecipesFbService {
     let stepsArray = steps.split('. ');
     let service =  this.addUserRecipeService;
     return this.dataBase.collection('recipes').add({
+      title: value.title,
       imageSrc: value.imageSrc,
       description: value.description,
       cuisineType: value.cuisineType,

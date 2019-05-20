@@ -14,15 +14,15 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./recipe.component.scss']
 })
 export class RecipeComponent implements OnInit, OnChanges {
-
-  @ViewChild('IngredientIcon') icon: ElementRef;
   public recipe$: Observable<Recipe>;
+  @ViewChild('IngredientIcon') icon: ElementRef;
   imgSrc: string[] = IMAGES_SRC.map((imageData) => imageData.name);
   userDoc: AngularFirestoreDocument<any>;
   recipeDoc: AngularFirestoreDocument<any>;
   user: Observable<any>;
   recipe: Observable<any>;
   currRecipeId = this.route.snapshot.paramMap.get('id');
+
   currentUser;
 
   constructor(
