@@ -32,10 +32,6 @@ export class RecipesFbService {
       //videos: value.videos,
     }).then(docRef => {
       docRef.get().then(function(doc) {
-        this.afs.doc(`recipes/${this.recipeId}`)
-          .ref.get().then((doc) => {
-
-        });
         service.addUserRecipe(doc.data(), doc.id)
     })
   });
