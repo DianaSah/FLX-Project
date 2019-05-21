@@ -1,3 +1,5 @@
+@import "../../../variables";
+
 .home-img {
   .home-img_food {
     background-image: linear-gradient(rgba(0, 0, 0, 0.31), rgba(0, 0, 0, 0.43)),
@@ -7,13 +9,13 @@
     height: calc(100vh - 77px);
     position: relative;
     top: -10px;
-    h3, .start {
+    h3 {
       font-family: 'Dancing Script', cursive;
       margin: 0 auto;
       padding-top: 25vh;
-      color: #d3e9ba;
+      color: $green-dark;
       font-size: 130px;
-      text-shadow: 1px 3px 5px black, 0 0 1em #563e10;
+      text-shadow: 1px 3px 5px black, 0 0 1em $gray;
       text-align: center;
     }
   }

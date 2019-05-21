@@ -78,22 +78,25 @@
 
 .filter{
   text-align: center;
-  color: #25333b9c;
+  color: $gray;
   position: fixed;
   top: 170px;
   left: 60px;
   padding: 16px;
-  border: 1.5px solid #25333b9c;
+  border: 1.5px solid $gray;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   button{
-    background-color: #25333b9c;
+    background-color: $green-light-opacity35;
+    &:hover {
+      background-color: $green-light;
+    }
   }
   .select-table{
     option:hover{
-      background-color: #96e63b59;
+      background-color: $green-light;
     }
   }
 }
@@ -103,7 +106,7 @@
   bottom: 105px;
   left: 70px;
   border: 1px solid $gray;
-
+  transition: all ease-out 0.3s;
   &:hover {
     cursor: pointer;
     background: $green-light_opacity35;
