@@ -1,5 +1,5 @@
 <header>
-  <div class="logo" routerLink=""><img src="assets/images/cookbook.png"><span>CookBook</span></div>
+  <div class="logo" routerLink=""><img src="assets/images/cookbook.png"><p>CookBook</p></div>
   <form class="search-form" *ngIf="clicked">
     <mat-form-field>
       <input matInput type="text" #searchBox (input)="search(searchBox.value)" autocomplete="off"
