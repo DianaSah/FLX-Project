@@ -19,7 +19,9 @@ export class RecipesListComponent implements OnInit {
   selectedRating: string;
   recipes: Recipe[] = [];
   filteredrecipes: Recipe[] = [];
-
+  rating: string[] = ['0-1', '1-2', '2-3', '3-4', '4-5'];
+  numberIngr: string[] = ['2-5', '5-8', '8-11', '11+'];
+  timeCook: string[] = ['5-15', '15-30', '30-45', '45+'];
   constructor(
     private recipeService: RecipeService,
     private router: Router,

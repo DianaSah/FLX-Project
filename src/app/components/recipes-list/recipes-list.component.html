@@ -10,13 +10,10 @@
   <div class="cook-duration">
     <mat-form-field>
       <mat-label>Cook duration</mat-label>
-      <select matNativeControl [(ngModel)]="selectedCookDuration" name="cookDuration" class="select-table">
-        <option value="" selected></option>
-        <option value="5-15">5-15</option>
-        <option value="15-30">15-30</option>
-        <option value="30-45">30-45</option>
-        <option value="45+">45+</option>
-      </select>
+      <mat-select [(ngModel)]="selectedCookDuration" name="cookDuration" class="select-table">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let time of timeCook" [value]="time">{{time}}</mat-option>
+      </mat-select>
     </mat-form-field>
   </div>
   <div class="cuisine">
@@ -33,26 +30,19 @@
   <div class="ingredients-count">
     <mat-form-field>
       <mat-label>Number of ingredients</mat-label>
-      <select matNativeControl [(ngModel)]="selectedNumberOfIngr" name="numberOfIngr" class="select-table">
-        <option value="" selected></option>
-        <option value="2-5">2-5</option>
-        <option value="5-8">5-8</option>
-        <option value="8-11">8-11</option>
-        <option value="11+">11+</option>
-      </select>
+      <mat-select [(ngModel)]="selectedNumberOfIngr" name="numberOfIngr" class="select-table">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let num of numberIngr" [value]="num">{{num}}</mat-option>
+      </mat-select>
     </mat-form-field>
   </div>
   <div class="rating">
     <mat-form-field>
       <mat-label>Rating</mat-label>
-      <select matNativeControl [(ngModel)]="selectedRating" name="rating" class="select-table">
-        <option value="" selected></option>
-        <option value="0-1">0-1</option>
-        <option value="1-2">1-2</option>
-        <option value="2-3">2-3</option>
-        <option value="3-4">3-4</option>
-        <option value="4-5">4-5</option>
-      </select>
+      <mat-select [(ngModel)]="selectedRating" name="rating" class="select-table">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let rate of rating" [value]="rate">{{rate}}</mat-option>
+      </mat-select>
     </mat-form-field>
   </div>
   <button mat-raised-button (click)='filter()'>Filter</button>
