@@ -74,7 +74,7 @@
 </mat-card>
 
 <div *ngIf="(filteredrecipes | filter:searchText)?.length < 1">
-  <div *ngIf="searchText?.length > 1; else loading">
+  <div *ngIf="recipes?.length > 1; else loading">
     <hr>
     <p class="noRecipesFound">
       No recipes found ☹

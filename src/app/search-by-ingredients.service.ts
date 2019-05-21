@@ -34,6 +34,20 @@ export class SearchByIngredientsService {
       }));
   }
 
+  getAllIngredients(): Observable<string[]> {
+    return this.afs.collection<Recipe>('recipes').snapshotChanges().pipe(
+      map(actions => {
+        const ingrSet = new Set();
+        actions.map(a => {
+          const recipe = a.payload.doc.data() as Recipe;
+          recipe.ingredients.forEach((ingr) => {
+              ingrSet.add(ingr);
+          });
+        });
+        return Array.from(ingrSet);
+      }));
+  }
+
   constructor( public afs: AngularFirestore) {
     this.checkIngredients$ = this.checkIngredientsSubject.asObservable();
   }

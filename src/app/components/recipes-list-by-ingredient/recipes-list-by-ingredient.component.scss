@@ -67,6 +67,24 @@
   }
 }
 
-#noRecipesFound {
-  text-align: center;
+.ingredient{
+  padding: 0 5px;
+  margin: 0;
+  display: inline-flex;
+  img{
+    max-width: 30px;
+    max-height: 30px;
+    float: left;
+    margin-left: 10px;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  p {
+    display: inline-block;
+    margin: 0 5px 15px;
+    align-items: center;
+    line-height: 30px;
+  }
+
 }
