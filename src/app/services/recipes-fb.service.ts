@@ -14,12 +14,16 @@ export class RecipesFbService {
     ) {}
 
   addRecipe(value: any){
+    let youTubeLink = 'https://www.youtube.com/watch?v=';
     let ingredients=value.ingredients;
     let ingredientsArray = ingredients.split(', ');
     let steps = value.steps;
     let stepsArray = steps.split('. ');
     let videos = value.videos;
-    let videosArray = videos.split(', ')
+    let videosArray = [];
+    videos.split(', ').forEach ( element => {
+      videosArray.push(element.replace(youTubeLink, ''));
+    });
     let service =  this.addUserRecipeService;
     return this.dataBase.collection('recipes').add({
       title: value.title,
@@ -34,8 +38,8 @@ export class RecipesFbService {
       videos: videosArray,
     }).then(docRef => {
       docRef.get().then(function(doc) {
-        service.addUserRecipe(doc.data(), doc.id)
-    })
+        service.addUserRecipe(doc.data(), doc.id);
+    });
   });
   }
 }

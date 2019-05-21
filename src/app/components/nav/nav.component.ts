@@ -1,9 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { CheckLogInService } from 'src/app/check-log-in.service';
+import { CheckLogInService } from 'src/app/services/check-log-in.service';
 import { Router } from '@angular/router';
 import {Observable, Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
-import {RecipeService} from '../../recipe.service';
+import {RecipeService} from '../../services/recipe.service';
 import { Recipe } from 'src/app/models/recipe';
 
 @Component({

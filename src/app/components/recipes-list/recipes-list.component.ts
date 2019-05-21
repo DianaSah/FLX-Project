@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../../models/recipe';
 import { Router } from '@angular/router';
 import {Observable, Subject} from 'rxjs';
-import { RecipeService} from '../../recipe.service';
+import { RecipeService} from '../../services/recipe.service';
 import {AngularFirestore} from '@angular/fire/firestore';
 
 @Component({

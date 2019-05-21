@@ -1,6 +1,6 @@
 import {Component, OnInit, OnChanges, ViewChild, ElementRef} from '@angular/core';
 import { Recipe } from '../../models/recipe';
-import { RecipeService } from '../../recipe.service';
+import { RecipeService } from '../../services/recipe.service';
 import { IMAGES_SRC } from '../../mock-images-src';
 import { Location } from '@angular/common';
 import {ActivatedRoute, Router} from '@angular/router';

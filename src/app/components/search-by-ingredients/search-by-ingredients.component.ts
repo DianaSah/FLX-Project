@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchByIngredientsService } from '../../search-by-ingredients.service';
+import { SearchByIngredientsService } from '../../services/search-by-ingredients.service';
 import { Observable, Subject, of } from 'rxjs';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { IMAGES_SRC } from '../../mock-images-src';

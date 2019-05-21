@@ -25,6 +25,7 @@ export class ProfileComponent implements OnInit {
     private favoriteService: FavoriteService,
     public addUserRecipe: AddUserRecipeService,
     private router: Router,
+    private afs: AngularFirestore
   ) { }
 
   ngOnInit() {
@@ -46,10 +47,10 @@ export class ProfileComponent implements OnInit {
           }
         });
         this.recipes = userFavRecipes;
+        this.recipes$ =  this.addUserRecipe.getRecipes(user.uid);
       } else {
         this.isLoggedIn = false;
       }
-      this.recipes$ =  this.addUserRecipe.getRecipes(user.uid);
     });
   }
 
@@ -61,6 +62,17 @@ export class ProfileComponent implements OnInit {
 
   addCustomerRecipe() {
     this.dialog.open(AddNewRecipeComponent);
+  }
+
+  removeRecipe(event: any) {
+    firebase.auth().onAuthStateChanged((user) => {
+    if (event.target.className === 'remove-btn') {
+      if (confirm(`Are you sure that you want to remove "${event.target.title}"`)) {
+        this.afs.collection('users').doc(user.uid).collection('userRecipes').doc((event.target.name)).delete();
+        this.afs.collection('recipes').doc((event.target.name)).delete();
+      }
+    }
+    });
   }
 
 }

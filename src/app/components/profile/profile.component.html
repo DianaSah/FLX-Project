@@ -50,25 +50,34 @@
         <div class='my-recipes-btn'>
           <button mat-stroked-button (click)='addCustomerRecipe()'>Add new</button>
         </div>
-        <mat-card class="recipe-component" *ngFor="let recipe of recipes$ | async" (click)="viewDetails(recipe)">
-          <div>
-            <div class="recipe-component__image-btn-wrapper">
-              <img mat-card-image
-                   src={{recipe.imageSrc}}
-                   alt={{recipe.title}}>
-            </div>
+        <div  *ngFor="let recipe of recipes$ | async">
+          <mat-card class="recipe-component" (click)="viewDetails(recipe)">
+            <div>
+              <div class="recipe-component__image-btn-wrapper">
+                <img mat-card-image
+                     src={{recipe.imageSrc}}
+                     alt={{recipe.title}}>
+              </div>
 
-            <div class="recipe-component__info">
-              <div class="recipe-component__info_title">
-                <mat-card-title><h4>{{recipe.title}}</h4></mat-card-title>
-                <h3>Coock duration: {{recipe.cookDuration}} min</h3>
-                <mat-card-content class="recipe-component__info_title_recipe-content">
-                  <p>{{recipe.description}}</p>
-                </mat-card-content>
+              <div class="recipe-component__info">
+                <div class="recipe-component__info_title">
+                  <mat-card-title><h4>{{recipe.title}}</h4></mat-card-title>
+                  <h3>Coock duration: {{recipe.cookDuration}} min</h3>
+                  <mat-card-content class="recipe-component__info_title_recipe-content">
+                    <p>{{recipe.description}}</p>
+                  </mat-card-content>
+                </div>
               </div>
             </div>
+          </mat-card>
+          <div (click)="removeRecipe($event)">
+            <button class="remove-btn"  name={{recipe.id}} title={{recipe.title}}>
+              Remove
+            </button>
           </div>
-        </mat-card>
+        </div>
+
+
       </div>
     </div>
   </mat-tab>
