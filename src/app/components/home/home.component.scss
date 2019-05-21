@@ -1,8 +1,20 @@
-section {
-  background-image: url('../../../assets/images/food-pattern.jpg');
-  .home-img {
-    img {
-      width: 100%;
+.home-img {
+  .home-img_food {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.31), rgba(0, 0, 0, 0.43)),
+    url("../../../assets/images/food.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: calc(100vh - 77px);
+    position: relative;
+    top: -10px;
+    h3, .start {
+      font-family: 'Dancing Script', cursive;
+      margin: 0 auto;
+      padding-top: 25vh;
+      color: #d3e9ba;
+      font-size: 130px;
+      text-shadow: 1px 3px 5px black, 0 0 1em #563e10;
+      text-align: center;
     }
   }
 }

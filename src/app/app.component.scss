@@ -1,3 +1,7 @@
 section {
   min-height: calc(100vh - 177px);
+  background-image: linear-gradient(rgba(218, 255, 190, 0.72),
+    rgba(218, 255, 190, 0.72)), url("../assets/images/food-pattern.jpg");
+  margin: 0;
+  padding: 10px 0;
 }
