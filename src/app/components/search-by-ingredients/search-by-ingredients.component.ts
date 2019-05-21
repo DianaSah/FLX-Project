@@ -15,8 +15,8 @@ import {
 
 export class SearchByIngredientsComponent implements OnInit {
   isMouseOverList: boolean;
-  imagesSrc1: object[] = IMAGES_SRC.slice(0, Math.floor((IMAGES_SRC.length) / 2));
-  imagesSrc2: object[] = IMAGES_SRC.slice(Math.floor((IMAGES_SRC.length) / 2), IMAGES_SRC.length);
+  imagesSrc1: object[] = IMAGES_SRC.slice(0, 25);
+  imagesSrc2: object[] = IMAGES_SRC.slice(25, 50);
   chosenIngr: string;
   ingredients$: Observable<string[]>;
   private searchTerms = new Subject<string>();

@@ -42,6 +42,19 @@
       </select>
     </mat-form-field>
   </div>
+  <div class="rating">
+    <mat-form-field>
+      <mat-label>Rating</mat-label>
+      <select matNativeControl [(ngModel)]="selectedRating" name="rating" class="select-table">
+        <option value="" selected></option>
+        <option value="0-1">0-1</option>
+        <option value="1-2">1-2</option>
+        <option value="2-3">2-3</option>
+        <option value="3-4">3-4</option>
+        <option value="4-5">4-5</option>
+      </select>
+    </mat-form-field>
+  </div>
   <button mat-raised-button (click)='filter()'>Filter</button>
 </div>
 <mat-card class="recipe-component" *ngFor="let recipe of filteredrecipes | filter:searchText"

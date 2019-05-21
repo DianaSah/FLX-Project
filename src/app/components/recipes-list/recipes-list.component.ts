@@ -16,6 +16,7 @@ export class RecipesListComponent implements OnInit {
   selectedCuisineType: string;
   selectedCookDuration: string;
   selectedNumberOfIngr: string;
+  selectedRating: string;
   recipes: Recipe[] = [];
   filteredrecipes: Recipe[] = [];
 
@@ -96,6 +97,45 @@ export class RecipesListComponent implements OnInit {
         case '11+':
           this.filteredrecipes = this.filteredrecipes.filter((recipe) => {
             if (recipe.ingredients.length >= 11) {
+              return recipe;
+            }
+          });
+          break;
+      }
+    }
+    if (this.selectedRating) {
+      switch (this.selectedRating) {
+        case '0-1':
+          this.filteredrecipes = this.filteredrecipes.filter((recipe) => {
+            if (recipe.rating <= 1) {
+              return recipe;
+            }
+          });
+          break;
+        case '1-2':
+          this.filteredrecipes = this.filteredrecipes.filter((recipe) => {
+            if (recipe.rating <= 2 && recipe.rating >= 1) {
+              return recipe;
+            }
+          });
+          break;
+        case '2-3':
+          this.filteredrecipes = this.filteredrecipes.filter((recipe) => {
+            if (recipe.rating <= 3 && recipe.rating >= 2) {
+              return recipe;
+            }
+          });
+          break;
+        case '3-4':
+          this.filteredrecipes = this.filteredrecipes.filter((recipe) => {
+            if (recipe.rating <= 4 && recipe.rating >= 3) {
+              return recipe;
+            }
+          });
+          break;
+        case '4-5':
+          this.filteredrecipes = this.filteredrecipes.filter((recipe) => {
+            if (recipe.rating <= 5 && recipe.rating >= 4) {
               return recipe;
             }
           });
