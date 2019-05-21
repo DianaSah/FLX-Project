@@ -57,6 +57,13 @@
   </div>
   <button mat-raised-button (click)='filter()'>Filter</button>
 </div>
+
+<button *ngIf="windowScrolled" class="scroll-to-top" (click)="scrollToTop()" mat-button>
+  <i class="material-icons">
+    arrow_upward
+  </i>
+</button>
+
 <mat-card class="recipe-component" *ngFor="let recipe of filteredrecipes | filter:searchText"
           (click)="viewDetails(recipe)">
   <div>

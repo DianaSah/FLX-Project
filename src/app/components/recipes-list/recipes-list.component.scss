@@ -98,6 +98,18 @@
   }
 }
 
+.scroll-to-top {
+  position: fixed;
+  bottom: 105px;
+  left: 70px;
+  border: 1px solid $gray;
+
+  &:hover {
+    cursor: pointer;
+    background: $green-light_opacity35;
+  }
+}
+
 .spinner {
   margin: 30vh auto;
 }

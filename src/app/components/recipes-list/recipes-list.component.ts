@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, HostListener, Inject, OnInit} from '@angular/core';
 import { Recipe } from '../../models/recipe';
 import { Router } from '@angular/router';
 import {Observable, Subject} from 'rxjs';
 import { RecipeService} from '../../services/recipe.service';
-import {AngularFirestore} from '@angular/fire/firestore';
+import {DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'app-recipes-list',
@@ -19,12 +19,32 @@ export class RecipesListComponent implements OnInit {
   selectedRating: string;
   recipes: Recipe[] = [];
   filteredrecipes: Recipe[] = [];
+  windowScrolled: boolean;
 
   constructor(
     private recipeService: RecipeService,
     private router: Router,
-    private afs: AngularFirestore
+    @Inject(DOCUMENT) private document: Document
   ) { }
+
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) {
+      this.windowScrolled = true;
+    }
+    else if (this.windowScrolled && window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop < 10) {
+      this.windowScrolled = false;
+    }
+  }
+  scrollToTop() {
+    (function smoothscroll() {
+      let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      if (currentScroll > 0) {
+        window.requestAnimationFrame(smoothscroll);
+        window.scrollTo(0, currentScroll - (currentScroll / 8));
+      }
+    })();
+  }
 
   viewDetails(recipe) {
     this.router.navigate(['/recipe/' + recipe.id]);
