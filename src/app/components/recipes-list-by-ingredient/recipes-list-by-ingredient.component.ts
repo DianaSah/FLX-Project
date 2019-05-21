@@ -1,8 +1,8 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Recipe } from '../../models/recipe';
 import { Observable } from 'rxjs';
-import { RecipeService } from 'src/app/recipe.service';
-import {SearchByIngredientsService} from '../../search-by-ingredients.service';
+import { RecipeService } from 'src/app/services/recipe.service';
+import {SearchByIngredientsService} from '../../services/search-by-ingredients.service';
 import {Router} from '@angular/router';
 
 

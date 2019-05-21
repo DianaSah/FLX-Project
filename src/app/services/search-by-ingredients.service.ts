@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable, of, Subject} from 'rxjs';
 import { AngularFirestore } from '@angular/fire/firestore';
-import {Recipe} from './models/recipe';
+import {Recipe} from '../models/recipe';
 import { map } from 'rxjs/operators';
 
 

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 // import { RECIPES } from '../../mock_recepies';
 import { Recipe } from '../../models/recipe';
-import {SearchByIngredientsService} from '../../search-by-ingredients.service';
+import {SearchByIngredientsService} from '../../services/search-by-ingredients.service';
 import { Observable } from 'rxjs';
 // import {Observable} from 'rxjs';
 
