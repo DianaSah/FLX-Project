@@ -19,8 +19,11 @@
     <mat-icon>search</mat-icon>
   </button>
   <button class="log-btn" routerLink="/recipes_list" mat-button>
-    all recipes
+    All recipes
    </button>
+  <button class="log-btn" routerLink="/ingredient_search" mat-button>
+    All ingredients
+  </button>
   <button class="log-btn" mat-button routerLink="/login" *ngIf="!this.checkLogInService.isUserLogIn">Sing In</button>
   <button  class="log-btn" mat-button  routerLink="/profile" *ngIf="this.checkLogInService.isUserLogIn">
     <mat-icon class="user-icon">library_books</mat-icon>
