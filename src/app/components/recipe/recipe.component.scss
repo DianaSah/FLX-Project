@@ -10,7 +10,7 @@
 }
 .recipe-component {
   max-width: 900px;
-  margin: 10px auto;
+  margin: 0 auto;
   background-color: $green-light_opacity35;
   color: $gray;
   box-shadow: 0 2px 5px -1px #25333b9c, 0 1px 4px 0 rgba(0,0,0,.14), 0 1px 10px 5px rgba(0,0,0,.12);
@@ -130,6 +130,8 @@
   }
 }
 #videos {
+  background-image: linear-gradient(rgba(218, 255, 190, 0.72),
+    rgba(218, 255, 190, 0.72)), url("../../../assets/images/food-pattern.jpg");
   text-align: center;
   div {
     display: flex;

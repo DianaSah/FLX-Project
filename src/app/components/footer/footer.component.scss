@@ -1,17 +1,22 @@
+@import "../../../variables";
+
 footer {
   display: flex;
   align-items: center;
-  color: #9AA8B3;
-  background: #25333B;
+  color: $gray-light;
+  background: $gray;
   padding: 5px 10px;
   height: 77px;
   text-decoration: none;
   justify-content: space-between;
   a {
     font-size: 19px;
-    color: #9AA8B3;
+    color: $gray-light;
+    &:hover {
+      color: $green-light;
+    }
     &:visited {
-      color: #c7dce8;
+      color: $green-light_opacity35;
     }
   }
   p {
@@ -19,6 +24,7 @@ footer {
     margin: 0;
     &:hover {
       cursor: pointer;
+      color: $green-light;
     }
   }
 }

@@ -1,5 +1,5 @@
-$base-color: #25333B;
-$border: 1px solid $base-color;
+@import "../../../variables";
+$border: 1px solid $gray;
 
 section {
   padding-top: 28px;
@@ -8,7 +8,7 @@ section {
   h3 {
     margin-top: 0;
     text-align: center;
-    color: $base-color;
+    color: $gray;
   }
 
   .home-search {
@@ -52,7 +52,7 @@ section {
 
     .search-by-ingredients {
       .search-list{
-          border: 2px solid $base-color;
+          border: 2px solid $gray;
           border-radius: 10px;
           width: 420px;
           height: 500px;
@@ -60,8 +60,8 @@ section {
                 width: 100%;
                 mat-list-item{
                     height: 35px;
-                    background-color: rgba(185, 217, 148, 0.616);
-                    color: $base-color;
+                    background-color: $green;
+                    color: $gray;
                     display: flex;
                     justify-content: space-between;
                     p{
@@ -69,13 +69,13 @@ section {
                       width: 353px;
                     }
                     mat-icon{
-                        color: $base-color;
+                        color: $gray;
                         border-radius: 50%;
                         padding: 3px;
                         cursor: pointer;
                         float: right;
                         &:hover{
-                          background-color: rgba(163, 221, 97, 0.726);
+                          background-color: $green;
                         }
                     }
                 }
@@ -95,7 +95,6 @@ section {
       .search-form{
         text-align: center;
 
-
       /* IngredientSearch private styles */
         .search-result{
           margin-top: 0;
@@ -103,10 +102,10 @@ section {
           z-index: 1000;
           position: absolute;
           .chosen-ingr{
-            background-color: rgb(163, 221, 97);
+            background-color: $green;
           }
-              mat-list-item{
-              color: $base-color;
+          mat-list-item {
+              color: $gray;
               border-bottom: $border;
               border-left: $border;
               border-right: $border;
@@ -117,12 +116,8 @@ section {
               cursor: pointer;
               list-style-type: none;
               &:hover{
-                background-color: rgb(163, 221, 97);
+                background-color: $green;
               }
-            }
-            #search-box {
-              width: 200px;
-              height: 20px;
             }
           }
       }

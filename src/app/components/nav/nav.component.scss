@@ -1,12 +1,11 @@
 @import "../../../variables";
-$base-color: #25333B;
-$border: 1px solid $base-color;
+$border: 1px solid $gray;
 
 header {
     display: flex;
     align-items: center;
-    color: #9AA8B3;
-    background: #25333B;
+    color: $gray-light;
+    background: $gray;
     font-size: 19px;
     padding: 5px;
     height: 78px;
@@ -21,7 +20,7 @@ header {
             font-size: 25px;
             display: inline-block;
             padding-left: 5px;
-            color: $green-light;
+            color: $green;
         }
 
         img {
@@ -42,11 +41,11 @@ header {
             position: absolute;
 
             .chosen-ingr {
-                background-color: rgb(163, 221, 97);
+                background-color: $green-light;
             }
 
             mat-list-item {
-                color: $base-color;
+                color: $gray;
                 border-bottom: $border;
                 border-left: $border;
                 border-right: $border;
@@ -58,13 +57,8 @@ header {
                 list-style-type: none;
 
                 &:hover {
-                    background-color: rgb(163, 221, 97);
+                    background-color: $green-light;
                 }
-            }
-
-            #search-box {
-                width: 200px;
-                height: 20px;
             }
         }
     }
@@ -95,4 +89,10 @@ header {
     position: absolute;
     right: 0;
     z-index: 2;
+}
+
+section[_ngcontent-c10] .home-search[_ngcontent-c10] .search-by-ingredients[_ngcontent-c10]
+.search-form[_ngcontent-c10] .search-result[_ngcontent-c10] mat-list-item[_ngcontent-c10] {
+  width: 168px;
+  height: auto;
 }
