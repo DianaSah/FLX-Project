@@ -1,36 +1,44 @@
 <form class="add-new-recipe-form" [formGroup]="newRecipeForm">
         <mat-form-field>
-            <input matInput placeholder="Title" class="form-control" formControlName="title">
+            <input matInput placeholder="Title" class="form-control" formControlName="title"
+                   matTooltip="Add title of your recipe">
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Ingredients" class="form-control" formControlName="ingredients">
-        </mat-form-field>
-    
-        <mat-form-field>
-            <input matInput placeholder="Description" class="form-control" formControlName="description">
-        </mat-form-field>
-  
-        <mat-form-field>
-            <input matInput placeholder="Cuisine type" class="form-control" formControlName="cuisineType">
+            <input matInput placeholder="Ingredients" class="form-control" formControlName="ingredients"
+                   matTooltip="Add ingredients separated by a comma (example - eggs, potatoes)">
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Cook duration" class="form-control" formControlName="cookDuration">
+            <input matInput placeholder="Description" class="form-control" formControlName="description"
+                   matTooltip="A short dish description">
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Steps" class="form-control" formControlName="steps">
+            <input matInput placeholder="Cuisine type" class="form-control" formControlName="cuisineType"
+                   matTooltip="Just one word (example - ukrainian, american)">
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Source (src) of your image" class="form-control" formControlName="imageSrc">
+            <input matInput placeholder="Cook duration" class="form-control" formControlName="cookDuration"
+                   matTooltip="Put the only number of how many minutes cooking takes">
         </mat-form-field>
 
         <mat-form-field>
-            <input matInput placeholder="Source (src) of related videos (maximum 3)" class="form-control" formControlName="videos">
+            <input matInput placeholder="Steps" class="form-control" formControlName="steps"
+                   matTooltip="Add steps separated by a dot (exapmle - Do this. Do that.)">
         </mat-form-field>
- 
+
+        <mat-form-field>
+            <input matInput placeholder="Image link" class="form-control" formControlName="imageSrc"
+                   matTooltip="Insert link to your image">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Videos link" class="form-control" formControlName="videos"
+                   matTooltip="Insert YouTube link with related videos (maximum 3)">
+        </mat-form-field>
+
     <div class="row submit-button-container">
         <button mat-raised-button class="submit-button" type="submit" [mat-dialog-close] (click)="onSubmitNewRecipe(newRecipeForm.value)" >Add this recipe</button>
     </div>

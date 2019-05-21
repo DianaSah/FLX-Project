@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import { CheckLogInService } from 'src/app/services/check-log-in.service';
 import { Router } from '@angular/router';
 import {Observable, Subject} from 'rxjs';
@@ -24,7 +24,20 @@ export class NavComponent implements OnInit {
   public hintRecipes: Recipe[] = [];
   public i: number;
   public chosenRecipes: string[] = [];
+  private wasInside = false;
 
+  @HostListener('click')
+  clickInside() {
+    this.wasInside = true;
+  }
+
+  @HostListener('document:click')
+  clickout() {
+    if (!this.wasInside) {
+      this.close();
+    }
+    this.wasInside = false;
+  }
   constructor(
     private router: Router,
     public checkLogInService: CheckLogInService,
@@ -77,6 +90,10 @@ export class NavComponent implements OnInit {
 
   toggle() {
     this.visibility = !this.visibility;
+  }
+
+  close() {
+    this.visibility = true;
   }
 
   catchLogOutEvent(): void {
