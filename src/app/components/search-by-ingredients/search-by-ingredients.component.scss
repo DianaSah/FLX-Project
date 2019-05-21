@@ -60,10 +60,14 @@ section {
                 width: 100%;
                 mat-list-item{
                     height: 35px;
-                    background-color: $green;
+                    background-color: $green-light;
                     color: $gray;
                     display: flex;
                     justify-content: space-between;
+                    border-top: 1px solid $green-dark;
+                    border-bottom: 1px solid $green-dark;
+                    margin: 5px 0;
+                    box-sizing: border-box;
                     p{
                       margin: 0;
                       width: 353px;
@@ -106,17 +110,16 @@ section {
           }
           mat-list-item {
               color: $gray;
-              border-bottom: $border;
-              border-left: $border;
-              border-right: $border;
-              width: 195px;
-              height: 16px;
+              border: $border;
+              width: 180px;
+              height: auto;
               padding: 5px;
               background-color: white;
               cursor: pointer;
               list-style-type: none;
+              box-sizing: border-box;
               &:hover{
-                background-color: $green;
+                background-color: $green-light;
               }
             }
           }
